@@ -246,12 +246,12 @@ AIへの質問例:
 
 | 順番 | 演習 | 内容 | 目安時間 |
 |---|---|---|---|
-| 1 | [今どこにいるかを知る](exercises/01-where-am-i.md) | `pwd` `ls` `cd` で木の中を歩く | 20〜30分 |
-| 2 | [ファイルを作って、中身を見る](exercises/02-create-and-read.md) | `mkdir` `touch` `cat` と、パスの書き分け | 25〜35分 |
-| 3 | [パイプでつないで絞り込む](exercises/03-pipe-and-grep.md) | `grep` `wc` `\|` で1万行から答えを出す | 30〜40分 |
-| 4 | [権限を読んで、大事なファイルを守る](exercises/04-permissions.md) | `ls -l` `chmod` で書き込みを禁止する | 25〜35分 |
-| 5 | [ワイルドカードとfindで、散らかったプロジェクトを探る](exercises/05-wildcards-and-find.md) | `*` `find` `>` でログから調べる | 30〜45分 |
-| 6 | [なぜgitは動くのに、このツールは動かないのか](exercises/06-path-and-env-vars.md) | `$PATH` `export` `which` で環境変数を読む | 30〜40分 |
+| 1 | [今どこにいるかを知る](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/1) | `pwd` `ls` `cd` で木の中を歩く | 20〜30分 |
+| 2 | [ファイルを作って、中身を見る](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/2) | `mkdir` `touch` `cat` と、パスの書き分け | 25〜35分 |
+| 3 | [パイプでつないで絞り込む](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/3) | `grep` `wc` `\|` で1万行から答えを出す | 30〜40分 |
+| 4 | [権限を読んで、大事なファイルを守る](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/4) | `ls -l` `chmod` で書き込みを禁止する | 25〜35分 |
+| 5 | [ワイルドカードとfindで、散らかったプロジェクトを探る](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/5) | `*` `find` `>` でログから調べる | 30〜45分 |
+| 6 | [なぜgitは動くのに、このツールは動かないのか](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/6) | `$PATH` `export` `which` で環境変数を読む | 30〜40分 |
 
 このREADME自体の読了に25〜30分ほど見ているので、**上の6つで合計3時間30分〜4時間30分程度**です。
 

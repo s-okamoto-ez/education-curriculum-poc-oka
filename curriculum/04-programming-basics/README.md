@@ -348,22 +348,22 @@ AIへの質問例:
 
 | 順番 | 演習 | 内容 | 目安時間 |
 |---|---|---|---|
-| 1 | [コードを読んで、出力を予測する](exercises/01-predict-the-output.md) | 実行順と変数の中身を追う。まだ書かない | 60〜90分 |
-| 2 | [型に守ってもらう／型に怒られる](exercises/02-let-types-help-you.md) | わざと型エラーを出し、メッセージを読む | 60〜90分 |
-| 3 | [壊れたコードを、エラーを頼りに直す](exercises/03-read-the-error.md) | スタックトレースから犯人を特定する | 90〜120分 |
-| 4 | [配列を操作する](exercises/04-arrays.md) | `filter` `map` `find` `reduce` を実装する | 90〜120分 |
-| 5 | [非同期処理を読み、エラーを受け止める](exercises/05-async.md) | `async` `await` `try` `catch` の挙動を確認する | 60〜90分 |
-| 6 | [見つからないかもしれないデータを、安全に読む](exercises/06-search-and-render.md) | 文字列の検索(`trim` `includes`)と、`?.` `??` で安全に表示する | 60〜90分 |
-| 7 | [引き継いだコードベースを、読む](exercises/07-read-the-codebase.md) | まだ何も直さない。全体の地図を作る | 90〜120分 |
-| 8 | [数字が合わない、と言われる](exercises/08-numbers-dont-match.md) | 集計のズレを調査する。原因は1つとは限らない | 120〜150分 |
-| 9 | [型は、最初から警告していた](exercises/09-it-was-warning-all-along.md) | 1行変えたら落ちた。型チェックが事前に警告していたことに気づく | 120〜150分 |
-| 10 | [新しいコマンドを足す](exercises/10-add-a-command.md) | 既存の形に沿って機能を足す | 120〜150分 |
-| 11 | [直した場所と、壊れた場所が違う](exercises/11-shared-function.md) | 共有関数を変えた影響が、依頼していない場所に及ぶ | 120〜150分 |
-| 12 | [桁が揃わない](exercises/12-columns-dont-line-up.md) | 「文字数」と「表示幅」の違い | 90〜120分 |
-| 13 | [集計と表示が、こっそり混ざっている](exercises/13-untangle-the-layers.md) | 動作を変えずに構造だけ直す | 120〜150分 |
-| 14 | [自分が作ったものを、壊しにいく](exercises/14-break-it-on-purpose.md) | 観点表で試す場所を洗い出し、不具合票にまとめる | 90〜120分 |
-| 15 | [壊していないことを、どう確かめるか](exercises/15-prove-you-didnt-break-it.md) | 回帰確認の仕組みを自分で作る | 150〜180分 |
-| 16 | [次の人に引き継ぐ](exercises/16-hand-it-over.md) | 読み手を想定してドキュメントを書く | 90〜120分 |
+| 1 | [コードを読んで、出力を予測する](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/25) | 実行順と変数の中身を追う。まだ書かない | 60〜90分 |
+| 2 | [型に守ってもらう／型に怒られる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/26) | わざと型エラーを出し、メッセージを読む | 60〜90分 |
+| 3 | [壊れたコードを、エラーを頼りに直す](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/27) | スタックトレースから犯人を特定する | 90〜120分 |
+| 4 | [配列を操作する](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/28) | `filter` `map` `find` `reduce` を実装する | 90〜120分 |
+| 5 | [非同期処理を読み、エラーを受け止める](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/29) | `async` `await` `try` `catch` の挙動を確認する | 60〜90分 |
+| 6 | [見つからないかもしれないデータを、安全に読む](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/30) | 文字列の検索(`trim` `includes`)と、`?.` `??` で安全に表示する | 60〜90分 |
+| 7 | [引き継いだコードベースを、読む](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/31) | まだ何も直さない。全体の地図を作る | 90〜120分 |
+| 8 | [数字が合わない、と言われる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/32) | 集計のズレを調査する。原因は1つとは限らない | 120〜150分 |
+| 9 | [型は、最初から警告していた](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/33) | 1行変えたら落ちた。型チェックが事前に警告していたことに気づく | 120〜150分 |
+| 10 | [新しいコマンドを足す](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/34) | 既存の形に沿って機能を足す | 120〜150分 |
+| 11 | [直した場所と、壊れた場所が違う](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/35) | 共有関数を変えた影響が、依頼していない場所に及ぶ | 120〜150分 |
+| 12 | [桁が揃わない](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/36) | 「文字数」と「表示幅」の違い | 90〜120分 |
+| 13 | [集計と表示が、こっそり混ざっている](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/37) | 動作を変えずに構造だけ直す | 120〜150分 |
+| 14 | [自分が作ったものを、壊しにいく](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/38) | 観点表で試す場所を洗い出し、不具合票にまとめる | 90〜120分 |
+| 15 | [壊していないことを、どう確かめるか](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/39) | 回帰確認の仕組みを自分で作る | 150〜180分 |
+| 16 | [次の人に引き継ぐ](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/40) | 読み手を想定してドキュメントを書く | 90〜120分 |
 
 このREADME自体の読了に55〜65分ほど見ています。**上の16個で合計25〜33時間程度**です。
 

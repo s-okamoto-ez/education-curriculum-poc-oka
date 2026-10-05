@@ -300,18 +300,18 @@ AIへの質問例:
 
 | 順番 | 演習 | 内容 | 目安時間 |
 |---|---|---|---|
-| 1 | [開発者ツールでページを解剖する](exercises/01-inspect-with-devtools.md) | Elements と Styles を読む。まだ1文字も書かない | 40〜60分 |
-| 2 | [ボックスモデルを崩して、直す](exercises/02-box-model.md) | padding・margin・border を自分で動かす | 60〜90分 |
-| 3 | [CSSが効かない原因を突き止める](exercises/03-why-css-not-applied.md) | 詳細度の犯人を名指しする | 60〜90分 |
-| 4 | [Flexboxで組む](exercises/04-flexbox.md) | 統計とタグ一覧を、横並び・折り返しで組む | 60〜90分 |
-| 5 | [レスポンシブ対応 — スマートフォンで壊す、直す](exercises/05-responsive.md) | メディアクエリで、幅ごとにCSSを出し分ける | 45〜60分 |
-| 6 | [フォームの、見えない不具合を見つける](exercises/06-forms.md) | ラベルの紐付けと、キーボード操作を確認する | 45〜60分 |
-| 7 | [positionを読み解く — 通知パネルが迷子になる](exercises/07-position-and-z-index.md) | z-indexを疑う前に、position の基準点を確かめる | 45〜60分 |
-| 8 | [NEWバッジをつけたら、ヘッダーに飛んでいった](exercises/08-badge-position.md) | position:absoluteを自分で組み立てる側に回る | 60〜90分 |
-| 9 | [直したら、他のカードまで変わった](exercises/09-shared-class-ripple.md) | 共有クラスを直接変える怖さと、専用クラスでの対処 | 60〜90分 |
-| 10 | [1つのカードだけ、CSSが効かない](exercises/10-inline-style-blocks-fix.md) | インラインスタイルの強さと、詳細度の階段の続き | 45〜60分 |
-| 11 | [カードを2列にしたのに、スマホでも2列のまま](exercises/11-grid-and-source-order.md) | CSS Gridの導入と、詳細度が同じときのソース順序 | 75〜100分 |
-| 12 | [このページの説明書を、初めて書く](exercises/12-write-the-readme.md) | クラスの役割とCSSの決まりごとを、次の人のために書く | 60〜90分 |
+| 1 | [開発者ツールでページを解剖する](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/13) | Elements と Styles を読む。まだ1文字も書かない | 40〜60分 |
+| 2 | [ボックスモデルを崩して、直す](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/14) | padding・margin・border を自分で動かす | 60〜90分 |
+| 3 | [CSSが効かない原因を突き止める](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/15) | 詳細度の犯人を名指しする | 60〜90分 |
+| 4 | [Flexboxで組む](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/16) | 統計とタグ一覧を、横並び・折り返しで組む | 60〜90分 |
+| 5 | [レスポンシブ対応 — スマートフォンで壊す、直す](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/17) | メディアクエリで、幅ごとにCSSを出し分ける | 45〜60分 |
+| 6 | [フォームの、見えない不具合を見つける](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/18) | ラベルの紐付けと、キーボード操作を確認する | 45〜60分 |
+| 7 | [positionを読み解く — 通知パネルが迷子になる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/19) | z-indexを疑う前に、position の基準点を確かめる | 45〜60分 |
+| 8 | [NEWバッジをつけたら、ヘッダーに飛んでいった](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/20) | position:absoluteを自分で組み立てる側に回る | 60〜90分 |
+| 9 | [直したら、他のカードまで変わった](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/21) | 共有クラスを直接変える怖さと、専用クラスでの対処 | 60〜90分 |
+| 10 | [1つのカードだけ、CSSが効かない](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/22) | インラインスタイルの強さと、詳細度の階段の続き | 45〜60分 |
+| 11 | [カードを2列にしたのに、スマホでも2列のまま](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/23) | CSS Gridの導入と、詳細度が同じときのソース順序 | 75〜100分 |
+| 12 | [このページの説明書を、初めて書く](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/24) | クラスの役割とCSSの決まりごとを、次の人のために書く | 60〜90分 |
 
 このREADME自体の読了に45〜55分ほど見ています。**上の12個で合計12〜17時間程度**です。
 

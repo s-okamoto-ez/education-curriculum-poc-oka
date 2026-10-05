@@ -190,17 +190,17 @@ AIへの質問例:
 
 | 順番 | 演習 | 内容 | 目安時間 |
 |---|---|---|---|
-| 1 | [DNSで名前を解決してみる](exercises/01-dns-lookup.md) | 名前がIPアドレスに変換される様子を見る | 10分 |
-| 2 | [リクエストを送って、レスポンスを読む](exercises/02-request-response.md) | ステータスコードを読む | 15〜20分 |
-| 3 | [GETとPOSTの違いを送って確かめる](exercises/03-get-vs-post.md) | メソッドによる違いを比較する | 15〜20分 |
-| 4 | [ヘッダを読み、認証を試す](exercises/04-headers-and-auth.md) | 401と403を、ローカルサーバーで再現する | 40〜55分 |
-| 5 | [Networkパネルで、ブラウザの通信を見る](exercises/05-network-panel.md) | 開発者ツールで実際の通信を記録・確認する | 30〜40分 |
-| 6 | [リダイレクトを追いかける](exercises/06-redirects.md) | 301/302と`Location`ヘッダ、401との使い分け | 30〜45分 |
-| 7 | [GETを送るたびに、数字が増えていく](exercises/07-get-that-changes-state.md) | GETで状態を変えてしまう不具合を体験し、POSTに直す | 35〜50分 |
-| 8 | [エラーのときだけ、JSONが読めなくなる](exercises/08-inconsistent-error-body.md) | エラー時だけ`Content-Type`が崩れる不具合を直す | 40〜55分 |
-| 9 | [個人情報を返すAPIに、キャッシュの指示が無い](exercises/09-cache-control-missing.md) | `Cache-Control`の抜けを見つけて直す | 30〜45分 |
-| 10 | [別のサイトから呼んだら、ブロックされた](exercises/10-cors-basics.md) | CORSの初歩を、実際にブロック→許可させて学ぶ | 50〜70分 |
-| 11 | [このAPIサーバーの説明書を、初めて書く](exercises/11-write-the-readme.md) | `samples/README.md`を新規作成する | 40〜55分 |
+| 1 | [DNSで名前を解決してみる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/41) | 名前がIPアドレスに変換される様子を見る | 10分 |
+| 2 | [リクエストを送って、レスポンスを読む](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/42) | ステータスコードを読む | 15〜20分 |
+| 3 | [GETとPOSTの違いを送って確かめる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/43) | メソッドによる違いを比較する | 15〜20分 |
+| 4 | [ヘッダを読み、認証を試す](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/44) | 401と403を、ローカルサーバーで再現する | 40〜55分 |
+| 5 | [Networkパネルで、ブラウザの通信を見る](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/45) | 開発者ツールで実際の通信を記録・確認する | 30〜40分 |
+| 6 | [リダイレクトを追いかける](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/46) | 301/302と`Location`ヘッダ、401との使い分け | 30〜45分 |
+| 7 | [GETを送るたびに、数字が増えていく](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/47) | GETで状態を変えてしまう不具合を体験し、POSTに直す | 35〜50分 |
+| 8 | [エラーのときだけ、JSONが読めなくなる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/48) | エラー時だけ`Content-Type`が崩れる不具合を直す | 40〜55分 |
+| 9 | [個人情報を返すAPIに、キャッシュの指示が無い](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/49) | `Cache-Control`の抜けを見つけて直す | 30〜45分 |
+| 10 | [別のサイトから呼んだら、ブロックされた](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/50) | CORSの初歩を、実際にブロック→許可させて学ぶ | 50〜70分 |
+| 11 | [このAPIサーバーの説明書を、初めて書く](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/51) | `samples/README.md`を新規作成する | 40〜55分 |
 
 このREADME自体の読了に30分ほど見ているので、**上の11個で合計6時間〜8時間20分程度**です。
 

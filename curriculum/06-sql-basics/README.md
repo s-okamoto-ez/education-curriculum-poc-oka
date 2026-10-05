@@ -314,12 +314,12 @@ AIへの質問例:
 
 | 順番 | 演習 | 内容 | 目安時間 |
 |---|---|---|---|
-| 1 | [SELECT と WHERE で取り出す](exercises/01-select-and-where.md) | 表を読む。件数を予測してから実行する | 40〜60分 |
-| 2 | [JOIN で、消えるデータを見つける](exercises/02-join-and-missing-rows.md) | INNER と LEFT の差を、自分の目で確認する | 60〜90分 |
-| 3 | [なぜか重いクエリの原因を突き止める](exercises/03-explain-and-index.md) | EXPLAIN で全件走査を見つけ、直す | 60〜90分 |
-| 4 | [GROUP BYで、データの食い違いに気づく](exercises/04-group-by.md) | HAVINGを使い、いいね数の不一致を発見する | 45〜60分 |
-| 5 | [INSERT/UPDATEを、安全に使う](exercises/05-insert-update-safely.md) | トランザクションで、WHERE忘れの事故を安全に体験する | 40〜55分 |
-| 6 | [N+1問題を、自分の手で起こす](exercises/06-n-plus-one.md) | 13回の個別クエリと、1回のJOINを比較する | 45〜60分 |
+| 1 | [SELECT と WHERE で取り出す](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/52) | 表を読む。件数を予測してから実行する | 40〜60分 |
+| 2 | [JOIN で、消えるデータを見つける](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/53) | INNER と LEFT の差を、自分の目で確認する | 60〜90分 |
+| 3 | [なぜか重いクエリの原因を突き止める](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/54) | EXPLAIN で全件走査を見つけ、直す | 60〜90分 |
+| 4 | [GROUP BYで、データの食い違いに気づく](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/55) | HAVINGを使い、いいね数の不一致を発見する | 45〜60分 |
+| 5 | [INSERT/UPDATEを、安全に使う](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/56) | トランザクションで、WHERE忘れの事故を安全に体験する | 40〜55分 |
+| 6 | [N+1問題を、自分の手で起こす](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/57) | 13回の個別クエリと、1回のJOINを比較する | 45〜60分 |
 
 このREADME自体の読了に40〜50分ほど見ているので、**上の6つで合計6〜8時間程度**です。
 

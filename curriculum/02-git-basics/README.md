@@ -224,12 +224,12 @@ AIへの質問例:
 
 | 順番 | 演習 | 内容 | 目安時間 |
 |---|---|---|---|
-| 1 | [git status / git diff を読む](exercises/01-status-diff.md) | 状態を確認するだけの2コマンド | 15〜20分 |
-| 2 | [はじめてのコミットを作る](exercises/02-first-commit.md) | `add` → `commit` → `log` | 15〜20分 |
-| 3 | [ブランチを切ってみる](exercises/03-branch.md) | ブランチを切って戻る（発展でPR作成） | 20〜30分 |
-| 4 | [コンフリクトを起こして、自分で解決する](exercises/04-conflict.md) | 2つのブランチを衝突させ、自分の手で直す | 40〜60分 |
-| 5 | [過去の履歴から、原因を突き止める](exercises/05-history-investigation.md) | `git blame` `git show` `git revert` で調べて、判断する | 60〜90分 |
-| 6 | [.gitignoreを設計する](exercises/06-gitignore.md) | 誤って追跡したファイルを、`.gitignore` と `git rm --cached` で外す | 30〜45分 |
+| 1 | [git status / git diff を読む](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/7) | 状態を確認するだけの2コマンド | 15〜20分 |
+| 2 | [はじめてのコミットを作る](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/8) | `add` → `commit` → `log` | 15〜20分 |
+| 3 | [ブランチを切ってみる](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/9) | ブランチを切って戻る（発展でPR作成） | 20〜30分 |
+| 4 | [コンフリクトを起こして、自分で解決する](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/10) | 2つのブランチを衝突させ、自分の手で直す | 40〜60分 |
+| 5 | [過去の履歴から、原因を突き止める](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/11) | `git blame` `git show` `git revert` で調べて、判断する | 60〜90分 |
+| 6 | [.gitignoreを設計する](https://github.com/s-okamoto-ez/education-curriculum-poc-oka/issues/12) | 誤って追跡したファイルを、`.gitignore` と `git rm --cached` で外す | 30〜45分 |
 
 このREADME自体の読了に20〜25分ほど見ているので、**上の6つで合計3時間30分〜4時間30分程度**です。
 
