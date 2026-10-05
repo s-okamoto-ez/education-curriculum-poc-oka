@@ -1,0 +1,104 @@
+<svg viewBox="0 0 1000 400" role="img" aria-label="JavaScriptがDOMを書き換えて画面が変わる流れの図。コードがまずDOMツリーから目当ての要素を探し、その要素の中身を書き換えると、ブラウザが画面を描き直す。HTMLファイル自体は変わらない点が示されている。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .c { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; }
+  .c-kw { fill: #c4a2ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 600; }
+  .c-name { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; }
+  .c-str { fill: #a5e18c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; }
+  .c-cmt { fill: #6d766f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; }
+  .panel { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .node { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.6; }
+  .node-hit { fill: #d7e9e4; stroke: #1f6f66; stroke-width: 2.4; }
+  .nname { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .branch { stroke: #b9c2bb; stroke-width: 1.5; fill: none; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; }
+  .step { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #1f6f66; stroke-width: 2.2; fill: none; }
+  .icon { fill: #1f6f66; }
+  .screen-t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 700; }
+  .screen-b { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .btn { fill: #1f6f66; }
+  .btn-t { fill: #ffffff; font-family: -apple-system, "Segoe UI", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .panel { fill: #1a1f1d; stroke: #2b3230; }
+    .node { fill: #1a1f1d; stroke: #5fc0b3; }
+    .node-hit { fill: #24403b; stroke: #5fc0b3; }
+    .nname { fill: #86d6cb; }
+    .branch { stroke: #3a423f; }
+    .head { fill: #e7ece9; }
+    .step { fill: #86d6cb; }
+    .arrow { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .screen-t { fill: #e7ece9; }
+    .screen-b { fill: #a9b3ac; }
+    .btn { fill: #5fc0b3; }
+    .btn-t { fill: #0c0f0e; }
+    .rule { stroke: #2b3230; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="400"/>
+
+<defs>
+  <marker id="dmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- 1: code -->
+<text class="head" x="30" y="34">1. コードを書く</text>
+<rect class="term" x="30" y="46" width="326" height="160" rx="8"/>
+<text class="c-cmt" x="50" y="72">// ① 木の中から目当ての要素を探す</text>
+<text x="50" y="94"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">el</tspan><tspan class="c"> = document</tspan></text>
+<text x="50" y="114"><tspan class="c">  .querySelector(</tspan><tspan class="c-str">".count"</tspan><tspan class="c">);</tspan></text>
+<text class="c-cmt" x="50" y="146">// ② その要素の中身を書き換える</text>
+<text x="50" y="168"><tspan class="c-name">el</tspan><tspan class="c">.textContent = </tspan><tspan class="c-str">"3件"</tspan><tspan class="c">;</tspan></text>
+<text class="c-cmt" x="50" y="194">// ③ 画面は自動で描き直される</text>
+
+<line class="arrow" x1="364" y1="126" x2="404" y2="126" marker-end="url(#dmArrow)"/>
+
+<!-- 2: DOM -->
+<text class="head" x="412" y="34">2. DOMの中身が変わる</text>
+<rect class="panel" x="412" y="46" width="270" height="160" rx="10"/>
+<g>
+  <path class="branch" d="M452 82 L452 112 L484 112"/>
+  <path class="branch" d="M504 132 L504 162 L536 162"/>
+
+  <rect class="node" x="428" y="60" width="72" height="24" rx="5"/>
+  <text class="nname" x="464" y="77">body</text>
+
+  <rect class="node" x="484" y="100" width="80" height="24" rx="5"/>
+  <text class="nname" x="524" y="117">main</text>
+
+  <rect class="node-hit" x="536" y="150" width="126" height="24" rx="5"/>
+  <text class="nname" x="599" y="167">span.count</text>
+</g>
+<text class="step" x="599" y="194">ここだけが書き換わる</text>
+
+<line class="arrow" x1="690" y1="126" x2="730" y2="126" marker-end="url(#dmArrow)"/>
+
+<!-- 3: screen -->
+<text class="head" x="738" y="34">3. 画面が変わる</text>
+<rect class="panel" x="738" y="46" width="232" height="160" rx="10"/>
+<line class="rule" x1="738" y1="74" x2="970" y2="74"/>
+<circle class="btn" cx="756" cy="60" r="4"/>
+<circle class="btn" cx="770" cy="60" r="4"/>
+<text class="screen-t" x="762" y="112">お知らせ</text>
+<text class="screen-b" x="762" y="140">未読 <tspan class="screen-t" font-size="15">3件</tspan></text>
+<rect class="btn" x="762" y="158" width="86" height="26" rx="6"/>
+<text class="btn-t" x="805" y="175">既読にする</text>
+
+<!-- footer notes -->
+<line class="rule" x1="30" y1="240" x2="970" y2="240"/>
+<text class="foot" x="500" y="276">JavaScriptは画面を直接いじっているのではありません。DOMを書き換えると、ブラウザが勝手に描き直します。</text>
+<text class="foot" x="500" y="308">そして重要なことに、HTMLファイルの中身は1文字も変わっていません。変わったのは「今の状態」だけです。</text>
+<text class="foot" x="500" y="348">この「探して、書き換える」を毎回手で書くのが大変だから、Reactのような道具が生まれました。</text>
+<text class="foot" x="500" y="374">先にこの手作業を知っておかないと、Reactが何を楽にしているのか分かりません。</text>
+
+</svg>

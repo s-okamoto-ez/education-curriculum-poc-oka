@@ -1,0 +1,116 @@
+name: Seed curriculum issues
+
+# テンプレートからリポジトリが作られた直後の最初のpush(=リポジトリ作成時のコミット)で走り、
+# curriculum/*/exercises/*.md を、トピックごと・ファイルごとに演習Issueとして自動発行する。
+# 既にIssueがあれば何もしない(再実行しても増殖しない)。
+#
+# 発行後、トピックREADMEの演習リンクを、このリポジトリのIssueへ向け直してコミットする。
+# テンプレート側は `exercises/NN-*.md` への相対リンクのままにしてある。Issue番号は
+# 複製先ごとに変わるため、テンプレートに番号を焼き込むと壊れるからで、代わりに
+# 複製先で発行した実際のURLに差し替える。
+#
+# このコミットは GITHUB_TOKEN で push するため、ワークフローを再度トリガーしない。
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  issues: write
+  contents: write # 発行後にREADMEのリンクを書き換えてコミットする
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Skip if issues already exist
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          count=$(gh issue list --state all --json number --jq 'length')
+          echo "existing issue count: $count"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Create issues from exercises
+        if: steps.check.outputs.count == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          # タイトルと本文の組み立ては scripts/build-issue-body.mjs に寄せている。
+          # Issue本文では相対パスの基準がファイルビューと変わるため、
+          # 教材内のリンクを絶対URLへ直す必要がある(理由はスクリプト先頭のコメント)。
+          #
+          # GitHub APIは一時的に 502 / 504 を返すことがある。実際に過去の複製で
+          # 「HTTP 504: Gateway Timeout」により56件中24件で停止した。1件失敗しただけで
+          # 止まると、上の「Issueが1件でもあれば何もしない」ガードのせいで残りが
+          # 二度と発行されないため、リトライする。
+          #
+          # 単純な再試行は二重作成を招く。作成自体は通っていて応答だけ落ちた場合が
+          # あるためで、リトライ前に同じタイトルのIssueが既にないかを必ず確認する。
+
+          find_existing() {
+            gh issue list --state all --limit 500 --json title,url \
+              | jq -r --arg t "$1" 'map(select(.title == $t)) | .[0].url // empty'
+          }
+
+          create_issue() {
+            local title="$1" bodyfile="$2" url="" attempt=1 wait=5
+            while :; do
+              if url=$(gh issue create --title "$title" --body-file "$bodyfile"); then
+                printf '%s\n' "$url"
+                return 0
+              fi
+              url=$(find_existing "$title" || true)
+              if [ -n "$url" ]; then
+                echo "  応答は落ちたが作成自体は通っていた。それを使う" >&2
+                printf '%s\n' "$url"
+                return 0
+              fi
+              if [ "$attempt" -ge 5 ]; then
+                echo "  5回試しても発行できなかった: $title" >&2
+                return 1
+              fi
+              echo "  失敗。${wait}秒後に再試行する (${attempt}/4)" >&2
+              sleep "$wait"
+              attempt=$((attempt + 1))
+              wait=$((wait * 2))
+            done
+          }
+
+          : > "$RUNNER_TEMP/created.tsv"
+          for f in curriculum/*/exercises/*.md; do
+            [ -e "$f" ] || continue
+            title=$(node scripts/build-issue-body.mjs "$f" --title)
+            node scripts/build-issue-body.mjs "$f" > "$RUNNER_TEMP/body.md"
+            echo "creating issue: $title"
+            url=$(create_issue "$title" "$RUNNER_TEMP/body.md")
+            echo "$url"
+            printf '%s\t%s\n' "$f" "$url" >> "$RUNNER_TEMP/created.tsv"
+          done
+
+      - name: Point topic READMEs at this repository's issues
+        if: steps.check.outputs.count == '0'
+        run: |
+          set -e
+          # 対応の取れなかったリンクがあると 0 以外で返る。その場合も、解決できた分は
+          # コミットしたうえで、最後にジョブとして失敗させる(見落とさないため)。
+          rc=0
+          node scripts/link-readmes-to-issues.mjs --map "$RUNNER_TEMP/created.tsv" || rc=$?
+
+          if git diff --quiet; then
+            echo "READMEに変更なし"
+            exit "$rc"
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add curriculum/*/README.md
+          git commit -m "$(printf '演習リンクをこのリポジトリのIssueへ向ける\n\nテンプレートのトピックREADMEは exercises/ への相対リンクだが、\n演習の入口はIssueなので、発行済みのIssue URLに差し替える。\nIssue番号は複製ごとに変わるため、この書き換えは複製先で行う。')"
+          git push
+
+          exit "$rc"

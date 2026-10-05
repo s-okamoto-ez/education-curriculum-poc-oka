@@ -1,0 +1,7 @@
+# 本番データベースの接続設定
+# このファイルを誤って書き換えると、本番サービスが止まります。
+production:
+  host: db-primary.internal
+  port: 5432
+  database: tsunagaru
+  user: app

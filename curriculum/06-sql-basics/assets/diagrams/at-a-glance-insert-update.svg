@@ -1,0 +1,68 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: postsテーブルにp099を1件追加し、正しくWHERE付きで更新した後、BEGINの中でWHEREを忘れたUPDATEを実行すると全12件のlikesが0になり、ROLLBACKでp003のlikesが元の41に戻ることを確かめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #a35555; }
+  .num-bg-3 { fill: #1f6f66; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-ng { fill: #1a1f1d; stroke: #9c6a6a; stroke-width: 2; }
+  .win-ok { fill: #1a1f1d; stroke: #5fc0b3; stroke-width: 2; }
+  .row { fill: #dfe3e0; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .row-ng { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .row-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<defs>
+  <marker id="iuArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1: correct update -->
+<circle class="num-bg-1" cx="130" cy="24" r="12"/><text class="num" x="130" y="29">1</text>
+<text class="t" x="130" y="48">正しくWHERE付きで更新</text>
+
+<rect class="win-ok" x="20" y="58" width="220" height="130" rx="6"/>
+<text class="row" x="30" y="82">UPDATE posts SET likes=100</text>
+<text class="row" x="30" y="96">WHERE id = 'p099';</text>
+<text class="row-ok" x="30" y="130">p099 だけが変わる</text>
+<text class="row" x="30" y="150">他11件は無事</text>
+
+<line class="arrow" x1="248" y1="123" x2="292" y2="123" marker-end="url(#iuArrow)"/>
+
+<!-- step 2: forgot WHERE -->
+<circle class="num-bg-2" cx="420" cy="24" r="12"/><text class="num" x="420" y="29">2</text>
+<text class="t" x="420" y="48">BEGIN内でWHEREを忘れる</text>
+
+<rect class="win-ng" x="300" y="58" width="240" height="130" rx="6"/>
+<text class="row" x="310" y="78">BEGIN;</text>
+<text class="row" x="310" y="94">UPDATE posts SET likes = 0;</text>
+<text class="row-ng" x="310" y="126">全12件が likes=0 に</text>
+<text class="row" x="310" y="146">p003: 41 → 0</text>
+
+<line class="arrow" x1="548" y1="123" x2="592" y2="123" marker-end="url(#iuArrow)"/>
+
+<!-- step 3: rollback -->
+<circle class="num-bg-3" cx="710" cy="24" r="12"/><text class="num" x="710" y="29">3</text>
+<text class="t" x="710" y="48">ROLLBACKで元通り</text>
+
+<rect class="win-ok" x="600" y="58" width="280" height="130" rx="6"/>
+<text class="row" x="610" y="82">ROLLBACK;</text>
+<text class="row-ok" x="610" y="114">p003: likes は 41 に復旧</text>
+<text class="row" x="610" y="134">他11件も元の数字に戻る</text>
+
+<text class="s" x="450" y="230">影響するのは常に「同じ posts テーブル」です。BEGIN の中なら、事故を起こしても ROLLBACK でいつでも戻せる</text>
+
+</svg>

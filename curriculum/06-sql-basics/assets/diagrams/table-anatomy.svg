@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1000 380" role="img" aria-label="データベースのテーブルを表として分解した図。横方向の1件分のデータを行またはレコードと呼び、縦方向の項目を列またはカラムと呼ぶ。各行を一意に識別する列を主キーと呼び、別のテーブルの主キーを指す列を外部キーと呼ぶ。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .tbl { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .thead { fill: #e3ebe8; }
+  .hrow { fill: #d7e9e4; }
+  .hcol { fill: #d7e9e4; }
+  .grid { stroke: #d7dcd8; stroke-width: 1; }
+  .th { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; font-weight: 700; }
+  .td { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; }
+  .tname { fill: #15191a; font-family: ui-monospace, Consolas, monospace; font-size: 14px; font-weight: 700; }
+  .cap { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; }
+  .cap-b { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .lead { stroke: #1f6f66; stroke-width: 1.6; fill: none; }
+  .icon { fill: #1f6f66; }
+  .key { fill: #1f6f66; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .tbl { fill: #1a1f1d; stroke: #2b3230; }
+    .thead { fill: #232927; }
+    .hrow { fill: #24403b; }
+    .hcol { fill: #24403b; }
+    .grid { stroke: #2b3230; }
+    .th { fill: #86d6cb; }
+    .td { fill: #a9b3ac; }
+    .tname { fill: #e7ece9; }
+    .cap { fill: #86d6cb; }
+    .cap-b { fill: #a9b3ac; }
+    .lead { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .key { fill: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="380"/>
+
+<defs>
+  <marker id="taArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="tname" x="180" y="52">テーブル: users</text>
+
+<!-- highlight column (id) -->
+<rect class="hcol" x="180" y="60" width="120" height="192"/>
+<!-- highlight row (2nd data row) -->
+<rect class="hrow" x="180" y="132" width="560" height="36"/>
+
+<!-- table frame -->
+<rect class="tbl" x="180" y="60" width="560" height="192" rx="6" fill="none"/>
+<rect class="thead" x="180" y="60" width="560" height="36" opacity="0.55"/>
+
+<!-- grid lines -->
+<line class="grid" x1="180" y1="96" x2="740" y2="96"/>
+<line class="grid" x1="180" y1="132" x2="740" y2="132"/>
+<line class="grid" x1="180" y1="168" x2="740" y2="168"/>
+<line class="grid" x1="180" y1="204" x2="740" y2="204"/>
+<line class="grid" x1="300" y1="60" x2="300" y2="252"/>
+<line class="grid" x1="420" y1="60" x2="420" y2="252"/>
+<line class="grid" x1="580" y1="60" x2="580" y2="252"/>
+<rect class="tbl" x="180" y="60" width="560" height="192" rx="6" fill="none"/>
+
+<!-- header -->
+<text class="th" x="196" y="84">id</text>
+<text class="th" x="316" y="84">name</text>
+<text class="th" x="436" y="84">is_premium</text>
+<text class="th" x="596" y="84">registered_at</text>
+
+<!-- rows -->
+<text class="td" x="196" y="120">u1043</text>
+<text class="td" x="316" y="120">田中</text>
+<text class="td" x="436" y="120">true</text>
+<text class="td" x="596" y="120">2021-04-02</text>
+
+<text class="td" x="196" y="156">u2287</text>
+<text class="td" x="316" y="156">佐藤</text>
+<text class="td" x="436" y="156">false</text>
+<text class="td" x="596" y="156">2019-11-30</text>
+
+<text class="td" x="196" y="192">u3391</text>
+<text class="td" x="316" y="192">鈴木</text>
+<text class="td" x="436" y="192">true</text>
+<text class="td" x="596" y="192">2024-06-15</text>
+
+<text class="td" x="196" y="228">u4415</text>
+<text class="td" x="316" y="228">高橋</text>
+<text class="td" x="436" y="228">false</text>
+<text class="td" x="596" y="228">2018-02-08</text>
+
+<!-- row callout -->
+<path class="lead" d="M170 150 L120 150" marker-end="url(#taArrow)"/>
+<text class="cap" x="24" y="146">行(レコード)</text>
+<text class="cap-b" x="24" y="166">1件分のデータ</text>
+
+<!-- column callout -->
+<path class="lead" d="M240 268 L240 300" marker-end="url(#taArrow)"/>
+<text class="cap" x="180" y="322">列(カラム)</text>
+<text class="cap-b" x="180" y="342">同じ種類の項目</text>
+
+<!-- primary key callout -->
+<path class="lead" d="M240 52 L240 30 L400 30" marker-end="url(#taArrow)"/>
+<text class="cap" x="410" y="26">主キー(PRIMARY KEY)</text>
+<text class="cap-b" x="410" y="44">1行を必ず1つに特定できる列。重複できない</text>
+
+<!-- foreign key hint -->
+<text class="cap" x="770" y="120">別のテーブルが</text>
+<text class="cap" x="770" y="140">この id を指してくる</text>
+<text class="cap-b" x="770" y="164">posts.author_id → users.id</text>
+<text class="cap-b" x="770" y="184">この関係を「外部キー」と呼ぶ</text>
+<path class="lead" d="M756 130 L750 130" marker-end="url(#taArrow)"/>
+
+<text class="foot" x="500" y="372">テーブルは「表」です。エクセルとの違いは、列ごとに入れてよい型が決まっていることです。</text>
+
+</svg>

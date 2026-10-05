@@ -1,0 +1,102 @@
+<svg viewBox="0 0 980 400" role="img" aria-label="SELECT文を部品に分解した図。SELECT はどの列が欲しいか、FROM はどのテーブルからか、WHERE はどの行に絞るか、ORDER BY は何順に並べるか、LIMIT は何件までかを指定する。書く順番と実際に処理される順番が違うことも示されている。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .kw { fill: #c4a2ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 17px; font-weight: 700; }
+  .col { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 17px; }
+  .lit { fill: #ffd48a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 17px; }
+  .pl { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 17px; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .k { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; }
+  .q { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; }
+  .b { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .num-bg { fill: #1f6f66; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+    .k { fill: #86d6cb; }
+    .q { fill: #e7ece9; }
+    .b { fill: #a9b3ac; }
+    .num-bg { fill: #5fc0b3; }
+    .num { fill: #0c0f0e; }
+    .head { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="980" height="400"/>
+
+<text class="head" x="30" y="32">書く順番</text>
+
+<!-- query -->
+<rect class="term" x="30" y="44" width="560" height="188" rx="8"/>
+<text x="54" y="76"><tspan class="kw">SELECT</tspan><tspan class="pl">  </tspan><tspan class="col">id, name</tspan></text>
+<text x="54" y="110"><tspan class="kw">FROM</tspan><tspan class="pl">    users</tspan></text>
+<text x="54" y="144"><tspan class="kw">WHERE</tspan><tspan class="pl">   </tspan><tspan class="col">is_premium</tspan><tspan class="pl"> = </tspan><tspan class="lit">true</tspan></text>
+<text x="54" y="178"><tspan class="kw">ORDER BY</tspan><tspan class="pl"> </tspan><tspan class="col">registered_at</tspan><tspan class="pl"> </tspan><tspan class="kw">DESC</tspan></text>
+<text x="54" y="212"><tspan class="kw">LIMIT</tspan><tspan class="pl">   </tspan><tspan class="lit">10</tspan><tspan class="pl">;</tspan></text>
+
+<!-- cards -->
+<g>
+  <rect class="card" x="616" y="44" width="334" height="34" rx="7"/>
+  <text class="k" x="634" y="66">SELECT</text>
+  <text class="b" x="710" y="66">どの列が欲しいか</text>
+</g>
+<g>
+  <rect class="card" x="616" y="84" width="334" height="34" rx="7"/>
+  <text class="k" x="634" y="106">FROM</text>
+  <text class="b" x="710" y="106">どのテーブルからか</text>
+</g>
+<g>
+  <rect class="card" x="616" y="124" width="334" height="34" rx="7"/>
+  <text class="k" x="634" y="146">WHERE</text>
+  <text class="b" x="710" y="146">どの行に絞るか</text>
+</g>
+<g>
+  <rect class="card" x="616" y="164" width="334" height="34" rx="7"/>
+  <text class="k" x="634" y="186">ORDER BY</text>
+  <text class="b" x="710" y="186">何の順に並べるか</text>
+</g>
+<g>
+  <rect class="card" x="616" y="204" width="334" height="34" rx="7"/>
+  <text class="k" x="634" y="226">LIMIT</text>
+  <text class="b" x="710" y="226">何件までか</text>
+</g>
+
+<line class="rule" x1="30" y1="258" x2="950" y2="258"/>
+
+<!-- processing order -->
+<text class="head" x="30" y="290">実際に処理される順番(書く順番とは違います)</text>
+
+<g>
+  <circle class="num-bg" cx="52" cy="326" r="12"/><text class="num" x="52" y="330">1</text>
+  <text class="k" x="72" y="331">FROM</text>
+  <text class="b" x="132" y="331">まずテーブル全体を用意して</text>
+
+  <circle class="num-bg" cx="322" cy="326" r="12"/><text class="num" x="322" y="330">2</text>
+  <text class="k" x="342" y="331">WHERE</text>
+  <text class="b" x="410" y="331">条件に合う行だけ残して</text>
+
+  <circle class="num-bg" cx="652" cy="326" r="12"/><text class="num" x="652" y="330">3</text>
+  <text class="k" x="672" y="331">SELECT</text>
+  <text class="b" x="746" y="331">必要な列だけ取り出す</text>
+</g>
+<g>
+  <circle class="num-bg" cx="52" cy="360" r="12"/><text class="num" x="52" y="364">4</text>
+  <text class="k" x="72" y="365">ORDER BY</text>
+  <text class="b" x="164" y="365">並べ替えて</text>
+
+  <circle class="num-bg" cx="322" cy="360" r="12"/><text class="num" x="322" y="364">5</text>
+  <text class="k" x="342" y="365">LIMIT</text>
+  <text class="b" x="410" y="365">先頭から必要な件数だけ返す</text>
+</g>
+
+<text class="foot" x="500" y="394">この処理順を知っていると「なぜ遅いのか」が読めます。WHERE で絞り込めていないと、全部の行を見ることになります。</text>
+
+</svg>

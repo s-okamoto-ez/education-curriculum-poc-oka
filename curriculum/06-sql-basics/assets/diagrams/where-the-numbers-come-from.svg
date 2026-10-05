@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1000 320" role="img" aria-label="画面に表示されている数字がどこから来るのかを追う経路の図。ブラウザの画面からHTTPリクエスト、サーバーのコード、SQL、そしてデータベースのテーブルまでが1本の線でつながっており、表示がおかしいときはこの経路のどこかが原因であることを示す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-here { fill: #ffffff; stroke: #1f6f66; stroke-width: 2.4; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .topic { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .icon { fill: #1f6f66; }
+  .arrow { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .badge { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .num-bg { fill: #1f6f66; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-here { fill: #1a1f1d; stroke: #5fc0b3; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+    .topic { fill: #86d6cb; }
+    .icon { fill: #5fc0b3; }
+    .arrow { stroke: #5fc0b3; }
+    .badge { fill: #86d6cb; }
+    .foot { fill: #a9b3ac; }
+    .num-bg { fill: #5fc0b3; }
+    .num { fill: #0c0f0e; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="320"/>
+
+<defs>
+  <marker id="wnArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="badge" x="500" y="34">「画面に出ているこの数字は、どこから来たのか」</text>
+
+<!-- 1 browser -->
+<g>
+  <rect class="box" x="24" y="66" width="164" height="118" rx="10"/>
+  <g transform="translate(92,84) scale(0.95)">
+    <path class="icon" d="M21 16.4999V4.8999H3V16.4999H10.5V19.4999H7.5V20.9999H16.5V19.4999H13.5V16.4999H21ZM4.5 6.3999H19.5V14.9999H4.5V6.3999Z"/>
+  </g>
+  <text class="t" x="106" y="136">画面</text>
+  <text class="s" x="106" y="156">HTML / CSS</text>
+  <text class="topic" x="106" y="176">トピック3</text>
+</g>
+
+<line class="arrow" x1="196" y1="125" x2="228" y2="125" marker-end="url(#wnArrow)"/>
+
+<!-- 2 http -->
+<g>
+  <rect class="box" x="236" y="66" width="164" height="118" rx="10"/>
+  <g transform="translate(304,84) scale(0.95)">
+    <path class="icon" fill-rule="evenodd" clip-rule="evenodd" d="M4.79844 7.7L6.99844 10L5.99844 11L1.89844 7L5.99844 3L6.99844 4L4.79844 6.2H20.9984V7.7H4.79844ZM17 13L18 12L22.1 16L18 20L17 19L19.2 16.7H3V15.2H19.2L17 13Z"/>
+  </g>
+  <text class="t" x="318" y="136">通信</text>
+  <text class="s" x="318" y="156">HTTP のやり取り</text>
+  <text class="topic" x="318" y="176">トピック5</text>
+</g>
+
+<line class="arrow" x1="408" y1="125" x2="440" y2="125" marker-end="url(#wnArrow)"/>
+
+<!-- 3 code -->
+<g>
+  <rect class="box" x="448" y="66" width="164" height="118" rx="10"/>
+  <g transform="translate(516,84) scale(0.95)">
+    <path class="icon" fill-rule="evenodd" clip-rule="evenodd" d="M4 2H16.7L20 5.2V22H4V2ZM5.5 3.5V20.5H18.5V6.5H15.5V3.5H5.5ZM7 11H17V12.5H7V11ZM17 8H7V9.5H17V8ZM9.39844 15.1999L11.2984 16.8999L14.5984 13.8999L15.5984 15.0999L11.2984 18.9999L8.39844 16.2999L9.39844 15.1999Z"/>
+  </g>
+  <text class="t" x="530" y="136">サーバーのコード</text>
+  <text class="s" x="530" y="156">TypeScript</text>
+  <text class="topic" x="530" y="176">トピック4</text>
+</g>
+
+<line class="arrow" x1="620" y1="125" x2="652" y2="125" marker-end="url(#wnArrow)"/>
+
+<!-- 4 sql (here) -->
+<g>
+  <rect class="box-here" x="660" y="66" width="164" height="118" rx="10"/>
+  <g transform="translate(728,84) scale(0.95)">
+    <path class="icon" d="M21 20.5L15 14.5C16.2 13.2 16.9 11.4 16.9 9.5C17 5.4 13.6 2 9.5 2C5.4 2 2 5.4 2 9.5C2 13.6 5.3 17 9.5 17C11.2 17 12.7 16.4 14 15.5L20 21.5L21 20.5ZM3.5 9.5C3.5 6.2 6.2 3.5 9.5 3.5C12.8 3.5 15.5 6.2 15.5 9.5C15.5 12.8 12.8 15.5 9.5 15.5C6.2 15.5 3.5 12.8 3.5 9.5Z"/>
+  </g>
+  <text class="t" x="742" y="136">SQL</text>
+  <text class="s" x="742" y="156">データを取り出す命令</text>
+  <text class="topic" x="742" y="176">このトピック</text>
+</g>
+
+<line class="arrow" x1="832" y1="125" x2="864" y2="125" marker-end="url(#wnArrow)"/>
+
+<!-- 5 db -->
+<g>
+  <rect class="box" x="872" y="66" width="104" height="118" rx="10"/>
+  <g transform="translate(910,90) scale(0.95)">
+    <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+  </g>
+  <text class="t" x="924" y="142">テーブル</text>
+  <text class="s" x="924" y="162">本物のデータ</text>
+</g>
+
+<!-- step numbers -->
+<circle class="num-bg" cx="36" cy="78" r="10"/><text class="num" x="36" y="82">1</text>
+<circle class="num-bg" cx="248" cy="78" r="10"/><text class="num" x="248" y="82">2</text>
+<circle class="num-bg" cx="460" cy="78" r="10"/><text class="num" x="460" y="82">3</text>
+<circle class="num-bg" cx="672" cy="78" r="10"/><text class="num" x="672" y="82">4</text>
+<circle class="num-bg" cx="884" cy="78" r="10"/><text class="num" x="884" y="82">5</text>
+
+<text class="foot" x="500" y="238">「表示されている数字がおかしい」という不具合は、この5つのどこかが原因です。</text>
+<text class="foot" x="500" y="264">入門フェーズで学ぶ6トピックは、この1本の経路を端から端まで見えるようにするために選ばれています。</text>
+<text class="foot" x="500" y="296">SQLが読めないと、経路の一番奥で調査が止まります。だから最後にここを学びます。</text>
+
+</svg>

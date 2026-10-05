@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1000 380" role="img" aria-label="N+1問題を表す図。投稿一覧を表示するために、まず投稿を1回のクエリで取得し、その後、投稿ごとに投稿者名を1件ずつ問い合わせると、投稿が12件なら合計13回のクエリになる。同じ結果を1回のJOINクエリでまとめて取得すれば、クエリは1回で済む。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-bad { fill: #ffffff; stroke: #c98a8a; stroke-width: 1.8; }
+  .box-good { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .q { fill: #f7e6e6; stroke: #dcbcbc; stroke-width: 1; }
+  .q-text { fill: #a35555; font-family: ui-monospace, Consolas, monospace; font-size: 10px; text-anchor: middle; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+  .body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .count { font-family: ui-monospace, Consolas, monospace; font-size: 26px; font-weight: 700; text-anchor: middle; }
+  .count-bad { fill: #a35555; }
+  .count-good { fill: #1f6f66; }
+  .code { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-bad { fill: #1a1f1d; stroke: #9c6a6a; }
+    .box-good { fill: #1a1f1d; stroke: #5fc0b3; }
+    .q { fill: #2e2222; stroke: #4a3636; }
+    .q-text { fill: #e29a9a; }
+    .title { fill: #e7ece9; }
+    .body { fill: #a9b3ac; }
+    .count-bad { fill: #e29a9a; }
+    .count-good { fill: #5fc0b3; }
+    .code { fill: #86d6cb; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="380"/>
+
+<!-- LEFT: N+1 -->
+<g>
+  <rect class="box-bad" x="30" y="24" width="450" height="300" rx="10"/>
+  <text class="title" x="54" y="52">1件ずつ問い合わせる(N+1)</text>
+
+  <rect class="q" x="54" y="66" width="400" height="24" rx="4"/>
+  <text class="q-text" x="254" y="82">① SELECT * FROM posts;  ← 投稿12件を取得</text>
+
+  <text class="body" x="54" y="108">投稿1件ごとに、投稿者名をまた問い合わせる:</text>
+
+  <g>
+    <rect class="q" x="54" y="118" width="120" height="20" rx="4"/><text class="q-text" x="114" y="132">② p001の著者</text>
+    <rect class="q" x="184" y="118" width="120" height="20" rx="4"/><text class="q-text" x="244" y="132">③ p002の著者</text>
+    <rect class="q" x="314" y="118" width="120" height="20" rx="4"/><text class="q-text" x="374" y="132">④ p003の著者</text>
+
+    <rect class="q" x="54" y="144" width="120" height="20" rx="4"/><text class="q-text" x="114" y="158">⑤ p004の著者</text>
+    <rect class="q" x="184" y="144" width="120" height="20" rx="4"/><text class="q-text" x="244" y="158">⑥ p005の著者</text>
+    <rect class="q" x="314" y="144" width="120" height="20" rx="4"/><text class="q-text" x="374" y="158">⑦ p006の著者</text>
+
+    <text class="body" x="254" y="182" text-anchor="middle">︙ 投稿の件数ぶん、続く ︙</text>
+
+    <rect class="q" x="54" y="196" width="120" height="20" rx="4"/><text class="q-text" x="114" y="210">⑬ p012の著者</text>
+  </g>
+
+  <text class="count count-bad" x="254" y="264">1 + 12 = 13 回</text>
+  <text class="body" x="254" y="288" text-anchor="middle">投稿が増えるほど、クエリの回数も増え続ける</text>
+</g>
+
+<!-- RIGHT: JOIN -->
+<g>
+  <rect class="box-good" x="520" y="24" width="450" height="300" rx="10"/>
+  <text class="title" x="544" y="52">1回のJOINで済ませる</text>
+
+  <rect class="q" x="544" y="90" width="400" height="60" rx="6"/>
+  <text class="code" x="560" y="114">SELECT p.*, u.name</text>
+  <text class="code" x="560" y="132">FROM posts p LEFT JOIN users u</text>
+  <text class="code" x="560" y="148">  ON u.id = p.author_id;</text>
+
+  <text class="count count-good" x="744" y="230">1 回</text>
+  <text class="body" x="744" y="256" text-anchor="middle">投稿が何件になっても、回数は変わらない</text>
+</g>
+
+<text class="foot" x="500" y="358">回数の差は、ローカルでは体感しにくいことがあります。本番のようにネットワークをまたぐと、1回ごとの待ち時間が積み重なって重くなります。</text>
+
+</svg>

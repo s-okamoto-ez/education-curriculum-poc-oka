@@ -1,0 +1,88 @@
+<svg viewBox="0 0 900 380" role="img" aria-label="GROUP BYでばらばらの行をauthor_idごとにまとめて件数を集計し、HAVINGで集計した後のグループをさらに絞り込む3段階の流れを示す図。件数は説明用の仮の値。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .row { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; text-anchor: start; }
+  .row-keep { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: start; }
+  .row-drop { fill: #8d968f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; text-anchor: start; text-decoration: line-through; }
+  .arrow-label { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #1f6f66; stroke-width: 2.2; fill: none; }
+  .icon { fill: #1f6f66; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+    .row { fill: #e7ece9; }
+    .row-keep { fill: #86d6cb; }
+    .row-drop { fill: #6b746d; }
+    .arrow-label { fill: #e7ece9; }
+    .arrow { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="380"/>
+
+<defs>
+  <marker id="gbArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="t" x="450" y="26">GROUP BY でまとめてから、HAVING でグループを絞り込む(件数は説明用の仮の値)</text>
+
+<!-- panel 1: raw rows -->
+<g>
+  <rect class="box" x="24" y="56" width="250" height="264" rx="10"/>
+  <text class="t" x="149" y="82">元の行(6件)</text>
+  <text class="s" x="149" y="99">posts テーブル</text>
+  <text class="row" x="46" y="130">author_id  body</text>
+  <line class="rule" x1="46" y1="140" x2="252" y2="140"/>
+  <text class="row" x="46" y="164">u_A        投稿1</text>
+  <text class="row" x="46" y="188">u_A        投稿2</text>
+  <text class="row" x="46" y="212">u_B        投稿1</text>
+  <text class="row" x="46" y="236">u_C        投稿1</text>
+  <text class="row" x="46" y="260">u_C        投稿2</text>
+  <text class="row" x="46" y="284">u_C        投稿3</text>
+</g>
+
+<line class="arrow" x1="274" y1="188" x2="330" y2="188" marker-end="url(#gbArrow)"/>
+<text class="arrow-label" x="302" y="168">GROUP BY</text>
+<text class="arrow-label" x="302" y="212">author_id</text>
+
+<!-- panel 2: grouped -->
+<g>
+  <rect class="box" x="330" y="56" width="230" height="264" rx="10"/>
+  <text class="t" x="445" y="82">グループごとに集計</text>
+  <text class="s" x="445" y="99">author_id でまとめる</text>
+  <text class="row" x="352" y="150">u_A → COUNT(*) = 2</text>
+  <text class="row" x="352" y="182">u_B → COUNT(*) = 1</text>
+  <text class="row" x="352" y="214">u_C → COUNT(*) = 3</text>
+</g>
+
+<line class="arrow" x1="560" y1="188" x2="616" y2="188" marker-end="url(#gbArrow)"/>
+<text class="arrow-label" x="588" y="160">HAVING</text>
+<text class="arrow-label" x="588" y="182">COUNT(*)</text>
+<text class="arrow-label" x="588" y="204">&gt;= 2</text>
+
+<!-- panel 3: filtered -->
+<g>
+  <rect class="box" x="616" y="56" width="260" height="264" rx="10"/>
+  <text class="t" x="746" y="82">絞り込んだ結果</text>
+  <text class="s" x="746" y="99">COUNT(*) &gt;= 2 のグループだけ</text>
+  <text class="row-keep" x="638" y="150">u_A → 2件  ✓ 残る</text>
+  <text class="row-drop" x="638" y="182">u_B → 1件  (除外)</text>
+  <text class="row-keep" x="638" y="214">u_C → 3件  ✓ 残る</text>
+</g>
+
+<line class="rule" x1="24" y1="336" x2="876" y2="336"/>
+<text class="foot" x="450" y="358">WHEREは集計する前に行を絞り、HAVINGは集計した後にグループを絞ります。「2件以上」は1行だけ見ても分からず、まとめて初めて分かる条件です。</text>
+
+</svg>

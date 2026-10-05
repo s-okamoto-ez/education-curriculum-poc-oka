@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 260" role="img" aria-label="今日やること: ヘッダーの通知ベルをクリックすると、パネルがベルから遠く離れた場所に表示される不具合を、position:relativeを1行足してベルの直下に表示されるよう直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .header { fill: #1a1f1d; }
+  .bell { fill: #e7ece9; font-size: 18px; text-anchor: middle; }
+  .page { fill: #f4f6f4; stroke: #d7dcd8; stroke-width: 1.2; }
+  .panel-bad { fill: #f6dede; stroke: #a35555; stroke-width: 1.6; }
+  .panel-ok { fill: #dcece8; stroke: #1f6f66; stroke-width: 1.6; }
+  .dash { stroke: #a35555; stroke-width: 1.6; stroke-dasharray: 4 3; fill: none; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .cap-warn { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .cap-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .arrow-label { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .header { fill: #0c0f0e; }
+    .page { fill: #171b1a; stroke: #2b3230; }
+    .panel-bad { fill: #2a1c1c; stroke: #e29a9a; }
+    .panel-ok { fill: #16211f; stroke: #5fc0b3; }
+    .dash { stroke: #e29a9a; }
+    .t { fill: #e7ece9; }
+    .cap-warn { fill: #e29a9a; }
+    .cap-ok { fill: #86d6cb; }
+    .arrow-label { fill: #e7ece9; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="260"/>
+
+<defs>
+  <marker id="npArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- before -->
+<rect class="page" x="20" y="26" width="240" height="190" rx="6"/>
+<rect class="header" x="20" y="26" width="240" height="30" rx="6"/>
+<text class="bell" x="235" y="47">🔔</text>
+<rect class="panel-bad" x="40" y="170" width="120" height="34" rx="4"/>
+<path class="dash" d="M235,58 C260,110 60,140 60,168"/>
+<text class="cap-warn" x="140" y="222">パネルがベルから遠くに出る</text>
+
+<line class="arrow" x1="270" y1="120" x2="330" y2="120" marker-end="url(#npArrow)"/>
+<text class="arrow-label" x="300" y="105">.notif に</text>
+<text class="arrow-label" x="300" y="138">position:relative</text>
+
+<!-- after -->
+<rect class="page" x="380" y="26" width="240" height="190" rx="6"/>
+<rect class="header" x="380" y="26" width="240" height="30" rx="6"/>
+<text class="bell" x="595" y="47">🔔</text>
+<rect class="panel-ok" x="540" y="60" width="60" height="34" rx="4"/>
+<text class="cap-ok" x="500" y="222">ベルの直下に正しく表示される</text>
+
+</svg>

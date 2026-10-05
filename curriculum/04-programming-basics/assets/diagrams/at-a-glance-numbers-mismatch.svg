@@ -1,0 +1,44 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: summaryコマンドで、利用者ごとの投稿数を合計すると18件、サービス全体の投稿数は19件で一致しない。原因は1つとは限らない。ズレの数を自分の説明で完全に埋められるまで調べる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-num { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .num-big { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 26px; font-weight: 700; text-anchor: middle; }
+  .num-label { fill: #a9b3ac; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .diff-bg { fill: #a35555; }
+  .diff-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<!-- left: overall -->
+<text class="t" x="150" y="24">サービス全体</text>
+<rect class="win" x="30" y="34" width="240" height="100" rx="6"/>
+<text class="win-title" x="42" y="52">overallStats(posts)</text>
+<text class="num-big" x="150" y="95">19</text>
+<text class="num-label" x="150" y="116">件(投稿)</text>
+
+<!-- right: sum of per-user -->
+<text class="t" x="550" y="24">利用者ごとの合計</text>
+<rect class="win" x="430" y="34" width="240" height="100" rx="6"/>
+<text class="win-title" x="442" y="52">summarizeUsers(users, posts)</text>
+<text class="num-big" x="550" y="95">18</text>
+<text class="num-label" x="550" y="116">件(電卓で合計)</text>
+
+<!-- diff badge in the middle -->
+<circle class="diff-bg" cx="350" cy="84" r="26"/>
+<text class="diff-text" x="350" y="80">差</text>
+<text class="diff-text" x="350" y="94">1</text>
+
+<text class="foot" x="350" y="170">いいねの合計も同じように一致しない。原因は1つとは限らない — 電卓で埋めきれるまで調べる</text>
+
+</svg>

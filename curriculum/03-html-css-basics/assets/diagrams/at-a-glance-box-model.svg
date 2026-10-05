@@ -1,0 +1,71 @@
+<svg viewBox="0 0 700 240" role="img" aria-label="今日やること: カードの見た目に仕込まれた2つの崩れ、①containerの右にはみ出すこと、②タイトルの上に不自然な余白があることを、開発者ツールで見つけて直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .outer { fill: none; stroke: #b7bdb8; stroke-width: 1.4; stroke-dasharray: 4 3; }
+  .card { fill: #f6dede; stroke: #a35555; stroke-width: 1.8; }
+  .avatar { fill: #b7bdb8; }
+  .bar { fill: #b7bdb8; }
+  .bar-title { fill: #6b746d; }
+  .lbl { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .badge-1 { fill: #a35555; }
+  .badge-2 { fill: #a8792f; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .legend-t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: start; }
+  .legend-s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: start; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .outer { stroke: #3a423f; }
+    .card { fill: #2a1c1c; stroke: #e29a9a; }
+    .avatar { fill: #4a524e; }
+    .bar { fill: #4a524e; }
+    .bar-title { fill: #6b746d; }
+    .lbl { fill: #a9b3ac; }
+    .legend-t { fill: #e7ece9; }
+    .legend-s { fill: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="240"/>
+
+<!-- mockup: container + overflowing card -->
+<text class="lbl" x="40" y="24">.container</text>
+<rect class="outer" x="40" y="30" width="260" height="160" rx="4"/>
+
+<rect class="card" x="56" y="46" width="300" height="128" rx="8"/>
+
+<!-- avatar + title row -->
+<circle class="avatar" cx="80" cy="70" r="11"/>
+<rect class="bar-title" x="98" y="64" width="90" height="11" rx="3"/>
+
+<!-- exaggerated gap here (the ② bug), then body text lines -->
+<rect class="bar" x="72" y="108" width="260" height="9" rx="3"/>
+<rect class="bar" x="72" y="126" width="190" height="9" rx="3"/>
+
+<!-- badge 1: overflow past container's right edge -->
+<circle class="badge-1" cx="356" cy="70" r="13"/>
+<text class="badge-text" x="356" y="75">1</text>
+
+<!-- badge 2: gap between title row and body text -->
+<circle class="badge-2" cx="220" cy="91" r="13"/>
+<text class="badge-text" x="220" y="96">2</text>
+
+<!-- legend -->
+<g>
+  <circle class="badge-1" cx="410" cy="66" r="12"/>
+  <text class="badge-text" x="410" y="71">1</text>
+  <text class="legend-t" x="432" y="62">container の右にはみ出す</text>
+  <text class="legend-s" x="432" y="78">width 100% に padding/border が外側から足される</text>
+</g>
+
+<g>
+  <circle class="badge-2" cx="410" cy="116" r="12"/>
+  <text class="badge-text" x="410" y="121">2</text>
+  <text class="legend-t" x="432" y="112">タイトルの上に不自然な余白</text>
+  <text class="legend-s" x="432" y="128">margin か padding、色を見れば分かる</text>
+</g>
+
+<text class="foot" x="350" y="220">この2箇所を開発者ツールで見つけて、原因を突き止めてから直す</text>
+
+</svg>

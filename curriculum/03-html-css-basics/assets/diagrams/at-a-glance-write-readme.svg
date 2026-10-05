@@ -1,0 +1,49 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: samplesフォルダにはまだ説明書が無い。演習08から11で踏んだ罠(position基準点・共有クラス・インラインスタイル・ソース順序)をもとに、クラスの役割とCSSの決まりごとをREADMEとして初めて書く。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-dim { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .code-new { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<defs>
+  <marker id="atArrowR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- before: no readme -->
+<text class="t" x="150" y="24">samples/ フォルダの中身</text>
+<rect class="win" x="30" y="34" width="260" height="130" rx="6"/>
+<text class="win-title" x="42" y="52">samples/</text>
+<text class="code-dim" x="42" y="76">index.html</text>
+<text class="code-dim" x="42" y="94">style.css</text>
+<text class="code-dim" x="42" y="112">comment-form.html</text>
+<text class="code-dim" x="42" y="130">comment-form.css</text>
+
+<line class="arrow" x1="294" y1="99" x2="332" y2="99" marker-end="url(#atArrowR)"/>
+
+<!-- after: readme added -->
+<text class="t" x="550" y="24">今、あなたが書き足すもの</text>
+<rect class="win" x="410" y="34" width="260" height="130" rx="6"/>
+<text class="win-title" x="422" y="52">samples/</text>
+<text class="code-dim" x="422" y="72">index.html ...</text>
+<text class="code-new" x="422" y="94">README.md</text>
+<text class="code-new" x="432" y="112">クラスの役割</text>
+<text class="code-new" x="432" y="130">CSSの決まりごと</text>
+
+<text class="foot" x="350" y="195">演習08〜11で踏んだ罠を、次にこのページを触る人のために書き残す</text>
+
+</svg>

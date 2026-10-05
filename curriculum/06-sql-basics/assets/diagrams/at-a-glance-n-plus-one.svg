@@ -1,0 +1,49 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: 投稿12件それぞれの投稿者名を1件ずつ問い合わせると合計13回のクエリになるが、LEFT JOINでまとめて取得すると同じ結果が1回のクエリで済むことを、実際に手で数えて比べる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .badge-ng { fill: #a35555; }
+  .badge-ok { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .win-ng { fill: #1a1f1d; stroke: #9c6a6a; stroke-width: 2; }
+  .win-ok { fill: #1a1f1d; stroke: #5fc0b3; stroke-width: 2; }
+  .row { fill: #dfe3e0; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .count-ng { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 30px; font-weight: 700; text-anchor: middle; }
+  .count-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 30px; font-weight: 700; text-anchor: middle; }
+  .count-label { fill: #a9b3ac; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<text class="t" x="450" y="26">同じ「投稿者名つき一覧」を得るのに、クエリの回数が13倍違います</text>
+
+<!-- panel 1: 13 queries -->
+<circle class="badge-ng" cx="60" cy="52" r="12"/><text class="badge-text" x="60" y="57">1</text>
+<text class="t" x="230" y="57">1件ずつ問い合わせる</text>
+
+<rect class="win-ng" x="20" y="70" width="420" height="150" rx="8"/>
+<text class="row" x="34" y="92">SELECT id, author_id FROM posts;   -- 1回目</text>
+<text class="row" x="34" y="110">SELECT name FROM users WHERE id='...';  -- 2回目</text>
+<text class="row" x="34" y="128">SELECT name FROM users WHERE id='...';  -- 3回目</text>
+<text class="row" x="34" y="146">... 投稿12件ぶん、1件ずつ繰り返す</text>
+<text class="count-ng" x="230" y="196">13回</text>
+
+<!-- panel 2: 1 join -->
+<circle class="badge-ok" cx="480" cy="52" r="12"/><text class="badge-text" x="480" y="57">2</text>
+<text class="t" x="670" y="57">LEFT JOIN でまとめる</text>
+
+<rect class="win-ok" x="440" y="70" width="440" height="150" rx="8"/>
+<text class="row" x="454" y="100">SELECT p.id, p.author_id, u.name</text>
+<text class="row" x="454" y="118">FROM posts p</text>
+<text class="row" x="454" y="136">LEFT JOIN users u ON u.id = p.author_id;</text>
+<text class="count-ok" x="660" y="196">1回</text>
+
+<text class="foot" x="450" y="240">影響するのは常に「同じ12件のposts」です。回数の差は、本番のネットワーク遅延でそのまま待ち時間の差になります</text>
+
+</svg>

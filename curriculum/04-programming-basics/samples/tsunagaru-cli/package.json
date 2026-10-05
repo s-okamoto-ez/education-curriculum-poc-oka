@@ -1,0 +1,15 @@
+{
+  "name": "tsunagaru-cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "「つながるノート」運用ツール(プログラミング基礎の保守課題)",
+  "scripts": {
+    "start": "node --experimental-strip-types src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  }
+}

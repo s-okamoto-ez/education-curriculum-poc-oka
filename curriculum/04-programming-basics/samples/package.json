@@ -1,0 +1,13 @@
+{
+  "name": "programming-basics-samples",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "入門フェーズ・プログラミング基礎の演習用サンプル",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  }
+}

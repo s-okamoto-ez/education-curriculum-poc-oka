@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1000 400" role="img" aria-label="ls -l の出力にある権限表記を分解した図。先頭の1文字がファイルかディレクトリかを表し、続く9文字が3文字ずつ所有者・グループ・その他の権限を表す。各3文字はr(読む)w(書く)x(実行する)の有無を示す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; }
+  .code-type { fill: #ffd48a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; }
+  .code-owner { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; }
+  .code-group { fill: #9fd0ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; }
+  .code-other { fill: #c4a2ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; }
+  .lead { stroke: #1f6f66; stroke-width: 1.6; fill: none; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .card-owner { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .card-group { fill: #ffffff; stroke: #4a7fb0; stroke-width: 1.8; }
+  .card-other { fill: #ffffff; stroke: #8a5fc0; stroke-width: 1.8; }
+  .k-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .k-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .rwx-letter { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 16px; font-weight: 700; text-anchor: start; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .foot-code { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .type-cap { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+    .card-owner { fill: #1a1f1d; stroke: #5fc0b3; }
+    .card-group { fill: #1a1f1d; stroke: #7fb0e0; }
+    .card-other { fill: #1a1f1d; stroke: #b090e0; }
+    .k-title { fill: #e7ece9; }
+    .k-body { fill: #a9b3ac; }
+    .rwx-letter { fill: #86d6cb; }
+    .foot { fill: #a9b3ac; }
+    .foot-code { fill: #86d6cb; }
+    .type-cap { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="400"/>
+
+<!-- terminal line -->
+<rect class="term" x="60" y="24" width="620" height="54" rx="8"/>
+<text x="86" y="59">
+  <tspan class="code-type">-</tspan><tspan class="code-owner">rw-</tspan><tspan class="code-group">r--</tspan><tspan class="code-other">r--</tspan><tspan class="code">  1 app  app  222  database.yml</tspan>
+</text>
+
+<!-- leader lines -->
+<path class="lead" d="M100 86 L100 108 L100 126"/>
+<path class="lead" d="M152 86 L152 108 L200 126"/>
+<path class="lead" d="M212 86 L212 108 L480 126"/>
+<path class="lead" d="M272 86 L272 108 L760 126"/>
+
+<!-- card: type -->
+<g>
+  <rect class="card" x="24" y="126" width="152" height="112" rx="10"/>
+  <text class="k-title" x="100" y="154">1文字目</text>
+  <text class="k-body" x="100" y="176">種類</text>
+  <text class="type-cap" x="100" y="198">- : ファイル</text>
+  <text class="type-cap" x="100" y="216">d : ディレクトリ</text>
+</g>
+
+<!-- card: owner -->
+<g>
+  <rect class="card-owner" x="200" y="126" width="256" height="112" rx="10"/>
+  <text class="k-title" x="328" y="154">所有者(owner)</text>
+  <text class="k-body" x="328" y="178">この2〜4文字目が</text>
+  <text class="k-body" x="328" y="198">所有者への権限</text>
+  <text class="k-body" x="328" y="220">(読む・書く・実行)</text>
+</g>
+
+<!-- card: group -->
+<g>
+  <rect class="card-group" x="480" y="126" width="256" height="112" rx="10"/>
+  <text class="k-title" x="608" y="154">グループ(group)</text>
+  <text class="k-body" x="608" y="178">5〜7文字目。同じ</text>
+  <text class="k-body" x="608" y="198">グループのユーザーへの</text>
+  <text class="k-body" x="608" y="220">権限</text>
+</g>
+
+<!-- card: other -->
+<g>
+  <rect class="card-other" x="760" y="126" width="216" height="112" rx="10"/>
+  <text class="k-title" x="868" y="154">その他(other)</text>
+  <text class="k-body" x="868" y="178">8〜10文字目。</text>
+  <text class="k-body" x="868" y="198">それ以外の全員への</text>
+  <text class="k-body" x="868" y="220">権限</text>
+</g>
+
+<!-- rwx breakdown -->
+<g>
+  <rect class="card" x="200" y="262" width="536" height="90" rx="10"/>
+  <text class="rwx-letter" x="230" y="292">r</text>
+  <text class="k-body" x="270" y="288" text-anchor="start">read</text>
+  <text class="k-body" x="270" y="308" text-anchor="start">中身を読める</text>
+
+  <text class="rwx-letter" x="410" y="292">w</text>
+  <text class="k-body" x="450" y="288" text-anchor="start">write</text>
+  <text class="k-body" x="450" y="308" text-anchor="start">書き換え・削除できる</text>
+
+  <text class="rwx-letter" x="600" y="292">x</text>
+  <text class="k-body" x="640" y="288" text-anchor="start">execute</text>
+  <text class="k-body" x="640" y="308" text-anchor="start">実行・中に入れる</text>
+</g>
+
+<text class="foot" x="500" y="382">ここでは <tspan class="foot-code">rw-r--r--</tspan> なので「所有者は読み書きできるが、実行はできない」という意味です</text>
+
+</svg>

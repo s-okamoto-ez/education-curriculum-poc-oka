@@ -1,0 +1,92 @@
+<svg viewBox="0 0 980 340" role="img" aria-label="HTMLとCSSの役割分担の図。HTMLは見出しや段落といった「これは何か」という意味と構造を書き、CSSは色や大きさや配置といった「どう見せるか」を書く。同じHTMLに違うCSSを当てると、意味は変わらないまま見た目だけが変わる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 700; }
+  .sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .icon { fill: #1f6f66; }
+  .code { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; }
+  .code-tag { fill: #1f6f66; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 600; }
+  .arrow-line { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .plus { fill: #465049; font-family: -apple-system, sans-serif; font-size: 28px; font-weight: 300; text-anchor: middle; }
+  .result-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 20px; font-weight: 700; }
+  .result-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .result-title-b { fill: #1f6f66; font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif; font-size: 22px; font-style: italic; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .swatch { fill: #1f6f66; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.4; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .title { fill: #e7ece9; }
+    .sub { fill: #a9b3ac; }
+    .icon { fill: #5fc0b3; }
+    .code { fill: #a9b3ac; }
+    .code-tag { fill: #5fc0b3; }
+    .arrow-line { stroke: #5fc0b3; }
+    .plus { fill: #a9b3ac; }
+    .result-title { fill: #e7ece9; }
+    .result-body { fill: #a9b3ac; }
+    .result-title-b { fill: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .swatch { fill: #5fc0b3; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="980" height="340"/>
+
+<defs>
+  <marker id="hcArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- HTML box -->
+<g>
+  <rect class="box" x="28" y="34" width="286" height="176" rx="10"/>
+  <g transform="translate(50,52) scale(0.9)">
+    <path class="icon" fill-rule="evenodd" clip-rule="evenodd" d="M4 2H16.7L20 5.2V22H4V2ZM5.5 3.5V20.5H18.5V6.5H15.5V3.5H5.5ZM7 11H17V12.5H7V11ZM17 8H7V9.5H17V8ZM9.39844 15.1999L11.2984 16.8999L14.5984 13.8999L15.5984 15.0999L11.2984 18.9999L8.39844 16.2999L9.39844 15.1999Z"/>
+  </g>
+  <text class="title" x="80" y="70">HTML</text>
+  <text class="sub" x="80" y="90">これは何か(意味・構造)</text>
+  <line class="rule" x1="50" y1="106" x2="292" y2="106"/>
+  <text class="code-tag" x="50" y="132">&lt;h1&gt;<tspan class="code">お知らせ</tspan>&lt;/h1&gt;</text>
+  <text class="code-tag" x="50" y="156">&lt;p&gt;<tspan class="code">3月から始まります</tspan>&lt;/p&gt;</text>
+  <text class="sub" x="50" y="188">「これは見出し」「これは段落」</text>
+</g>
+
+<text class="plus" x="344" y="132">+</text>
+
+<!-- CSS box -->
+<g>
+  <rect class="box" x="374" y="34" width="286" height="176" rx="10"/>
+  <g transform="translate(396,52) scale(0.9)">
+    <path class="icon" fill-rule="evenodd" clip-rule="evenodd" d="M1 16.5H11.5V15H2.5V6H20V8H21.5V4.5H1V16.5ZM11.5 8H18.5V9.5H11.5V8ZM16 11.5H11.5V13H16V11.5ZM4 10.4002L6.5 12.9002L10.1 9.3002L9 8.2002L6.5 10.8002L5.1 9.3002L4 10.4002ZM20.5 13.4L13.4 20.5H12V19.1L19.1 12L20.5 13.4ZM19.7695 11.2861L21.1837 9.87193L22.5979 11.2861L21.1837 12.7003L19.7695 11.2861Z"/>
+  </g>
+  <text class="title" x="426" y="70">CSS</text>
+  <text class="sub" x="426" y="90">どう見せるか(見た目)</text>
+  <line class="rule" x1="396" y1="106" x2="638" y2="106"/>
+  <text class="code-tag" x="396" y="132">h1 <tspan class="code">{ color: teal; }</tspan></text>
+  <text class="code-tag" x="396" y="156">p <tspan class="code">{ font-size: 14px; }</tspan></text>
+  <text class="sub" x="396" y="188">「見出しは緑」「段落は小さめ」</text>
+</g>
+
+<line class="arrow-line" x1="676" y1="122" x2="716" y2="122" marker-end="url(#hcArrow)"/>
+
+<!-- rendered result -->
+<g>
+  <rect class="box" x="724" y="34" width="228" height="176" rx="10"/>
+  <line class="rule" x1="724" y1="62" x2="952" y2="62"/>
+  <circle class="swatch" cx="742" cy="48" r="4"/>
+  <circle class="swatch" cx="756" cy="48" r="4"/>
+  <text class="result-title-b" x="748" y="106">お知らせ</text>
+  <text class="result-body" x="748" y="136">3月から始まります</text>
+  <text class="sub" x="748" y="188">ブラウザが組み立てた画面</text>
+</g>
+
+<line class="rule" x1="28" y1="244" x2="952" y2="244"/>
+<text class="foot" x="490" y="278">HTMLは「意味」だけを書きます。同じHTMLのまま、CSSだけを差し替えれば見た目は全部変わります。</text>
+<text class="foot" x="490" y="304">逆に言えば、見た目がおかしいときは「意味の側か、見せ方の側か」で原因を切り分けられます。</text>
+
+</svg>

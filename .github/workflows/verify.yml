@@ -1,0 +1,36 @@
+name: Verify curriculum
+
+# 教材の静的検証をpushごとに回す。
+#
+# ⚠ このリポジトリ(教材の本体)でのみ動かす。
+#   テンプレートから複製された受講者のリポジトリでは、受講者が演習で
+#   サンプルを書き換えるため必ず失敗する。混乱させないよう走らせない。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    if: github.repository == 'k-kubo-ez/education-curriculum-poc'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install sample dependencies
+        working-directory: curriculum/04-programming-basics/samples
+        run: npm ci || npm install
+
+      - name: Verify
+        run: node scripts/verify.mjs
+
+      # DBの検証(scripts/verify-db.mjs)はここでは走らせない。
+      # 100万行の生成に数分かかるため、手元で実行する運用にしている。

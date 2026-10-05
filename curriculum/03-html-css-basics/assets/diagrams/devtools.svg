@@ -1,0 +1,124 @@
+<svg viewBox="0 0 1000 450" role="img" aria-label="ブラウザの開発者ツールの画面構成の図。左側にElementsパネルがあり実際のDOMツリーが表示され、右側にStylesパネルがあり選択した要素に当たっているCSSが強い順に並び、負けたルールには打ち消し線が引かれる。下部にはボックスモデルの実測値が表示される。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .chrome { fill: #e3e8e4; stroke: #d7dcd8; stroke-width: 1.4; }
+  .tab-on { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .tab-off { fill: #e3e8e4; stroke: #d7dcd8; stroke-width: 1.2; }
+  .tab-txt { fill: #465049; font-family: -apple-system, "Segoe UI", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .tab-txt-on { fill: #164f48; font-family: -apple-system, "Segoe UI", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .code { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; }
+  .code-tag { fill: #1f6f66; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 600; }
+  .sel-row { fill: #d7e9e4; stroke: #1f6f66; stroke-width: 1.4; }
+  .prop { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; }
+  .prop-dead { fill: #9aa39c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; text-decoration: line-through; }
+  .strike { stroke: #9aa39c; stroke-width: 1.2; }
+  .selname { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; }
+  .selname-dead { fill: #9aa39c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; }
+  .panel-h { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; }
+  .note { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .note-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .callout { stroke: #1f6f66; stroke-width: 1.6; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .bx-m { fill: #fbe6c8; stroke: #e0b072; stroke-width: 1.2; }
+  .bx-b { fill: #cfd8d2; stroke: #93a099; stroke-width: 1.2; }
+  .bx-p { fill: #cfe8e2; stroke: #7fc0b3; stroke-width: 1.2; }
+  .bx-c { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.4; }
+  .bx-t { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 9.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .win { fill: #1a1f1d; stroke: #2b3230; }
+    .chrome { fill: #232927; stroke: #2b3230; }
+    .tab-on { fill: #1a1f1d; stroke: #5fc0b3; }
+    .tab-off { fill: #232927; stroke: #2b3230; }
+    .tab-txt { fill: #a9b3ac; }
+    .tab-txt-on { fill: #86d6cb; }
+    .code { fill: #a9b3ac; }
+    .code-tag { fill: #5fc0b3; }
+    .sel-row { fill: #24403b; stroke: #5fc0b3; }
+    .prop { fill: #a9b3ac; }
+    .prop-dead { fill: #6d766f; }
+    .strike { stroke: #6d766f; }
+    .selname { fill: #86d6cb; }
+    .selname-dead { fill: #6d766f; }
+    .panel-h { fill: #e7ece9; }
+    .note { fill: #86d6cb; }
+    .note-body { fill: #a9b3ac; }
+    .callout { stroke: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .bx-m { fill: #3a2f1e; stroke: #8a6a34; }
+    .bx-b { fill: #2a302e; stroke: #59635f; }
+    .bx-p { fill: #1c3b37; stroke: #3f8478; }
+    .bx-c { fill: #0c0f0e; stroke: #5fc0b3; }
+    .bx-t { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="450"/>
+
+<!-- window -->
+<rect class="win" x="24" y="24" width="952" height="332" rx="10"/>
+<rect class="chrome" x="24" y="24" width="952" height="34" rx="10"/>
+<rect class="chrome" x="24" y="46" width="952" height="12"/>
+
+<!-- tabs -->
+<rect class="tab-on" x="40" y="30" width="88" height="22" rx="5"/>
+<text class="tab-txt-on" x="84" y="45">Elements</text>
+<rect class="tab-off" x="134" y="30" width="80" height="22" rx="5"/>
+<text class="tab-txt" x="174" y="45">Console</text>
+<rect class="tab-off" x="220" y="30" width="80" height="22" rx="5"/>
+<text class="tab-txt" x="260" y="45">Network</text>
+<rect class="tab-off" x="306" y="30" width="80" height="22" rx="5"/>
+<text class="tab-txt" x="346" y="45">Sources</text>
+
+<!-- left: elements -->
+<text class="panel-h" x="46" y="82">Elements — 今この瞬間のDOMツリー</text>
+<text class="code-tag" x="46" y="110">&lt;body&gt;</text>
+<text class="code-tag" x="66" y="132">&lt;header&gt;</text>
+<rect class="sel-row" x="80" y="140" width="380" height="20" rx="4"/>
+<text class="code-tag" x="86" y="155">&lt;h1 <tspan class="code">class="notice"</tspan>&gt;<tspan class="code">お知らせ</tspan>&lt;/h1&gt;</text>
+<text class="code-tag" x="66" y="180">&lt;/header&gt;</text>
+<text class="code-tag" x="66" y="202">&lt;main&gt;</text>
+<text class="code-tag" x="86" y="224">&lt;p&gt;<tspan class="code">3月から始まります</tspan>&lt;/p&gt;</text>
+<text class="code-tag" x="66" y="246">&lt;/main&gt;</text>
+<text class="code-tag" x="46" y="268">&lt;/body&gt;</text>
+
+<text class="note" x="46" y="304">選んだ行が、画面上でも光ります</text>
+<text class="note-body" x="46" y="326">HTMLファイルの中身ではなく「今表示されている状態」です</text>
+
+<!-- divider -->
+<line class="callout" x1="490" y1="66" x2="490" y2="342" stroke-dasharray="4 4"/>
+
+<!-- right: styles -->
+<text class="panel-h" x="512" y="82">Styles — 当たっているCSSが、強い順に並ぶ</text>
+
+<text class="selname" x="512" y="112">.notice {</text>
+<text class="prop" x="532" y="132">color: blue;</text>
+<text class="selname" x="512" y="152">}</text>
+
+<text class="selname-dead" x="512" y="184">h1 {</text>
+<text class="prop-dead" x="532" y="204">color: red;</text>
+<line class="strike" x1="532" y1="200" x2="614" y2="200"/>
+<text class="selname-dead" x="512" y="224">}</text>
+
+<text class="note" x="640" y="204">← 負けたルールには線が引かれる</text>
+<text class="note-body" x="640" y="226">「なぜ効かないか」がここで一目で分かる</text>
+
+<!-- box model readout -->
+<text class="panel-h" x="512" y="264">Computed — 実測値のボックスモデル</text>
+<g>
+  <rect class="bx-m" x="512" y="276" width="200" height="64" rx="3"/>
+  <text class="bx-t" x="612" y="288">16</text>
+  <rect class="bx-b" x="536" y="290" width="152" height="36" rx="2"/>
+  <text class="bx-t" x="612" y="300">1</text>
+  <rect class="bx-p" x="552" y="300" width="120" height="16" rx="2"/>
+  <rect class="bx-c" x="576" y="303" width="72" height="10" rx="2"/>
+  <text class="bx-t" x="612" y="336">margin 16px</text>
+</g>
+<text class="note-body" x="732" y="300">実際に何pxになっているかは、</text>
+<text class="note-body" x="732" y="320">推測せずここで読みます</text>
+
+<text class="foot" x="500" y="396">開いてください: Windows は F12、Mac は Command + Option + I。</text>
+<text class="foot" x="500" y="422">この画面が読めることが、柱1の can-do「不具合の原因がサーバ側かブラウザ側かを切り分けられる」の入口です。</text>
+
+</svg>

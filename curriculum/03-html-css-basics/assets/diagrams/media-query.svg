@@ -1,0 +1,70 @@
+<svg viewBox="0 0 1000 360" role="img" aria-label="メディアクエリで画面幅ごとにCSSを出し分ける図。広い画面では固定幅720pxの中央寄せレイアウトが正しく収まるが、幅720pxを下回るスマートフォンでは同じCSSのままだと横にはみ出す。幅の条件で分岐するCSSを書き足すことで、狭い画面では幅を100%に切り替えて収める。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .screen { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .screen-narrow { fill: #ffffff; stroke: #a35555; stroke-width: 1.8; }
+  .content { fill: #d7e9e4; stroke: #1f6f66; stroke-width: 1.4; }
+  .content-overflow { fill: #f7e6e6; stroke: #dcbcbc; stroke-width: 1.4; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .warn { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .code { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .code-t { fill: #7fe0d2; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+  .code-kw { fill: #c4a2ff; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .screen { fill: #1a1f1d; stroke: #2b3230; }
+    .screen-narrow { fill: #1a1f1d; stroke: #9c6a6a; }
+    .content { fill: #24403b; stroke: #5fc0b3; }
+    .content-overflow { fill: #2e2222; stroke: #4a3636; }
+    .title { fill: #e7ece9; }
+    .body { fill: #a9b3ac; }
+    .warn { fill: #e29a9a; }
+    .code { fill: #86d6cb; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .code-t { fill: #86d6cb; }
+    .code-kw { fill: #c4a2ff; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="360"/>
+
+<!-- wide screen -->
+<g>
+  <text class="title" x="220" y="30">広い画面(1200px)</text>
+  <rect class="screen" x="40" y="42" width="360" height="180" rx="6"/>
+  <rect class="content" x="70" y="62" width="300" height="140" rx="4"/>
+  <text class="code" x="220" y="136" text-anchor="middle">width: 720px</text>
+  <text class="body" x="220" y="196">中央に収まる</text>
+</g>
+
+<!-- narrow screen -->
+<g>
+  <text class="title" x="620" y="30">スマートフォン(375px)</text>
+  <rect class="screen-narrow" x="500" y="42" width="120" height="180" rx="6"/>
+  <rect class="content-overflow" x="490" y="62" width="300" height="140" rx="4"/>
+  <text class="warn" x="640" y="136" text-anchor="middle">同じ width: 720px</text>
+  <text class="warn" x="640" y="154" text-anchor="middle">のままだと、はみ出す</text>
+</g>
+
+<!-- CSS with media query -->
+<g>
+  <rect class="term" x="740" y="42" width="230" height="180" rx="8"/>
+  <text x="758" y="70"><tspan class="code-t">.container</tspan> {</text>
+  <text x="768" y="90"><tspan class="code-t">width</tspan>: 720px;</text>
+  <text x="758" y="106">}</text>
+  <text x="758" y="132"><tspan class="code-kw">@media</tspan> (max-width: 720px) {</text>
+  <text x="768" y="150"><tspan class="code-t">.container</tspan> {</text>
+  <text x="778" y="168"><tspan class="code-t">width</tspan>: 100%;</text>
+  <text x="768" y="186">}</text>
+  <text x="758" y="202">}</text>
+</g>
+
+<text class="foot" x="500" y="264">「幅が720px以下になったら」という条件で、別のCSSを追加で当てられます。</text>
+<text class="foot" x="500" y="290">後から書いたルールが、条件に合うときだけ上書きします。元のCSSを消す必要はありません。</text>
+<text class="foot" x="500" y="322">確認は、開発者ツールの「デバイスモード」でブラウザの幅を実際に変えながら行います。推測しないでください。</text>
+
+</svg>

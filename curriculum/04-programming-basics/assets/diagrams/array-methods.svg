@@ -1,0 +1,115 @@
+<svg viewBox="0 0 900 420" role="img" aria-label="同じ配列postsに対してfilter、map、find、reduceをそれぞれ適用すると、残る件数や形がどう変わるかを示す図。filterは条件に合う2件だけ残し、mapは3件とも形を変え、findは最初の1件だけを返し、reduceは全部を1つの値にまとめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .row { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; text-anchor: start; }
+  .row-keep { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: start; }
+  .row-drop { fill: #8d968f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; text-anchor: start; text-decoration: line-through; }
+  .tag-warn { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: start; }
+  .badge { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .mono-mid { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11.5px; text-anchor: middle; }
+  .result { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .result-big { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 26px; font-weight: 700; text-anchor: middle; }
+  .caption { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .note { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; text-anchor: middle; }
+  .arrow { stroke: #1f6f66; stroke-width: 1.6; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .t { fill: #e7ece9; }
+    .row { fill: #e7ece9; }
+    .row-keep { fill: #86d6cb; }
+    .row-drop { fill: #6b746d; }
+    .tag-warn { fill: #e29a9a; }
+    .badge { fill: #1f6f66; }
+    .mono-mid { fill: #a9b3ac; }
+    .result { fill: #86d6cb; }
+    .result-big { fill: #86d6cb; }
+    .caption { fill: #86d6cb; }
+    .note { fill: #8d968f; }
+    .arrow { stroke: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="420"/>
+
+<defs>
+  <marker id="amArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="badge"/>
+  </marker>
+</defs>
+
+<text class="head" x="450" y="22">同じ配列 posts でも、道具によって「残る・変わる・まとまる」が違います</text>
+
+<!-- original array -->
+<rect class="box" x="310" y="40" width="280" height="118" rx="10"/>
+<text class="t" x="450" y="60">元の配列 posts(3件)</text>
+<text class="row" x="326" y="84">p001  likes:12</text>
+<text class="row" x="326" y="106">p002  likes:3</text>
+<text class="row-drop" x="326" y="128">p003  likes:41</text>
+<text class="tag-warn" x="326" y="146">p003 は isDeleted:true</text>
+
+<!-- fan-out arrows -->
+<line class="arrow" x1="380" y1="158" x2="127" y2="194" marker-end="url(#amArrow)"/>
+<line class="arrow" x1="420" y1="158" x2="342" y2="194" marker-end="url(#amArrow)"/>
+<line class="arrow" x1="480" y1="158" x2="557" y2="194" marker-end="url(#amArrow)"/>
+<line class="arrow" x1="520" y1="158" x2="772" y2="194" marker-end="url(#amArrow)"/>
+
+<!-- column 1: filter -->
+<g>
+  <rect class="badge" x="27" y="196" width="200" height="24" rx="12"/>
+  <text class="badge-text" x="127" y="213">filter</text>
+  <rect class="box" x="27" y="228" width="200" height="150" rx="10"/>
+  <text class="row-keep" x="43" y="254">p001  likes:12</text>
+  <text class="row-keep" x="43" y="276">p002  likes:3</text>
+  <text class="row-drop" x="43" y="298">p003  likes:41</text>
+  <text class="note" x="127" y="316">(isDeletedなので除外)</text>
+  <text class="caption" x="127" y="342">→ 2件に絞られる</text>
+  <text class="note" x="127" y="366">grep / WHERE と同じ発想</text>
+</g>
+
+<!-- column 2: map -->
+<g>
+  <rect class="badge" x="242" y="196" width="200" height="24" rx="12"/>
+  <text class="badge-text" x="342" y="213">map</text>
+  <rect class="box" x="242" y="228" width="200" height="150" rx="10"/>
+  <text class="mono-mid" x="342" y="254">posts.map(p =&gt; p.id)</text>
+  <text class="result" x="342" y="280">"p001"</text>
+  <text class="result" x="342" y="300">"p002"</text>
+  <text class="result" x="342" y="320">"p003"</text>
+  <text class="caption" x="342" y="346">→ 3件のまま、形だけ変わる</text>
+  <text class="note" x="342" y="366">オブジェクト → 文字列</text>
+</g>
+
+<!-- column 3: find -->
+<g>
+  <rect class="badge" x="457" y="196" width="200" height="24" rx="12"/>
+  <text class="badge-text" x="557" y="213">find</text>
+  <rect class="box" x="457" y="228" width="200" height="150" rx="10"/>
+  <text class="mono-mid" x="557" y="256">findPost("p001")</text>
+  <text class="result" x="557" y="288">p001  likes:12</text>
+  <text class="note" x="557" y="316">見つからなければ undefined</text>
+  <text class="caption" x="557" y="346">→ 最初の1件だけ</text>
+  <text class="note" x="557" y="366">SQL基礎で1件も無いとき</text>
+</g>
+
+<!-- column 4: reduce -->
+<g>
+  <rect class="badge" x="672" y="196" width="200" height="24" rx="12"/>
+  <text class="badge-text" x="772" y="213">reduce</text>
+  <rect class="box" x="672" y="228" width="200" height="150" rx="10"/>
+  <text class="mono-mid" x="772" y="256">12 + 3 + 41</text>
+  <text class="result-big" x="772" y="304">56</text>
+  <text class="caption" x="772" y="342">→ 1つの値にまとまる</text>
+  <text class="note" x="772" y="366">SUM / COUNT と同じ発想</text>
+</g>
+
+<text class="foot" x="450" y="404">filterは減らす、mapは形を変える、findは1件だけ取り出す、reduceは1つにまとめる。「何をしても件数は変わらない」わけではありません。</text>
+
+</svg>

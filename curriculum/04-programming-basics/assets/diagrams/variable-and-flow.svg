@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1000 400" role="img" aria-label="プログラムが上から順に1行ずつ実行される様子と、変数という名前のついた箱の中身が行ごとに変化していく様子を並べた図。price に 1200 が入り、count に 3 が入り、total に price かける count の計算結果 3600 が入る。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .panel { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .ln { fill: #6d766f; font-family: ui-monospace, Consolas, monospace; font-size: 13px; text-anchor: end; }
+  .c { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-kw { fill: #c4a2ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; font-weight: 600; }
+  .c-name { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-num { fill: #ffd48a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-cmt { fill: #6d766f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+  .box { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .box-empty { fill: #ffffff; stroke: #c3cbc6; stroke-width: 1.4; stroke-dasharray: 4 3; }
+  .box-label { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .box-val { fill: #15191a; font-family: ui-monospace, Consolas, monospace; font-size: 17px; font-weight: 700; text-anchor: middle; }
+  .box-val-empty { fill: #a4ada7; font-family: ui-monospace, Consolas, monospace; font-size: 13px; text-anchor: middle; }
+  .step-lbl { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .down { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .icon { fill: #1f6f66; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .panel { fill: #1a1f1d; stroke: #2b3230; }
+    .head { fill: #e7ece9; }
+    .box { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-empty { fill: #1a1f1d; stroke: #3a423f; }
+    .box-label { fill: #86d6cb; }
+    .box-val { fill: #e7ece9; }
+    .box-val-empty { fill: #6d766f; }
+    .step-lbl { fill: #a9b3ac; }
+    .down { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="400"/>
+
+<defs>
+  <marker id="vfArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="head" x="30" y="34">プログラムは、上から1行ずつ実行される</text>
+<text class="head" x="530" y="34">そのとき「変数」という箱の中身は</text>
+
+<!-- code -->
+<rect class="term" x="30" y="48" width="450" height="292" rx="8"/>
+<text class="ln" x="70" y="86">1</text>
+<text x="86" y="86"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">price</tspan><tspan class="c"> = </tspan><tspan class="c-num">1200</tspan><tspan class="c">;</tspan></text>
+
+<text class="ln" x="70" y="128">2</text>
+<text x="86" y="128"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">count</tspan><tspan class="c"> = </tspan><tspan class="c-num">3</tspan><tspan class="c">;</tspan></text>
+
+<text class="ln" x="70" y="170">3</text>
+<text x="86" y="170"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">total</tspan><tspan class="c"> = </tspan><tspan class="c-name">price</tspan><tspan class="c"> * </tspan><tspan class="c-name">count</tspan><tspan class="c">;</tspan></text>
+
+<text class="ln" x="70" y="212">4</text>
+<text x="86" y="212"><tspan class="c">console.log(</tspan><tspan class="c-name">total</tspan><tspan class="c">);</tspan></text>
+
+<line class="rule" x1="60" y1="240" x2="450" y2="240"/>
+<text class="c-cmt" x="86" y="266">// 画面に出るもの:</text>
+<text x="86" y="292"><tspan class="c-num">3600</tspan></text>
+<text class="c-cmt" x="86" y="318">// 上の行が終わるまで、次の行は動かない</text>
+
+<!-- flow arrow -->
+<line class="down" x1="48" y1="74" x2="48" y2="218" marker-end="url(#vfArrow)"/>
+
+<!-- variable state panel -->
+<rect class="panel" x="510" y="48" width="460" height="292" rx="10"/>
+
+<!-- after line 1 -->
+<text class="step-lbl" x="600" y="82">1行目のあと</text>
+<rect class="box" x="536" y="92" width="128" height="56" rx="8"/>
+<text class="box-label" x="600" y="112">price</text>
+<text class="box-val" x="600" y="136">1200</text>
+
+<rect class="box-empty" x="686" y="92" width="128" height="56" rx="8"/>
+<text class="box-label" x="750" y="112">count</text>
+<text class="box-val-empty" x="750" y="134">まだ無い</text>
+
+<rect class="box-empty" x="836" y="92" width="110" height="56" rx="8"/>
+<text class="box-label" x="891" y="112">total</text>
+<text class="box-val-empty" x="891" y="134">まだ無い</text>
+
+<line class="rule" x1="536" y1="168" x2="946" y2="168"/>
+
+<!-- after line 3 -->
+<text class="step-lbl" x="600" y="196">3行目のあと</text>
+<rect class="box" x="536" y="206" width="128" height="56" rx="8"/>
+<text class="box-label" x="600" y="226">price</text>
+<text class="box-val" x="600" y="250">1200</text>
+
+<rect class="box" x="686" y="206" width="128" height="56" rx="8"/>
+<text class="box-label" x="750" y="226">count</text>
+<text class="box-val" x="750" y="250">3</text>
+
+<rect class="box" x="836" y="206" width="110" height="56" rx="8"/>
+<text class="box-label" x="891" y="226">total</text>
+<text class="box-val" x="891" y="250">3600</text>
+
+<text class="step-lbl" x="740" y="300">変数は「名前のついた箱」です。</text>
+<text class="step-lbl" x="740" y="322">中身は、その行が実行された瞬間に決まります。</text>
+
+<text class="foot" x="500" y="376">「なぜ動かないのか」を追うとき、あなたがやることはこの表を頭の中で作り直すことです。</text>
+
+</svg>

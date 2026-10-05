@@ -1,0 +1,10 @@
+[
+  { "id": "u1001", "displayName": "田中ゆき", "joinedAt": "2025-04-02", "isSuspended": false },
+  { "id": "u1002", "displayName": "佐藤けん", "joinedAt": "2025-04-11", "isSuspended": false },
+  { "id": "u1003", "displayName": "", "joinedAt": "2025-05-20", "isSuspended": false },
+  { "id": "u1004", "displayName": "鈴木あや", "joinedAt": "2025-06-01", "isSuspended": true },
+  { "id": "u1005", "displayName": "高橋りく", "joinedAt": "2025-06-14", "isSuspended": false },
+  { "id": "u1006", "displayName": "伊藤みなみ", "joinedAt": "2025-07-03", "isSuspended": false },
+  { "id": "u1007", "displayName": "渡辺そら", "joinedAt": "2025-08-19", "isSuspended": false },
+  { "id": "u1008", "displayName": "山本かおる", "joinedAt": "2025-09-07", "isSuspended": false }
+]

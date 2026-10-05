@@ -1,0 +1,62 @@
+<svg viewBox="0 0 640 260" role="img" aria-label="今日やること: 幅375pxのスマートフォン画面で.containerがwidth720px固定のためはみ出して横スクロールが出ている状態を、メディアクエリで幅375pxに収まる状態に直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .phone { fill: #ffffff; stroke: #6b746d; stroke-width: 2; }
+  .content-bad { fill: #f6dede; stroke: #a35555; stroke-width: 1.6; }
+  .content-ok { fill: #dcece8; stroke: #1f6f66; stroke-width: 1.6; }
+  .bar { fill: #b7bdb8; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .lbl { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: middle; }
+  .cap-warn { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .cap-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .arrow-label { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .phone { fill: #1a1f1d; stroke: #a9b3ac; }
+    .content-bad { fill: #2a1c1c; stroke: #e29a9a; }
+    .content-ok { fill: #16211f; stroke: #5fc0b3; }
+    .bar { fill: #4a524e; }
+    .t { fill: #e7ece9; }
+    .lbl { fill: #a9b3ac; }
+    .cap-warn { fill: #e29a9a; }
+    .cap-ok { fill: #86d6cb; }
+    .arrow-label { fill: #e7ece9; }
+    .arrow { stroke: #6b746d; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="260"/>
+
+<defs>
+  <marker id="rspArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- before: phone with overflowing container -->
+<text class="lbl" x="130" y="20">画面幅 375px</text>
+<rect class="phone" x="60" y="28" width="140" height="200" rx="14"/>
+<!-- overflowing content sticks out past the phone frame -->
+<rect class="content-bad" x="70" y="46" width="190" height="60" rx="4"/>
+<rect class="bar" x="80" y="56" width="80" height="8" rx="2"/>
+<rect class="bar" x="80" y="72" width="140" height="8" rx="2"/>
+<text class="cap-warn" x="130" y="248">横スクロールが出る(width:720px固定)</text>
+
+<line class="arrow" x1="270" y1="128" x2="330" y2="128" marker-end="url(#rspArrow)"/>
+<text class="arrow-label" x="300" y="112">@media</text>
+<text class="arrow-label" x="300" y="146">max-width</text>
+
+<!-- after: phone with fitted container -->
+<text class="lbl" x="440" y="20">画面幅 375px</text>
+<rect class="phone" x="370" y="28" width="140" height="200" rx="14"/>
+<rect class="content-ok" x="380" y="46" width="120" height="60" rx="4"/>
+<rect class="bar" x="388" y="56" width="70" height="8" rx="2"/>
+<rect class="bar" x="388" y="72" width="100" height="8" rx="2"/>
+<text class="cap-ok" x="440" y="248">画面内に収まる(width:100%)</text>
+
+<text class="foot" x="450" y="90">720px を境に、.container の幅の決め方が切り替わる</text>
+
+</svg>

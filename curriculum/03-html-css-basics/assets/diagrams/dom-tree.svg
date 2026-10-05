@@ -1,0 +1,103 @@
+<svg viewBox="0 0 1000 430" role="img" aria-label="HTMLのソースコードと、それをブラウザが解釈して作る木構造の対応図。左に入れ子になったHTMLのコードがあり、右にそれが html、body、header、main、h1、p という親子関係の木として展開されている。入れ子の深さがそのまま木の深さになる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .panel { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .c-gray { fill: #8b958e; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-tag { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; font-weight: 600; }
+  .c-text { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .node { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .node-text { fill: #ffffff; stroke: #b9c2bb; stroke-width: 1.4; }
+  .nname { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .nname-text { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .branch { stroke: #b9c2bb; stroke-width: 1.6; fill: none; }
+  .label { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+  .arrow-line { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .icon { fill: #1f6f66; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .kin { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .panel { fill: #1a1f1d; stroke: #2b3230; }
+    .node { fill: #1a1f1d; stroke: #5fc0b3; }
+    .node-text { fill: #1a1f1d; stroke: #3a423f; }
+    .nname { fill: #86d6cb; }
+    .nname-text { fill: #a9b3ac; }
+    .branch { stroke: #3a423f; }
+    .label { fill: #e7ece9; }
+    .arrow-line { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .kin { fill: #8d968f; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="430"/>
+
+<defs>
+  <marker id="dtArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="label" x="30" y="34">あなたが書くHTML</text>
+<text class="label" x="560" y="34">ブラウザが頭の中に作る木(DOM)</text>
+
+<!-- code -->
+<rect class="term" x="30" y="48" width="420" height="290" rx="8"/>
+<text class="c-tag" x="52" y="78">&lt;html&gt;</text>
+<text class="c-tag" x="72" y="104">&lt;body&gt;</text>
+<text class="c-tag" x="92" y="130">&lt;header&gt;</text>
+<text class="c-tag" x="112" y="156">&lt;h1&gt;<tspan class="c-text">お知らせ</tspan>&lt;/h1&gt;</text>
+<text class="c-tag" x="92" y="182">&lt;/header&gt;</text>
+<text class="c-tag" x="92" y="214">&lt;main&gt;</text>
+<text class="c-tag" x="112" y="240">&lt;p&gt;<tspan class="c-text">3月から始まります</tspan>&lt;/p&gt;</text>
+<text class="c-tag" x="92" y="266">&lt;/main&gt;</text>
+<text class="c-tag" x="72" y="292">&lt;/body&gt;</text>
+<text class="c-tag" x="52" y="318">&lt;/html&gt;</text>
+
+<line class="arrow-line" x1="464" y1="190" x2="524" y2="190" marker-end="url(#dtArrow)"/>
+
+<!-- tree -->
+<g>
+  <!-- branches -->
+  <path class="branch" d="M600 78 L600 118 L640 118"/>
+  <path class="branch" d="M660 138 L660 178 L700 178"/>
+  <path class="branch" d="M660 138 L660 258 L700 258"/>
+  <path class="branch" d="M720 198 L720 228 L760 228"/>
+  <path class="branch" d="M720 278 L720 308 L760 308"/>
+
+  <!-- html -->
+  <rect class="node" x="560" y="52" width="86" height="26" rx="6"/>
+  <text class="nname" x="603" y="70">html</text>
+
+  <!-- body -->
+  <rect class="node" x="640" y="105" width="86" height="26" rx="6"/>
+  <text class="nname" x="683" y="123">body</text>
+
+  <!-- header -->
+  <rect class="node" x="700" y="165" width="94" height="26" rx="6"/>
+  <text class="nname" x="747" y="183">header</text>
+  <text class="kin" x="806" y="183">body の子</text>
+
+  <!-- h1 -->
+  <rect class="node" x="760" y="215" width="70" height="26" rx="6"/>
+  <text class="nname" x="795" y="233">h1</text>
+  <text class="kin" x="842" y="233">header の子</text>
+
+  <!-- main -->
+  <rect class="node" x="700" y="245" width="86" height="26" rx="6"/>
+  <text class="nname" x="743" y="263">main</text>
+  <text class="kin" x="798" y="263">header の兄弟</text>
+
+  <!-- p -->
+  <rect class="node" x="760" y="295" width="70" height="26" rx="6"/>
+  <text class="nname" x="795" y="313">p</text>
+  <text class="kin" x="842" y="313">main の子</text>
+</g>
+
+<text class="foot" x="500" y="382">HTMLの入れ子の深さが、そのまま木の深さになります。</text>
+<text class="foot" x="500" y="406">CSSもJavaScriptも、この木をたどって目当ての要素を探します。だから木の形が読めることが先です。</text>
+
+</svg>

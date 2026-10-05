@@ -1,0 +1,131 @@
+<svg viewBox="0 0 1000 420" role="img" aria-label="インデックスの有無による検索の違いを表した図。インデックスが無いとテーブルの100万行を先頭から全部確認する全件走査になる。インデックスがあると本の索引と同じように目的の100行へ直接たどり着ける。実測では約32ミリ秒が約0.24ミリ秒になり、およそ130倍の差がついた。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .panel { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .panel-slow { fill: #ffffff; stroke: #c98a8a; stroke-width: 1.8; }
+  .panel-fast { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 700; }
+  .sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .plan { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; }
+  .plan-slow { fill: #a35555; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; }
+  .row-scan { fill: #f7e6e6; stroke: #dcbcbc; stroke-width: 0.8; }
+  .row-hit { fill: #d7e9e4; stroke: #1f6f66; stroke-width: 1.6; }
+  .rt { fill: #6b746d; font-family: ui-monospace, Consolas, monospace; font-size: 10px; }
+  .rt-hit { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 10px; font-weight: 700; }
+  .big { font-family: ui-monospace, Consolas, monospace; font-size: 23px; font-weight: 700; text-anchor: middle; }
+  .big-slow { fill: #a35555; }
+  .big-fast { fill: #1f6f66; }
+  .cap { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .ms { font-family: ui-monospace, Consolas, monospace; font-size: 17px; font-weight: 700; text-anchor: middle; }
+  .ms-slow { fill: #a35555; }
+  .ms-fast { fill: #1f6f66; }
+  .node { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.5; }
+  .nt { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .branch { stroke: #b9c2bb; stroke-width: 1.4; fill: none; }
+  .path { stroke: #1f6f66; stroke-width: 2.2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .q { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .note { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .panel { fill: #1a1f1d; stroke: #2b3230; }
+    .panel-slow { fill: #1a1f1d; stroke: #9c6a6a; }
+    .panel-fast { fill: #1a1f1d; stroke: #5fc0b3; }
+    .title { fill: #e7ece9; }
+    .sub { fill: #a9b3ac; }
+    .plan { fill: #86d6cb; }
+    .plan-slow { fill: #e29a9a; }
+    .row-scan { fill: #2e2222; stroke: #4a3636; }
+    .row-hit { fill: #24403b; stroke: #5fc0b3; }
+    .rt { fill: #8d968f; }
+    .rt-hit { fill: #86d6cb; }
+    .big-slow { fill: #e29a9a; }
+    .big-fast { fill: #5fc0b3; }
+    .cap { fill: #a9b3ac; }
+    .ms-slow { fill: #e29a9a; }
+    .ms-fast { fill: #5fc0b3; }
+    .node { fill: #1a1f1d; stroke: #5fc0b3; }
+    .nt { fill: #86d6cb; }
+    .branch { stroke: #3a423f; }
+    .path { stroke: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .q { fill: #86d6cb; }
+    .note { fill: #8d968f; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="420"/>
+
+<text class="q" x="500" y="30">SELECT * FROM access_logs WHERE user_id = 'u3391';   — 100万行から、該当する100行を探す</text>
+
+<!-- LEFT: no index -->
+<g>
+  <rect class="panel-slow" x="30" y="48" width="450" height="272" rx="10"/>
+  <text class="title" x="54" y="78">インデックスが無いとき</text>
+  <text class="plan-slow" x="54" y="100">Seq Scan</text>
+  <text class="sub" x="130" y="100">先頭から1行ずつ、全部の行を確認する</text>
+
+  <g>
+    <rect class="row-scan" x="54" y="116" width="180" height="16" rx="3"/><text class="rt" x="60" y="128">u1043  ちがう</text>
+    <rect class="row-scan" x="54" y="136" width="180" height="16" rx="3"/><text class="rt" x="60" y="148">u2287  ちがう</text>
+    <rect class="row-scan" x="54" y="156" width="180" height="16" rx="3"/><text class="rt" x="60" y="168">u4415  ちがう</text>
+    <rect class="row-scan" x="54" y="176" width="180" height="16" rx="3"/><text class="rt" x="60" y="188">u8834  ちがう</text>
+    <rect class="row-scan" x="54" y="196" width="180" height="16" rx="3"/><text class="rt" x="60" y="208">u2287  ちがう</text>
+    <text class="rt" x="60" y="230">      ︙  (99万行以上つづく)</text>
+    <rect class="row-hit" x="54" y="240" width="180" height="16" rx="3"/><text class="rt-hit" x="60" y="252">u3391  あった</text>
+    <text class="rt" x="60" y="276">      ︙  (最後まで止まらない)</text>
+  </g>
+
+  <text class="big big-slow" x="360" y="168">1,000,000</text>
+  <text class="cap" x="360" y="190">行すべてを確認</text>
+  <text class="ms ms-slow" x="360" y="238">約 32 ms</text>
+</g>
+
+<!-- RIGHT: with index -->
+<g>
+  <rect class="panel-fast" x="520" y="48" width="450" height="272" rx="10"/>
+  <text class="title" x="544" y="78">インデックスがあるとき</text>
+  <text class="plan" x="544" y="100">Bitmap Index Scan</text>
+  <text class="sub" x="674" y="100">索引をたどって、該当行に直接届く</text>
+
+  <g>
+    <path class="branch" d="M640 146 L600 146 L600 180"/>
+    <path class="branch" d="M640 146 L688 146 L688 180"/>
+    <path class="branch" d="M688 198 L656 198 L656 232"/>
+    <path class="branch" d="M688 198 L724 198 L724 232"/>
+
+    <rect class="node" x="600" y="128" width="86" height="20" rx="4"/>
+    <text class="nt" x="643" y="142">u4415 ?</text>
+
+    <rect class="node" x="562" y="180" width="76" height="20" rx="4"/>
+    <text class="nt" x="600" y="194">u1500</text>
+
+    <rect class="node" x="650" y="180" width="76" height="20" rx="4"/>
+    <text class="nt" x="688" y="194">u3391 ?</text>
+
+    <rect class="node" x="618" y="232" width="76" height="20" rx="4"/>
+    <text class="nt" x="656" y="246">u2900</text>
+
+    <rect class="node" x="702" y="232" width="76" height="20" rx="4"/>
+    <text class="nt" x="740" y="246">u3800</text>
+
+    <path class="path" d="M643 150 L688 176"/>
+    <path class="path" d="M688 202 L688 218"/>
+    <rect class="node" x="640" y="266" width="100" height="20" rx="4"/>
+    <text class="nt" x="690" y="280">該当の100行</text>
+    <path class="path" d="M688 252 L688 262"/>
+  </g>
+
+  <text class="big big-fast" x="866" y="168">100</text>
+  <text class="cap" x="866" y="190">行だけを確認</text>
+  <text class="ms ms-fast" x="866" y="238">約 0.24 ms</text>
+</g>
+
+<line class="rule" x1="30" y1="336" x2="970" y2="336"/>
+<text class="foot" x="500" y="362">インデックスは「本の巻末の索引」です。無くても答えは出ますが、全ページをめくることになります。</text>
+<text class="foot" x="500" y="386">この測定では、同じ答えを出すのに約 130 倍の差がつきました。</text>
+<text class="note" x="500" y="408">実測値(PostgreSQL 17 / 100万行)。数字は環境によって変わります。大事なのは「何倍違うか」と、確認した行数です。</text>
+
+</svg>

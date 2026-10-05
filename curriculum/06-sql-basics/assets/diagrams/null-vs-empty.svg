@@ -1,0 +1,87 @@
+<svg viewBox="0 0 900 400" role="img" aria-label="NULLと空文字の違いを示す図。空文字は長さ0の文字列が実際に入っている状態、NULLは値の有無すら判定できない特別な状態であり、値がある場合とあわせて3つの状態を対比する。実際のusersテーブルでは空文字を検索すると0件、NULLを検索すると全員にあたる7件が返る。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .cap { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .cell { fill: #eef1ef; stroke: #465049; stroke-width: 1.4; }
+  .cell-null { fill: none; stroke: #8d968f; stroke-width: 1.4; stroke-dasharray: 4 3; }
+  .cell-text { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .cell-null-text { fill: #8d968f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-style: italic; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  .query { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: middle; }
+  .result-zero { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 34px; font-weight: 700; text-anchor: middle; }
+  .result-seven { fill: #a8792f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 34px; font-weight: 700; text-anchor: middle; }
+  .panel { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .panel-warn { fill: #ffffff; stroke: #a8792f; stroke-width: 2; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .t { fill: #e7ece9; }
+    .cap { fill: #a9b3ac; }
+    .cell { fill: #121615; stroke: #a9b3ac; }
+    .cell-null { stroke: #6b746d; }
+    .cell-text { fill: #e7ece9; }
+    .cell-null-text { fill: #6b746d; }
+    .rule { stroke: #2b3230; }
+    .query { fill: #a9b3ac; }
+    .result-zero { fill: #a9b3ac; }
+    .result-seven { fill: #e0bc7c; }
+    .panel { fill: #1a1f1d; stroke: #2b3230; }
+    .panel-warn { fill: #1a1f1d; stroke: #e0bc7c; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="400"/>
+
+<text class="head" x="450" y="26">NULLと空文字('')は、同じ「空っぽ」に見えても別のものです</text>
+
+<!-- row 1: three conceptual states -->
+<g>
+  <rect class="box" x="40" y="48" width="260" height="140" rx="10"/>
+  <text class="t" x="170" y="74">空文字 ''</text>
+  <rect class="cell" x="125" y="100" width="90" height="40" rx="6"/>
+  <text class="cell-text" x="170" y="126">''</text>
+  <text class="cap" x="170" y="176">長さ0の文字列が実際に入っている</text>
+</g>
+
+<g>
+  <rect class="box" x="320" y="48" width="260" height="140" rx="10"/>
+  <text class="t" x="450" y="74">NULL</text>
+  <rect class="cell-null" x="405" y="100" width="90" height="40" rx="6"/>
+  <text class="cell-null-text" x="450" y="126">?</text>
+  <text class="cap" x="450" y="176">値の有無すら判定できない特別な状態</text>
+</g>
+
+<g>
+  <rect class="box" x="600" y="48" width="260" height="140" rx="10"/>
+  <text class="t" x="730" y="74">値がある場合</text>
+  <rect class="cell" x="685" y="100" width="90" height="40" rx="6"/>
+  <text class="cell-text" x="730" y="126">たなか</text>
+  <text class="cap" x="730" y="176">実際の値が入っている</text>
+</g>
+
+<line class="rule" x1="40" y1="200" x2="860" y2="200"/>
+
+<!-- row 2: real query results -->
+<g>
+  <rect class="panel" x="40" y="214" width="380" height="140" rx="10"/>
+  <text class="query" x="230" y="240">SELECT * FROM users WHERE nickname = '';</text>
+  <text class="result-zero" x="230" y="300">0件</text>
+  <text class="cap" x="230" y="334">空文字と完全一致する人はいない</text>
+</g>
+
+<g>
+  <rect class="panel-warn" x="460" y="214" width="380" height="140" rx="10"/>
+  <text class="query" x="650" y="240">SELECT * FROM users WHERE nickname IS NULL;</text>
+  <text class="result-seven" x="650" y="300">7件</text>
+  <text class="cap" x="650" y="334">usersテーブルの全員(7人)が対象になる</text>
+</g>
+
+<text class="foot" x="450" y="388">nicknameは全員が未設定(NULL)。空文字で探すと0件、NULLで探すと全員が該当する — この差が実務の事故につながります。</text>
+
+</svg>

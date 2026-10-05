@@ -1,0 +1,73 @@
+<svg viewBox="0 0 900 220" role="img" aria-label="今日やること: main.tsからtimeline.ts、post.tsへと呼び出しが連鎖し、findUserがu9021のユーザー情報を見つけられずundefinedを返し、その先でTypeErrorが起きる。スタックトレースを頼りに、どの呼び出しの連鎖のどこで壊れたかを特定する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg { fill: #1f6f66; }
+  .num-bg-err { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: middle; }
+  .code { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: middle; }
+  .code-err { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .arrow { stroke: #6b746d; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="220"/>
+
+<defs>
+  <marker id="atArrowS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1 -->
+<circle class="num-bg" cx="90" cy="24" r="12"/><text class="num" x="90" y="29">1</text>
+<rect class="win" x="20" y="44" width="140" height="70" rx="6"/>
+<text class="win-title" x="90" y="60">main.ts</text>
+<text class="code" x="90" y="88">renderTimeline()</text>
+
+<line class="arrow" x1="164" y1="79" x2="196" y2="79" marker-end="url(#atArrowS)"/>
+
+<!-- step 2 -->
+<circle class="num-bg" cx="270" cy="24" r="12"/><text class="num" x="270" y="29">2</text>
+<rect class="win" x="200" y="44" width="140" height="70" rx="6"/>
+<text class="win-title" x="270" y="60">timeline.ts</text>
+<text class="code" x="270" y="88">renderPost(p004)</text>
+
+<line class="arrow" x1="344" y1="79" x2="376" y2="79" marker-end="url(#atArrowS)"/>
+
+<!-- step 3 -->
+<circle class="num-bg" cx="450" cy="24" r="12"/><text class="num" x="450" y="29">3</text>
+<rect class="win" x="380" y="44" width="140" height="70" rx="6"/>
+<text class="win-title" x="450" y="60">post.ts</text>
+<text class="code" x="450" y="88">findUser("u9021")</text>
+
+<line class="arrow" x1="524" y1="79" x2="556" y2="79" marker-end="url(#atArrowS)"/>
+
+<!-- step 4 -->
+<circle class="num-bg" cx="630" cy="24" r="12"/><text class="num" x="630" y="29">4</text>
+<rect class="win" x="560" y="44" width="140" height="70" rx="6"/>
+<text class="win-title" x="630" y="60">data.ts</text>
+<text class="code" x="630" y="88">users.find(...)</text>
+<text class="code" x="630" y="102">→ 見つからない</text>
+
+<line class="arrow" x1="704" y1="79" x2="736" y2="79" marker-end="url(#atArrowS)"/>
+
+<!-- step 5: error -->
+<circle class="num-bg-err" cx="810" cy="24" r="12"/><text class="num" x="810" y="29">5</text>
+<rect class="win" x="740" y="44" width="140" height="70" rx="6"/>
+<text class="win-title" x="810" y="60">TypeError</text>
+<text class="code-err" x="810" y="82">user.isPremium</text>
+<text class="code-err" x="810" y="98">undefinedを読んだ</text>
+
+<text class="foot" x="450" y="150">u9021は退会済みなのに投稿(p004)だけ残っている。「as User」が型チェックをすり抜けさせている</text>
+<text class="foot" x="450" y="172">スタックトレースを下から上に読み、この呼び出しの連鎖のどこで壊れたかを自分でたどる</text>
+
+</svg>

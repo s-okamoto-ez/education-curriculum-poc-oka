@@ -1,0 +1,49 @@
+<svg viewBox="0 0 700 250" role="img" aria-label="今日やること: 演習10で自分が作ったnew-usersコマンドを、思いつきではなく観点表で試す。ふつうの年月2025-06、該当者がいない2030-01、引数なし、月が範囲外の2025-13、1桁の2025-6、数字でない文字列、区切りが違う2025スラッシュ06の7つを先に予測してから実行し、壊れたものを再現手順つきの不具合票にまとめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-warn { stroke: #a8792f; }
+  .win-ok { stroke: #1f6f66; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-warn { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .arrow { stroke: #465049; stroke-width: 1.4; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .arrow { stroke: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="250"/>
+
+<!-- left: what you tried in exercise 10 -->
+<text class="t" x="150" y="24">演習10で試したこと</text>
+<rect class="win win-ok" x="24" y="34" width="252" height="76" rx="6"/>
+<text class="win-title" x="36" y="52">$ node src/main.ts new-users …</text>
+<text class="code-ok" x="36" y="74">2025-06   ふつうに使う</text>
+<text class="code-ok" x="36" y="92">2030-01   該当者なし</text>
+
+<!-- right: the rest of the table -->
+<text class="t" x="490" y="24">今日そこに足す観点</text>
+<rect class="win win-warn" x="364" y="34" width="312" height="148" rx="6"/>
+<text class="win-title" x="376" y="52">$ node src/main.ts new-users …</text>
+<text class="code-warn" x="376" y="74">(なし)    何も渡さない</text>
+<text class="code-warn" x="376" y="92">2025-13   月が範囲外</text>
+<text class="code-warn" x="376" y="110">2025-6    月が1桁</text>
+<text class="code-warn" x="376" y="128">らりるれろ  数字ですらない</text>
+<text class="code-warn" x="376" y="146">2025/06   区切りが違う</text>
+<text class="code" x="376" y="168">→ 壊れたものを不具合票へ</text>
+
+<!-- arrow between -->
+<path class="arrow" d="M286 72 L354 72"/>
+<path class="arrow" d="M346 66 L354 72 L346 78"/>
+
+<text class="foot" x="350" y="212">打つ前に予測を書く。エラーが出ること自体は不具合ではない</text>
+<text class="foot" x="350" y="232">危ないのは、間違いに気づけないまま0件と表示されるほう</text>
+
+</svg>

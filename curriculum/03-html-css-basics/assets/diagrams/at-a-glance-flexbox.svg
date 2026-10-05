@@ -1,0 +1,81 @@
+<svg viewBox="0 0 900 250" role="img" aria-label="今日やること: 縦に積み上がっている.statsの3つの数字と.tagsのタグ一覧を、display:flexとgapで横並びに組み、tagsはflex-wrapで折り返すようにする。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box-before { fill: #ffffff; stroke: #a35555; stroke-width: 1.6; }
+  .box-after { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.6; }
+  .chip { fill: #dcece8; stroke: #1f6f66; stroke-width: 1.2; }
+  .chip-num { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .pill { fill: #eef1ef; stroke: #b7bdb8; stroke-width: 1.2; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .badge-before { fill: #a35555; }
+  .badge-after { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .lbl { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .arrow-label { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box-before { fill: #1a1f1d; stroke: #e29a9a; }
+    .box-after { fill: #1a1f1d; stroke: #5fc0b3; }
+    .chip { fill: #16211f; stroke: #5fc0b3; }
+    .chip-num { fill: #86d6cb; }
+    .pill { fill: #1a1f1d; stroke: #4a524e; }
+    .t { fill: #e7ece9; }
+    .lbl { fill: #a9b3ac; }
+    .arrow-label { fill: #e7ece9; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="250"/>
+
+<defs>
+  <marker id="fbArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- row 1: .stats -->
+<text class="lbl" x="20" y="24">.stats</text>
+
+<rect class="badge-before" x="20" y="34" width="60" height="20" rx="10"/>
+<text class="badge-text" x="50" y="48">before</text>
+<rect class="box-before" x="20" y="60" width="60" height="80" rx="6"/>
+<rect class="chip" x="26" y="66" width="48" height="20" rx="4"/><text class="chip-num" x="50" y="80">128</text>
+<rect class="chip" x="26" y="90" width="48" height="20" rx="4"/><text class="chip-num" x="50" y="104">32</text>
+<rect class="chip" x="26" y="114" width="48" height="20" rx="4"/><text class="chip-num" x="50" y="128">8</text>
+
+<line class="arrow" x1="90" y1="100" x2="150" y2="100" marker-end="url(#fbArrow)"/>
+<text class="arrow-label" x="120" y="90">flex</text>
+<text class="arrow-label" x="120" y="115">+gap</text>
+
+<rect class="badge-after" x="160" y="34" width="60" height="20" rx="10"/>
+<text class="badge-text" x="190" y="48">after</text>
+<rect class="box-after" x="160" y="60" width="260" height="80" rx="6"/>
+<rect class="chip" x="174" y="88" width="56" height="24" rx="4"/><text class="chip-num" x="202" y="104">128</text>
+<rect class="chip" x="262" y="88" width="56" height="24" rx="4"/><text class="chip-num" x="290" y="104">32</text>
+<rect class="chip" x="350" y="88" width="56" height="24" rx="4"/><text class="chip-num" x="378" y="104">8</text>
+
+<!-- row 2: .tags -->
+<text class="lbl" x="480" y="24">.tags(幅を狭めると)</text>
+
+<rect class="badge-before" x="480" y="34" width="60" height="20" rx="10"/>
+<text class="badge-text" x="510" y="48">before</text>
+<rect class="box-before" x="480" y="60" width="150" height="80" rx="6"/>
+<rect class="pill" x="490" y="68" width="60" height="16" rx="8"/>
+<rect class="pill" x="490" y="90" width="90" height="16" rx="8"/>
+<rect class="pill" x="490" y="112" width="110" height="16" rx="8"/>
+
+<line class="arrow" x1="640" y1="100" x2="700" y2="100" marker-end="url(#fbArrow)"/>
+<text class="arrow-label" x="670" y="90">wrap</text>
+
+<rect class="badge-after" x="710" y="34" width="60" height="20" rx="10"/>
+<text class="badge-text" x="740" y="48">after</text>
+<rect class="box-after" x="710" y="60" width="170" height="80" rx="6"/>
+<rect class="pill" x="720" y="68" width="60" height="16" rx="8"/>
+<rect class="pill" x="786" y="68" width="80" height="16" rx="8"/>
+<rect class="pill" x="720" y="92" width="90" height="16" rx="8"/>
+
+<text class="t" x="450" y="230">縦積みを横並びに組み、幅が足りないタグは折り返す</text>
+
+</svg>

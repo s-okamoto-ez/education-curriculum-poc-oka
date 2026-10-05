@@ -1,0 +1,70 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: 100万行あるaccess_logsからuser_id=u3391の100件を探すクエリを、インデックスが無い状態でSeq Scanとして実測し、インデックスを作ってIndex Scanに変わることで何倍速くなるかを数字で確かめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #a35555; }
+  .num-bg-2 { fill: #a8792f; }
+  .num-bg-3 { fill: #1f6f66; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-ng { fill: #1a1f1d; stroke: #9c6a6a; stroke-width: 2; }
+  .win-ok { fill: #1a1f1d; stroke: #5fc0b3; stroke-width: 2; }
+  .row { fill: #dfe3e0; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .row-ng { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .row-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<defs>
+  <marker id="eiArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1: no index -->
+<circle class="num-bg-1" cx="130" cy="24" r="12"/><text class="num" x="130" y="29">1</text>
+<text class="t" x="130" y="48">測る(インデックス無し)</text>
+
+<rect class="win-ng" x="20" y="58" width="220" height="130" rx="6"/>
+<text class="row" x="30" y="78">EXPLAIN ANALYZE</text>
+<text class="row" x="30" y="92">WHERE user_id='u3391'</text>
+<text class="row-ng" x="30" y="118">Seq Scan</text>
+<text class="row" x="30" y="136">100万行を全部読む</text>
+<text class="row" x="30" y="154">→ 該当は100件だけ</text>
+
+<line class="arrow" x1="248" y1="123" x2="292" y2="123" marker-end="url(#eiArrow)"/>
+
+<!-- step 2: create index -->
+<circle class="num-bg-2" cx="420" cy="24" r="12"/><text class="num" x="420" y="29">2</text>
+<text class="t" x="420" y="48">索引を作る</text>
+
+<rect class="win" x="300" y="58" width="240" height="130" rx="6"/>
+<text class="row" x="310" y="90">CREATE INDEX</text>
+<text class="row" x="310" y="104">  idx_access_logs_user_id</text>
+<text class="row" x="310" y="118">  ON access_logs (user_id);</text>
+
+<line class="arrow" x1="548" y1="123" x2="592" y2="123" marker-end="url(#eiArrow)"/>
+
+<!-- step 3: index scan -->
+<circle class="num-bg-3" cx="710" cy="24" r="12"/><text class="num" x="710" y="29">3</text>
+<text class="t" x="710" y="48">測り直す(索引あり)</text>
+
+<rect class="win-ok" x="600" y="58" width="280" height="130" rx="6"/>
+<text class="row" x="610" y="78">EXPLAIN ANALYZE</text>
+<text class="row" x="610" y="92">WHERE user_id='u3391'</text>
+<text class="row-ok" x="610" y="118">Index Scan</text>
+<text class="row" x="610" y="136">該当する100件だけ読む</text>
+<text class="row" x="610" y="154">→ 何倍速くなったか記録する</text>
+
+<text class="s" x="450" y="230">影響するのは常に「同じ access_logs テーブル」です。推測せず、EXPLAIN ANALYZE で実測してから判断する</text>
+
+</svg>

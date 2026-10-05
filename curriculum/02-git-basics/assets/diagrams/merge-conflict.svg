@@ -1,0 +1,100 @@
+<svg viewBox="0 0 1000 380" role="img" aria-label="マージコンフリクトが起きる仕組みの図。mainブランチから枝分かれしたbranch-aとbranch-bが、同じファイルの同じ行をそれぞれ別の内容に変更してコミットする。branch-aを先にmainへ取り込んだ後、branch-bを取り込もうとすると、Gitはどちらを正しい内容とすればよいか自動で決められず、コンフリクトとして人間に判断を委ねる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .node { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .node-a { fill: #ffffff; stroke: #4a7fb0; stroke-width: 1.8; }
+  .node-b { fill: #ffffff; stroke: #8a5fc0; stroke-width: 1.8; }
+  .node-conflict { fill: #ffffff; stroke: #a35555; stroke-width: 2.4; }
+  .nlabel { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .nlabel-a { fill: #2f5f85; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .nlabel-b { fill: #6a4590; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .nlabel-conflict { fill: #a35555; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .line { stroke: #b9c2bb; stroke-width: 2; fill: none; }
+  .line-a { stroke: #4a7fb0; stroke-width: 2; fill: none; }
+  .line-b { stroke: #8a5fc0; stroke-width: 2; fill: none; }
+  .branch-tag { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; }
+  .content { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .content-code { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
+  .content-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .node { fill: #1a1f1d; stroke: #5fc0b3; }
+    .node-a { fill: #1a1f1d; stroke: #7fb0e0; }
+    .node-b { fill: #1a1f1d; stroke: #b090e0; }
+    .node-conflict { fill: #1a1f1d; stroke: #e29a9a; }
+    .nlabel { fill: #86d6cb; }
+    .nlabel-a { fill: #9dc4ea; }
+    .nlabel-b { fill: #cdb0ea; }
+    .nlabel-conflict { fill: #e29a9a; }
+    .line { stroke: #3a423f; }
+    .line-a { stroke: #7fb0e0; }
+    .line-b { stroke: #b090e0; }
+    .branch-tag { fill: #a9b3ac; }
+    .content { fill: #1a1f1d; stroke: #2b3230; }
+    .content-code { fill: #a9b3ac; }
+    .content-title { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="380"/>
+
+<!-- main line -->
+<path class="line" d="M40 70 L280 70"/>
+<circle class="node" cx="40" cy="70" r="9"/>
+<text class="branch-tag" x="20" y="50">main</text>
+
+<!-- branch out -->
+<path class="line-a" d="M280 70 L360 40 L480 40"/>
+<path class="line-b" d="M280 70 L360 100 L480 100"/>
+<circle class="node" cx="280" cy="70" r="9"/>
+<text class="nlabel" x="280" y="94">チームメモを追加</text>
+
+<circle class="node-a" cx="480" cy="40" r="9"/>
+<text class="branch-tag" x="500" y="20">branch-a</text>
+<text class="nlabel-a" x="480" y="18">ミーティング日程を確定</text>
+
+<circle class="node-b" cx="480" cy="100" r="9"/>
+<text class="branch-tag" x="500" y="132">branch-b</text>
+<text class="nlabel-b" x="480" y="126">日程調整の方針を記録</text>
+
+<!-- merge a into main -->
+<path class="line-a" d="M480 40 L620 40 L680 70"/>
+<circle class="node" cx="680" cy="70" r="9"/>
+<text class="nlabel" x="680" y="94">merge a</text>
+
+<!-- attempt merge b -->
+<path class="line-b" d="M480 100 L620 100 L680 70" stroke-dasharray="5 4"/>
+<path class="line" d="M680 70 L800 70"/>
+<circle class="node-conflict" cx="800" cy="70" r="11"/>
+<text class="nlabel-conflict" x="800" y="50">コンフリクト</text>
+
+<!-- content boxes: what each branch wrote -->
+<g>
+  <rect class="content" x="40" y="180" width="280" height="90" rx="8"/>
+  <text class="content-title" x="56" y="204">branch-a が書いた行</text>
+  <text class="content-code" x="56" y="230">## 次回ミーティング</text>
+  <text class="content-code" x="56" y="248">8月28日(金) 14:00〜</text>
+</g>
+
+<g>
+  <rect class="content" x="360" y="180" width="280" height="90" rx="8"/>
+  <text class="content-title" x="376" y="204">branch-b が書いた行</text>
+  <text class="content-code" x="376" y="230">## 次回ミーティング</text>
+  <text class="content-code" x="376" y="248">来週、日程調整アンケートを</text>
+  <text class="content-code" x="376" y="264">送ります</text>
+</g>
+
+<g>
+  <rect class="node-conflict" x="680" y="180" width="280" height="90" rx="8" fill-opacity="0.06"/>
+  <text class="content-title" x="696" y="204">Gitには決められない</text>
+  <text class="content-code" x="696" y="228">同じ行が、2通りに</text>
+  <text class="content-code" x="696" y="246">変わっている</text>
+  <text class="content-code" x="696" y="264">→ 人間に判断を委ねる</text>
+</g>
+
+<text class="foot" x="500" y="332">同じ行を、別々のブランチが別々に変えたとき、Gitはどちらが「正しい」かを自動で決められません。</text>
+<text class="foot" x="500" y="356">これがコンフリクトです。壊れたわけではなく、判断を求められているだけです。</text>
+
+</svg>

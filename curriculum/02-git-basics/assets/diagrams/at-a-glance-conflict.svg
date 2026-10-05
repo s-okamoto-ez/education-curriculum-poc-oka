@@ -1,0 +1,79 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: team-notes.mdの同じ行を、branch-aとbranch-bがそれぞれ違う内容に書き換え、mainに両方取り込もうとするとその行にコンフリクトの印が入り、自分の手で1行にまとめて解決する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #a8792f; }
+  .num-bg-3 { fill: #a35555; }
+  .num-bg-4 { fill: #1f6f66; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .line-dim { fill: #4a524e; }
+  .line-a { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .line-b { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .line-conflict-mark { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .line-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<defs>
+  <marker id="agArrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- ============ step 1: two branches edit the same line differently ============ -->
+<circle class="num-bg-1" cx="130" cy="24" r="12"/><text class="num" x="130" y="29">1</text>
+<text class="t" x="130" y="48">同じ行を別々に変更</text>
+
+<!-- branch-a window -->
+<rect class="win" x="20" y="58" width="220" height="60" rx="6"/>
+<text class="win-title" x="30" y="72">team-notes.md (branch-a)</text>
+<rect class="line-dim" x="30" y="80" width="120" height="7" rx="2"/>
+<text class="line-a" x="30" y="100">日時: 8/28(金)14:00〜</text>
+
+<!-- branch-b window -->
+<rect class="win" x="20" y="128" width="220" height="60" rx="6"/>
+<text class="win-title" x="30" y="142">team-notes.md (branch-b)</text>
+<rect class="line-dim" x="30" y="150" width="120" height="7" rx="2"/>
+<text class="line-b" x="30" y="170">日時: アンケートで調整</text>
+
+<line class="arrow" x1="248" y1="123" x2="292" y2="123" marker-end="url(#agArrow3)"/>
+
+<!-- ============ step 2: merge -> conflict markers appear on that line ============ -->
+<circle class="num-bg-2" cx="420" cy="24" r="12"/><text class="num" x="420" y="29">2</text>
+<text class="t" x="420" y="48">main に取り込むと衝突</text>
+
+<rect class="win" x="300" y="58" width="240" height="130" rx="6"/>
+<text class="win-title" x="310" y="72">team-notes.md (main)</text>
+<rect class="line-dim" x="310" y="80" width="120" height="7" rx="2"/>
+<text class="line-conflict-mark" x="310" y="98">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</text>
+<text class="line-a" x="310" y="114">日時: 8/28(金)14:00〜</text>
+<text class="line-conflict-mark" x="310" y="130">=======</text>
+<text class="line-b" x="310" y="146">日時: アンケートで調整</text>
+<text class="line-conflict-mark" x="310" y="162">&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-b</text>
+
+<line class="arrow" x1="548" y1="123" x2="592" y2="123" marker-end="url(#agArrow3)"/>
+
+<!-- ============ step 3: resolved into one line ============ -->
+<circle class="num-bg-3" cx="710" cy="24" r="12"/><text class="num" x="710" y="29">3</text>
+<text class="t" x="710" y="48">自分の手で1行にまとめる</text>
+
+<rect class="win" x="600" y="58" width="240" height="60" rx="6"/>
+<text class="win-title" x="610" y="72">team-notes.md (main)</text>
+<rect class="line-dim" x="610" y="80" width="120" height="7" rx="2"/>
+<text class="line-ok" x="610" y="100">日時: 8/28(金)14:00〜に決定</text>
+
+<text class="s" x="450" y="230">影響するのは常に「同じファイルの同じ行」です。印を消して、正しい内容にしてから add → commit する</text>
+
+</svg>

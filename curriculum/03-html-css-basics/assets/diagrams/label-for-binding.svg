@@ -1,0 +1,148 @@
+<svg viewBox="0 0 640 520" role="img" aria-label="labelのfor属性がinputのidと一致していればクリックで入力欄にカーソルが移るが、for属性が無いと反応しない。同様にdivで作ったボタンはTabキーで選べないが、buttonタグなら選べて Enter で送信できる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .badge-ok { fill: #1f6f66; }
+  .badge-ng { fill: #a35555; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .box-ok { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .box-ng { fill: #ffffff; stroke: #a35555; stroke-width: 2; }
+  .code { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; }
+  .label-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .label-ng { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .caption-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .caption-ng { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .note-ng { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; text-anchor: start; }
+  .conn-ok { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .conn-ng { stroke: #a35555; stroke-width: 1.6; fill: none; stroke-dasharray: 3 3; }
+  .mark-ok { fill: #1f6f66; font-family: ui-monospace, Consolas, monospace; font-size: 15px; font-weight: 700; text-anchor: middle; }
+  .mark-ng { fill: #a35555; font-family: ui-monospace, Consolas, monospace; font-size: 15px; font-weight: 700; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1; stroke-dasharray: 4 4; }
+  .pill-ok { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.6; }
+  .pill-ng { fill: #ffffff; stroke: #a35555; stroke-width: 1.6; stroke-dasharray: 4 3; }
+  .pill-text { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .pill-text-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .pill-text-ng { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .gap-arrow { fill: #8d968f; font-family: ui-monospace, Consolas, monospace; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .badge-ok { fill: #1f6f66; }
+    .badge-ng { fill: #9c6a6a; }
+    .box-ok { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-ng { fill: #1a1f1d; stroke: #9c6a6a; }
+    .code { fill: #e7ece9; }
+    .label-ok { fill: #86d6cb; }
+    .label-ng { fill: #e29a9a; }
+    .caption-ok { fill: #86d6cb; }
+    .caption-ng { fill: #e29a9a; }
+    .note-ng { fill: #e29a9a; }
+    .conn-ok { stroke: #5fc0b3; }
+    .conn-ng { stroke: #e29a9a; }
+    .mark-ok { fill: #5fc0b3; }
+    .mark-ng { fill: #e29a9a; }
+    .rule { stroke: #2b3230; }
+    .pill-ok { fill: #1a1f1d; stroke: #5fc0b3; }
+    .pill-ng { fill: #1a1f1d; stroke: #9c6a6a; }
+    .pill-text { fill: #e7ece9; }
+    .pill-text-ok { fill: #86d6cb; }
+    .pill-text-ng { fill: #e29a9a; }
+    .gap-arrow { fill: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="520"/>
+
+<text class="head" x="320" y="26">for属性の有無で、ラベルをクリックして入力欄に移動できるかが決まります</text>
+
+<!-- ============ Left: for あり ============ -->
+<rect class="badge-ok" x="20" y="50" width="70" height="22" rx="11"/>
+<text class="badge-text" x="55" y="65">for あり</text>
+
+<rect class="box-ok" x="20" y="82" width="280" height="50" rx="8"/>
+<text class="code" x="40" y="104">&lt;label for="name"&gt;</text>
+<text class="label-ok" x="40" y="122">お名前</text>
+
+<line class="conn-ok" x1="160" y1="132" x2="160" y2="172"/>
+<text class="note-ng" x="172" y="155" fill="#164f48">id="name" と一致</text>
+
+<rect class="box-ok" x="20" y="172" width="280" height="46" rx="8"/>
+<text class="code" x="40" y="200">&lt;input id="name"&gt;</text>
+
+<text class="caption-ok" x="160" y="238">クリックすると入力欄にカーソルが移る</text>
+
+<!-- ============ Right: for なし ============ -->
+<rect class="badge-ng" x="340" y="50" width="70" height="22" rx="11"/>
+<text class="badge-text" x="375" y="65">for なし</text>
+
+<rect class="box-ng" x="340" y="82" width="280" height="50" rx="8"/>
+<text class="code" x="360" y="104">&lt;label&gt;</text>
+<text class="label-ng" x="360" y="122">メールアドレス</text>
+
+<line class="conn-ng" x1="480" y1="132" x2="480" y2="142"/>
+<text class="mark-ng" x="480" y="158">✕</text>
+<line class="conn-ng" x1="480" y1="164" x2="480" y2="172"/>
+<text class="note-ng" x="492" y="152">idと結びついていない</text>
+
+<rect class="box-ng" x="340" y="172" width="280" height="46" rx="8"/>
+<text class="code" x="360" y="200">&lt;input id="email"&gt;</text>
+
+<text class="caption-ng" x="480" y="238">クリックしても反応しない</text>
+
+<line class="rule" x1="20" y1="260" x2="620" y2="260"/>
+
+<text class="head" x="320" y="286">ボタンのタグで、Tabキーで到達できるかが決まります</text>
+
+<!-- ============ Chain A: before (div) ============ -->
+<rect class="badge-ng" x="20" y="306" width="130" height="22" rx="11"/>
+<text class="badge-text" x="85" y="321">Before: &lt;div&gt;</text>
+
+<rect class="pill-ok" x="20" y="336" width="96" height="34" rx="17"/>
+<text class="pill-text" x="68" y="357">お名前</text>
+<text class="gap-arrow" x="123" y="358">→</text>
+
+<rect class="pill-ok" x="130" y="336" width="96" height="34" rx="17"/>
+<text class="pill-text" x="178" y="357">メール</text>
+<text class="gap-arrow" x="233" y="358">→</text>
+
+<rect class="pill-ok" x="240" y="336" width="96" height="34" rx="17"/>
+<text class="pill-text" x="288" y="357">コメント</text>
+<text class="gap-arrow" x="343" y="358">→</text>
+
+<rect class="pill-ok" x="350" y="336" width="96" height="34" rx="17"/>
+<text class="pill-text" x="398" y="357">同意</text>
+<text class="gap-arrow" x="453" y="358">→</text>
+
+<rect class="pill-ng" x="460" y="336" width="96" height="34" rx="17"/>
+<text class="pill-text-ng" x="508" y="357">投稿する</text>
+<text class="mark-ng" x="570" y="358">✕</text>
+
+<text class="caption-ng" x="320" y="392">Tabで進んでも「投稿する」には辿り着かない(&lt;div&gt;はフォーカスされない)</text>
+
+<!-- ============ Chain B: after (button) ============ -->
+<rect class="badge-ok" x="20" y="414" width="140" height="22" rx="11"/>
+<text class="badge-text" x="90" y="429">After: &lt;button&gt;</text>
+
+<rect class="pill-ok" x="20" y="444" width="96" height="34" rx="17"/>
+<text class="pill-text" x="68" y="465">お名前</text>
+<text class="gap-arrow" x="123" y="466">→</text>
+
+<rect class="pill-ok" x="130" y="444" width="96" height="34" rx="17"/>
+<text class="pill-text" x="178" y="465">メール</text>
+<text class="gap-arrow" x="233" y="466">→</text>
+
+<rect class="pill-ok" x="240" y="444" width="96" height="34" rx="17"/>
+<text class="pill-text" x="288" y="465">コメント</text>
+<text class="gap-arrow" x="343" y="466">→</text>
+
+<rect class="pill-ok" x="350" y="444" width="96" height="34" rx="17"/>
+<text class="pill-text" x="398" y="465">同意</text>
+<text class="gap-arrow" x="453" y="466">→</text>
+
+<rect class="pill-ok" x="460" y="444" width="96" height="34" rx="17"/>
+<text class="pill-text-ok" x="508" y="465">投稿する</text>
+<text class="mark-ok" x="570" y="466">✓</text>
+
+<text class="caption-ok" x="320" y="500">Tabで最後まで到達でき、Enterで送信できる</text>
+
+</svg>

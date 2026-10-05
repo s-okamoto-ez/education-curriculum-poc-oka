@@ -1,0 +1,95 @@
+<svg viewBox="0 0 980 330" role="img" aria-label="同じ作業をGUIとCLIで行った場合の比較図。1000個のログファイルからerrorという文字を探す作業は、GUIではファイルを1つずつ開いて検索する操作を1000回繰り返す必要があるが、CLIではgrepコマンド1行で終わる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .panel-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 700; }
+  .body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; }
+  .caption { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .task { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .icon { fill: #1f6f66; }
+  .icon-mute { fill: #8b958e; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .code { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 14px; }
+  .step { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .step-num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .step-dot { fill: #8b958e; }
+  .step-dot-on { fill: #1f6f66; }
+  .divider { stroke: #d7dcd8; stroke-width: 1.4; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .panel-title { fill: #e7ece9; }
+    .body { fill: #a9b3ac; }
+    .caption { fill: #e7ece9; }
+    .task { fill: #e7ece9; }
+    .icon { fill: #5fc0b3; }
+    .icon-mute { fill: #6d766f; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .step { fill: #a9b3ac; }
+    .step-dot { fill: #6d766f; }
+    .step-dot-on { fill: #5fc0b3; }
+    .divider { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="980" height="330"/>
+
+<!-- task statement -->
+<text class="task" x="490" y="34">やりたいこと: 1000個のログファイルから「error」という文字を含む行を探す</text>
+<line class="divider" x1="40" y1="52" x2="940" y2="52"/>
+
+<!-- ===== LEFT: GUI ===== -->
+<g>
+  <rect class="box" x="40" y="74" width="420" height="216" rx="10"/>
+
+  <g transform="translate(64,94) scale(1.0)">
+    <path class="icon-mute" fill-rule="evenodd" clip-rule="evenodd" d="M21 5.5H3V7H21V5.5ZM21 11.2998H3V12.7998H21V11.2998ZM3 17H21V18.5H3V17Z"/>
+  </g>
+  <text class="panel-title" x="96" y="112">GUI — マウスで操作する</text>
+
+  <text class="step" x="66" y="146">1.  フォルダを開く</text>
+  <text class="step" x="66" y="170">2.  ファイルをダブルクリックして開く</text>
+  <text class="step" x="66" y="194">3.  Ctrl+F で「error」を検索する</text>
+  <text class="step" x="66" y="218">4.  見つかった行を書き写す</text>
+  <text class="step" x="66" y="242">5.  閉じる</text>
+
+  <!-- repeat indicator -->
+  <g transform="translate(66,258)">
+    <circle class="step-dot" cx="6" cy="6" r="3"/>
+    <circle class="step-dot" cx="20" cy="6" r="3"/>
+    <circle class="step-dot" cx="34" cy="6" r="3"/>
+    <text class="step" x="48" y="10">これを 1000 回くり返す</text>
+  </g>
+</g>
+
+<text class="caption" x="250" y="312">数時間〜数日</text>
+
+<!-- ===== RIGHT: CLI ===== -->
+<g>
+  <rect class="box" x="520" y="74" width="420" height="216" rx="10"/>
+
+  <g transform="translate(544,94) scale(1.0)">
+    <path class="icon" d="M21 16.4999V4.8999H3V16.4999H10.5V19.4999H7.5V20.9999H16.5V19.4999H13.5V16.4999H21ZM4.5 6.3999H19.5V14.9999H4.5V6.3999Z"/>
+  </g>
+  <text class="panel-title" x="576" y="112">CLI — 文字で命令する</text>
+
+  <text class="step" x="546" y="146">1.  1行打つ</text>
+
+  <!-- terminal window -->
+  <g>
+    <rect class="term" x="546" y="162" width="368" height="62" rx="8"/>
+    <circle class="step-dot" cx="562" cy="178" r="3.5"/>
+    <circle class="step-dot" cx="574" cy="178" r="3.5"/>
+    <circle class="step-dot" cx="586" cy="178" r="3.5"/>
+    <text class="code" x="562" y="206">$ grep error *.log</text>
+  </g>
+
+  <g transform="translate(546,238)">
+    <circle class="step-dot-on" cx="6" cy="6" r="3"/>
+    <text class="step" x="20" y="10">くり返しはコンピュータがやる</text>
+  </g>
+</g>
+
+<text class="caption" x="730" y="312">1 秒</text>
+
+</svg>

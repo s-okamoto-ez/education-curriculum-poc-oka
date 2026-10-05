@@ -1,0 +1,228 @@
+{
+  "_comment": [
+    "SQL基礎の教材が『こうなる』と書いている内容の一覧です。",
+    "教材の記述を変えたら、ここも直してください。逆に、ここが落ちたら教材が間違っています。",
+    "",
+    "kind:",
+    "  scalar … SQLの結果(1値)が expect と一致するか",
+    "  plan   … EXPLAIN の実行計画に、contains の文字が含まれ、notContains の文字が含まれないか",
+    "",
+    "setup / teardown はその検証の前後に流すSQL(省略可)。",
+    "where は、この主張が教材のどこに書かれているかです。"
+  ],
+  "claims": [
+    {
+      "kind": "scalar",
+      "where": "演習01 / 全トピック共通の題材",
+      "desc": "users は 7 件",
+      "sql": "SELECT count(*) FROM users",
+      "expect": "7"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習02 第1段階",
+      "desc": "posts は 12 件",
+      "sql": "SELECT count(*) FROM posts",
+      "expect": "12"
+    },
+    {
+      "kind": "scalar",
+      "where": "seed.sql",
+      "desc": "likes は 13 件",
+      "sql": "SELECT count(*) FROM likes",
+      "expect": "13"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習03 第1段階 / コラム index-speed.md",
+      "desc": "access_logs は 100万 件",
+      "sql": "SELECT count(*) FROM access_logs",
+      "expect": "1000000"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習01「プレミアム会員の人数を数える」",
+      "desc": "プレミアム会員は 4 人",
+      "sql": "SELECT count(*) FROM users WHERE is_premium = true",
+      "expect": "4"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習01 最後の『意地悪』",
+      "desc": "nickname = '' は 0 件(空文字では引っかからない)",
+      "sql": "SELECT count(*) FROM users WHERE nickname = ''",
+      "expect": "0"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習01 最後の『意地悪』",
+      "desc": "nickname IS NULL は 7 件(全員が NULL)",
+      "sql": "SELECT count(*) FROM users WHERE nickname IS NULL",
+      "expect": "7"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習02 第2段階 / README『JOIN』の図",
+      "desc": "INNER JOIN すると 10 件に減る",
+      "sql": "SELECT count(*) FROM posts JOIN users ON posts.author_id = users.id",
+      "expect": "10"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習02 第3段階",
+      "desc": "LEFT JOIN なら 12 件のまま",
+      "sql": "SELECT count(*) FROM posts LEFT JOIN users ON posts.author_id = users.id",
+      "expect": "12"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習02 第3〜4段階",
+      "desc": "消えるのは p004 と p011 の2件",
+      "sql": "SELECT string_agg(id, ',' ORDER BY id) FROM posts p WHERE NOT EXISTS (SELECT 1 FROM users u WHERE u.id = p.author_id)",
+      "expect": "p004,p011"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習02 第5段階",
+      "desc": "COALESCE で『退会したユーザー』に置き換わる行が 2 件",
+      "sql": "SELECT count(*) FROM (SELECT COALESCE(u.name, '退会したユーザー') AS n FROM posts p LEFT JOIN users u ON p.author_id = u.id) t WHERE t.n = '退会したユーザー'",
+      "expect": "2"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習03 第5段階「status = 200 は全体の57%」",
+      "desc": "status = 200 は 571429 件(全体の約57%)",
+      "sql": "SELECT count(*) FROM access_logs WHERE status = 200",
+      "expect": "571429"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習03 第5段階「status = 500 は全体の14%」",
+      "desc": "status = 500 は 142857 件(全体の約14%)",
+      "sql": "SELECT count(*) FROM access_logs WHERE status = 500",
+      "expect": "142857"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習03 第4段階 / 図 index-lookup.svg「該当する100行」",
+      "desc": "user_id = 'u3391' は 100 件(全体の 0.01%)",
+      "sql": "SELECT count(*) FROM access_logs WHERE user_id = 'u3391'",
+      "expect": "100"
+    },
+    {
+      "kind": "plan",
+      "where": "演習03 第3段階 / 図 index-lookup.svg 左側",
+      "desc": "インデックスが無いと全件走査になる",
+      "setup": "DROP INDEX IF EXISTS idx_access_logs_user_id",
+      "sql": "SELECT * FROM access_logs WHERE user_id = 'u3391' ORDER BY accessed_at DESC LIMIT 20",
+      "contains": [
+        "Seq Scan"
+      ],
+      "notContains": [
+        "Index Scan"
+      ]
+    },
+    {
+      "kind": "plan",
+      "where": "演習03 第4段階 / 図 index-lookup.svg 右側",
+      "desc": "インデックスを作ると索引が使われる",
+      "setup": "CREATE INDEX IF NOT EXISTS idx_access_logs_user_id ON access_logs (user_id); ANALYZE access_logs",
+      "sql": "SELECT * FROM access_logs WHERE user_id = 'u3391' ORDER BY accessed_at DESC LIMIT 20",
+      "contains": [
+        "Index Scan"
+      ],
+      "notContains": [
+        "Seq Scan"
+      ],
+      "teardown": "DROP INDEX IF EXISTS idx_access_logs_user_id"
+    },
+    {
+      "kind": "plan",
+      "where": "演習03 第5段階「status = 200 では使われない」",
+      "desc": "絞り込めない条件(57%)では、インデックスがあっても全件走査を選ぶ",
+      "setup": "CREATE INDEX IF NOT EXISTS idx_access_logs_status ON access_logs (status); ANALYZE access_logs",
+      "sql": "SELECT * FROM access_logs WHERE status = 200",
+      "contains": [
+        "Seq Scan"
+      ],
+      "notContains": [
+        "Index Scan"
+      ]
+    },
+    {
+      "kind": "plan",
+      "where": "演習03 第5段階「status = 500 では使われる」",
+      "desc": "同じ列・同じインデックスでも、絞り込める値(14%)なら索引を使う",
+      "setup": "CREATE INDEX IF NOT EXISTS idx_access_logs_status ON access_logs (status); ANALYZE access_logs",
+      "sql": "SELECT * FROM access_logs WHERE status = 500",
+      "contains": [
+        "Index Scan"
+      ],
+      "teardown": "DROP INDEX IF EXISTS idx_access_logs_status"
+    },
+    {
+      "kind": "plan",
+      "where": "コラム index-speed.md「pg_stat_user_indexes で棚卸しできる」",
+      "desc": "使われていないインデックスを調べるクエリが動く",
+      "sql": "SELECT relname, indexrelname, idx_scan FROM pg_stat_user_indexes ORDER BY idx_scan",
+      "contains": []
+    },
+    {
+      "kind": "scalar",
+      "where": "演習04「投稿が2件以上あるユーザーだけ」",
+      "desc": "HAVING COUNT(*) >= 2 で絞ると 4 人になる(u1043, u3391, u2287, u9021)",
+      "sql": "SELECT count(*) FROM (SELECT author_id FROM posts GROUP BY author_id HAVING count(*) >= 2) t",
+      "expect": "4"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習04「本題 — 数字を突き合わせる」",
+      "desc": "posts.likes と実際の likes 件数が一致する行は 1 件のみ(p012。他11件は食い違う)",
+      "sql": "SELECT count(*) FROM (SELECT p.id FROM posts p LEFT JOIN likes l ON l.post_id = p.id GROUP BY p.id, p.likes HAVING p.likes = count(l.user_id)) t",
+      "expect": "1"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習04「本題」p003の実際のいいね数",
+      "desc": "p003 の実際のいいね数(likesテーブルから集計)は 4",
+      "sql": "SELECT count(*) FROM likes WHERE post_id = 'p003'",
+      "expect": "4"
+    },
+    {
+      "kind": "scalar",
+      "where": "README集計する「投稿が3件以上あるユーザーだけ」",
+      "desc": "HAVING COUNT(*) >= 3 で絞ると 1 人になる(u1043のみ)",
+      "sql": "SELECT count(*) FROM (SELECT author_id FROM posts GROUP BY author_id HAVING count(*) >= 3) t",
+      "expect": "1"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習05「事故を、安全な場所で起こす」",
+      "desc": "WHEREを忘れたUPDATEは、posts全12件が対象になる(BEGIN〜ROLLBACKは1接続内で完結させる必要がある)",
+      "sql": "BEGIN; UPDATE posts SET likes = 0; SELECT count(*) FROM posts WHERE likes = 0; ROLLBACK;",
+      "expect": "12"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習05「事故を、安全な場所で起こす」",
+      "desc": "ROLLBACK後、p003のlikesは事故前の41に戻っている",
+      "setup": "BEGIN; UPDATE posts SET likes = 0; ROLLBACK",
+      "sql": "SELECT likes FROM posts WHERE id = 'p003'",
+      "expect": "41"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習06「N+1パターンを、自分の手で再現する」",
+      "desc": "個別に投稿者名を引くと、退会済みユーザー(p004)は0行(該当なし)",
+      "sql": "SELECT count(*) FROM users WHERE id = (SELECT author_id FROM posts WHERE id = 'p004')",
+      "expect": "0"
+    },
+    {
+      "kind": "scalar",
+      "where": "演習06「1回のJOINと比べる」",
+      "desc": "LEFT JOINなら、退会済みユーザーの投稿(p004)も行として残る(nameはNULL)",
+      "sql": "SELECT count(*) FROM (SELECT p.id FROM posts p LEFT JOIN users u ON u.id = p.author_id WHERE p.id = 'p004' AND u.name IS NULL) t",
+      "expect": "1"
+    }
+  ]
+}

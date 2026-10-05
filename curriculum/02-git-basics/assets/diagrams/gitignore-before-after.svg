@@ -1,0 +1,91 @@
+<svg viewBox="0 0 640 250" role="img" aria-label=".gitignoreを書いただけではnode_modulesと.env.localが追跡されたままだが、git rm --cachedを実行すると追跡から外れ、それでもファイル自体は手元に残ることを示す図。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .badge-before { fill: #a35555; }
+  .badge-after { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .chip-before { fill: #ffffff; stroke: #c98a8a; stroke-width: 2; }
+  .chip-after { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .icon { fill: #1a1a1c; }
+  .filename { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: start; }
+  .status-before { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .status-after { fill: #1f6f66; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: start; }
+  .caption-before { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .caption-after { fill: #1f6f66; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .arrow-line { stroke: #465049; stroke-width: 2; fill: none; }
+  .arrow-label { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .badge-before { fill: #9c6a6a; }
+    .badge-after { fill: #1f6f66; }
+    .chip-before { fill: #1a1f1d; stroke: #9c6a6a; }
+    .chip-after { fill: #1a1f1d; stroke: #5fc0b3; }
+    .icon { fill: #e7ece9; }
+    .filename { fill: #e7ece9; }
+    .status-before { fill: #e29a9a; }
+    .status-after { fill: #5fc0b3; }
+    .caption-before { fill: #e29a9a; }
+    .caption-after { fill: #5fc0b3; }
+    .arrow-line { stroke: #a9b3ac; }
+    .arrow-label { fill: #e7ece9; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="250"/>
+
+<defs>
+  <marker id="giArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#465049"/>
+  </marker>
+</defs>
+
+<text class="head" x="320" y="22">.gitignore に書くだけでは、すでに追跡中のファイルは消えません</text>
+
+<!-- ============ Before ============ -->
+<rect class="badge-before" x="20" y="40" width="80" height="24" rx="12"/>
+<text class="badge-text" x="60" y="56">Before</text>
+
+<rect class="chip-before" x="20" y="76" width="250" height="56" rx="8"/>
+<g transform="translate(34,92)">
+  <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+</g>
+<text class="filename" x="70" y="104">node_modules/</text>
+<text class="status-before" x="70" y="122">追跡されたまま</text>
+
+<rect class="chip-before" x="20" y="142" width="250" height="56" rx="8"/>
+<g transform="translate(34,158)">
+  <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+</g>
+<text class="filename" x="70" y="170">.env.local</text>
+<text class="status-before" x="70" y="188">追跡されたまま</text>
+
+<text class="caption-before" x="145" y="222">git status にまだ出てくる</text>
+
+<!-- ============ arrow ============ -->
+<line class="arrow-line" x1="278" y1="137" x2="362" y2="137" marker-end="url(#giArrow)"/>
+<text class="arrow-label" x="320" y="118">git rm</text>
+<text class="arrow-label" x="320" y="154">--cached</text>
+
+<!-- ============ After ============ -->
+<rect class="badge-after" x="370" y="40" width="80" height="24" rx="12"/>
+<text class="badge-text" x="410" y="56">After</text>
+
+<rect class="chip-after" x="370" y="76" width="250" height="56" rx="8"/>
+<g transform="translate(384,92)">
+  <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+</g>
+<text class="filename" x="420" y="104">node_modules/</text>
+<text class="status-after" x="420" y="122">追跡から外れた</text>
+
+<rect class="chip-after" x="370" y="142" width="250" height="56" rx="8"/>
+<g transform="translate(384,158)">
+  <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+</g>
+<text class="filename" x="420" y="170">.env.local</text>
+<text class="status-after" x="420" y="188">追跡から外れた</text>
+
+<text class="caption-after" x="495" y="222">git status から消える(ファイル自体は手元に残る)</text>
+
+</svg>

@@ -1,0 +1,75 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="コミットはゲームのセーブポイントと同じで、時系列に積み重なった記録のどれか1つに、あとから戻ることができることを示す図。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .line { stroke: #1f6f66; stroke-width: 2.5; fill: none; }
+  .dot { fill: #1f6f66; stroke: #eef1ef; stroke-width: 3; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .msg { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .hash { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: middle; }
+  .now-badge { fill: #1f6f66; }
+  .now-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .back-arrow { stroke: #a8792f; stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+  .back-label { fill: #8a611f; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .line { stroke: #5fc0b3; }
+    .dot { fill: #5fc0b3; stroke: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .msg { fill: #e7ece9; }
+    .hash { fill: #8d968f; }
+    .now-badge { fill: #5fc0b3; }
+    .now-text { fill: #0c0f0e; }
+    .back-arrow { stroke: #e0bc7c; }
+    .back-label { fill: #e0bc7c; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<defs>
+  <marker id="csArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#a8792f"/>
+  </marker>
+</defs>
+
+<text class="head" x="450" y="24">コミットは、ゲームのセーブポイントと同じです</text>
+
+<line class="line" x1="100" y1="120" x2="800" y2="120"/>
+
+<!-- commit 1 -->
+<circle class="dot" cx="140" cy="120" r="8"/>
+<rect class="box" x="60" y="146" width="160" height="56" rx="8"/>
+<text class="msg" x="140" y="168">ログイン機能を追加</text>
+<text class="hash" x="140" y="186">a1b2c3d</text>
+
+<!-- commit 2 -->
+<circle class="dot" cx="340" cy="120" r="8"/>
+<rect class="box" x="260" y="146" width="160" height="56" rx="8"/>
+<text class="msg" x="340" y="168">バグ修正: 日付表示</text>
+<text class="hash" x="340" y="186">d4e5f6a</text>
+
+<!-- commit 3 -->
+<circle class="dot" cx="540" cy="120" r="8"/>
+<rect class="box" x="460" y="146" width="160" height="56" rx="8"/>
+<text class="msg" x="540" y="168">スタイル調整</text>
+<text class="hash" x="540" y="186">7g8h9i0</text>
+
+<!-- commit 4 (now) -->
+<circle class="dot" cx="740" cy="120" r="8"/>
+<rect class="box" x="660" y="146" width="160" height="56" rx="8"/>
+<text class="msg" x="740" y="168">検索機能を追加</text>
+<text class="hash" x="740" y="186">j1k2l3m</text>
+<rect class="now-badge" x="700" y="94" width="80" height="20" rx="10"/>
+<text class="now-text" x="740" y="108">今ここ</text>
+
+<!-- back arrow: from now to commit 2 -->
+<path class="back-arrow" d="M 740 92 C 600 40, 400 40, 340 92" marker-end="url(#csArrow)"/>
+<text class="back-label" x="540" y="34">「バグ修正: 日付表示」の直後に戻れる</text>
+
+<text class="foot" x="450" y="234">先週は動いていたのに、いつからおかしくなったんだろう — セーブポイントを遡れば、どの記録が原因かを特定できます。</text>
+
+</svg>

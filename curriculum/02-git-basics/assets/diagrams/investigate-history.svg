@@ -1,0 +1,94 @@
+<svg viewBox="0 0 1000 320" role="img" aria-label="コミット履歴から原因を調べ、対処を判断するまでの手順の図。git logで怪しい期間のコミット一覧を見て、git blameでその行を最後に変えたコミットを特定し、git showで実際の変更内容を確認する。そのうえで、間違いそのものを打ち消すのか、正しい値に手動で直すのかを判断する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .card-accent { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .num-bg { fill: #1f6f66; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .k-title { fill: #15191a; font-family: ui-monospace, Consolas, monospace; font-size: 13.5px; font-weight: 700; }
+  .k-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; }
+  .arrow { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .icon { fill: #1f6f66; }
+  .fork-a { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+    .card-accent { fill: #1a1f1d; stroke: #5fc0b3; }
+    .num-bg { fill: #5fc0b3; }
+    .num { fill: #0c0f0e; }
+    .k-title { fill: #e7ece9; }
+    .k-body { fill: #a9b3ac; }
+    .arrow { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .fork-a { fill: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="320"/>
+
+<defs>
+  <marker id="ihArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- step 1 -->
+<g>
+  <circle class="num-bg" cx="46" cy="46" r="13"/><text class="num" x="46" y="50">1</text>
+  <rect class="card" x="70" y="24" width="210" height="90" rx="10"/>
+  <text class="k-title" x="90" y="52">git log</text>
+  <text class="k-body" x="90" y="74">怪しい期間の</text>
+  <text class="k-body" x="90" y="90">コミット一覧を見る</text>
+</g>
+
+<line class="arrow" x1="286" y1="68" x2="326" y2="68" marker-end="url(#ihArrow)"/>
+
+<!-- step 2 -->
+<g>
+  <circle class="num-bg" cx="366" cy="46" r="13"/><text class="num" x="366" y="50">2</text>
+  <rect class="card" x="390" y="24" width="210" height="90" rx="10"/>
+  <text class="k-title" x="410" y="52">git blame</text>
+  <text class="k-body" x="410" y="74">その行を最後に</text>
+  <text class="k-body" x="410" y="90">変えたコミットを特定</text>
+</g>
+
+<line class="arrow" x1="606" y1="68" x2="646" y2="68" marker-end="url(#ihArrow)"/>
+
+<!-- step 3 -->
+<g>
+  <circle class="num-bg" cx="686" cy="46" r="13"/><text class="num" x="686" y="50">3</text>
+  <rect class="card-accent" x="710" y="24" width="230" height="90" rx="10"/>
+  <text class="k-title" x="730" y="52">git show</text>
+  <text class="k-body" x="730" y="74">実際に何が</text>
+  <text class="k-body" x="730" y="90">変わったかを見る</text>
+</g>
+
+<!-- branch down to judgement -->
+<line class="arrow" x1="825" y1="114" x2="825" y2="150" marker-end="url(#ihArrow)"/>
+
+<line class="arrow" x1="780" y1="186" x2="280" y2="196" marker-end="url(#ihArrow)"/>
+<line class="arrow" x1="870" y1="186" x2="820" y2="196" marker-end="url(#ihArrow)"/>
+
+<text class="fork-a" x="825" y="172" text-anchor="middle">その変更は、そもそも要らなかった?</text>
+
+<!-- outcome A: revert -->
+<g>
+  <rect class="card" x="40" y="200" width="360" height="100" rx="10"/>
+  <text class="k-title" x="60" y="228">要らなかった → git revert</text>
+  <text class="k-body" x="60" y="252">その変更を丸ごと打ち消す</text>
+  <text class="k-body" x="60" y="270">(コンフリクトすることもある)</text>
+</g>
+
+<!-- outcome B: manual fix -->
+<g>
+  <rect class="card" x="600" y="200" width="360" height="100" rx="10"/>
+  <text class="k-title" x="620" y="228">意図は正しかった → 手で直す</text>
+  <text class="k-body" x="620" y="252">正しい値に書き換えて、</text>
+  <text class="k-body" x="620" y="270">理由を書いた新しいコミットにする</text>
+</g>
+
+<text class="foot" x="500" y="316">「見つけた = 元に戻す」ではありません。何が起きたかを理解してから、直し方を選びます。</text>
+
+</svg>

@@ -1,0 +1,56 @@
+<svg viewBox="0 0 640 200" role="img" aria-label="今日やること: config/database.ymlの権限表記-rw-r--r--を読み解いてから、chmod -wを実行して-r--r--r--に変え、書き込みが実際にエラーで止まることを確認する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .cmd { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .perm-ok { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 15px; font-weight: 700; text-anchor: start; }
+  .perm-lock { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 15px; font-weight: 700; text-anchor: start; }
+  .err { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .badge-1 { fill: #1f6f66; }
+  .badge-2 { fill: #a35555; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="200"/>
+
+<defs>
+  <marker id="pmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1: writable -->
+<circle class="badge-1" cx="130" cy="24" r="12"/><text class="badge-text" x="130" y="29">1</text>
+<text class="t" x="130" y="48">今は書き込める</text>
+
+<rect class="win" x="20" y="58" width="240" height="90" rx="6"/>
+<text class="win-title" x="30" y="72">config/</text>
+<text class="cmd" x="30" y="92">$ ls -l database.yml</text>
+<text class="perm-ok" x="30" y="120">-rw-r--r--</text>
+
+<line class="arrow" x1="268" y1="103" x2="312" y2="103" marker-end="url(#pmArrow)"/>
+
+<!-- step 2: chmod -w -> blocked -->
+<circle class="badge-2" cx="450" cy="24" r="12"/><text class="badge-text" x="450" y="29">2</text>
+<text class="t" x="450" y="48">chmod -w で書き込み禁止に</text>
+
+<rect class="win" x="320" y="58" width="300" height="90" rx="6"/>
+<text class="win-title" x="330" y="72">config/</text>
+<text class="cmd" x="330" y="88">$ chmod -w database.yml</text>
+<text class="perm-lock" x="330" y="112">-r--r--r--</text>
+<text class="cmd" x="330" y="130">$ echo test &gt;&gt; database.yml</text>
+<text class="err" x="330" y="144">Permission denied</text>
+
+<text class="s" x="320" y="176">「間違って書き換えると本番が止まる」ファイルを、自分の手で守る</text>
+
+</svg>

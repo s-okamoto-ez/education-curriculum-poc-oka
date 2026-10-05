@@ -1,0 +1,82 @@
+<svg viewBox="0 0 1000 340" role="img" aria-label="トランザクションでミスを安全に取り消す図。BEGINで区切りを始め、WHEREを付け忘れたUPDATEを実行すると全13件が書き換わってしまうが、まだ確定していないためROLLBACKで実行前の状態にすべて戻せる。COMMITして初めて変更が確定する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .lane { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .lane-danger { fill: #ffffff; stroke: #c98a8a; stroke-width: 1.8; }
+  .lane-safe { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .code { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; }
+  .step-num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .num-bg { fill: #1f6f66; }
+  .num-bg-danger { fill: #a35555; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; }
+  .body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; }
+  .arrow { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .lane { fill: #1a1f1d; stroke: #2b3230; }
+    .lane-danger { fill: #1a1f1d; stroke: #9c6a6a; }
+    .lane-safe { fill: #1a1f1d; stroke: #5fc0b3; }
+    .code { fill: #86d6cb; }
+    .num-bg { fill: #5fc0b3; }
+    .num-bg-danger { fill: #e29a9a; }
+    .step-num { fill: #0c0f0e; }
+    .title { fill: #e7ece9; }
+    .body { fill: #a9b3ac; }
+    .arrow { stroke: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="340"/>
+
+<defs>
+  <marker id="txArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="body" fill="#1f6f66"/>
+  </marker>
+</defs>
+
+<!-- Step 1: BEGIN -->
+<g>
+  <circle class="num-bg" cx="70" cy="50" r="14"/>
+  <text class="step-num" x="70" y="55">1</text>
+  <rect class="lane" x="110" y="26" width="240" height="48" rx="8"/>
+  <text class="code" x="128" y="55">BEGIN;</text>
+</g>
+<text class="body" x="365" y="46">ここから、確定はまだされていない</text>
+<text class="body" x="365" y="64">「仮の変更」の区間が始まる</text>
+
+<line class="arrow" x1="70" y1="78" x2="70" y2="106" marker-end="url(#txArrow)"/>
+
+<!-- Step 2: dangerous UPDATE -->
+<g>
+  <circle class="num-bg-danger" cx="70" cy="140" r="14"/>
+  <text class="step-num" x="70" y="145">2</text>
+  <rect class="lane-danger" x="110" y="110" width="420" height="60" rx="8"/>
+  <text class="code" x="128" y="135">UPDATE posts SET likes = 0;</text>
+  <text class="body" x="128" y="156">WHEREを忘れた。13件すべてが対象になってしまう</text>
+</g>
+<text class="body" x="560" y="146">実行はされたが、</text>
+<text class="body" x="560" y="164">まだ誰にも確定していない</text>
+
+<line class="arrow" x1="70" y1="184" x2="70" y2="212" marker-end="url(#txArrow)"/>
+
+<!-- Step 3: choice -->
+<g>
+  <circle class="num-bg" cx="70" cy="246" r="14"/>
+  <text class="step-num" x="70" y="251">3</text>
+</g>
+
+<!-- ROLLBACK branch -->
+<rect class="lane-safe" x="110" y="216" width="380" height="60" rx="8"/>
+<text class="code" x="128" y="241">ROLLBACK;</text>
+<text class="body" x="128" y="262">実行前の状態に、すべて戻る</text>
+
+<!-- COMMIT branch -->
+<rect class="lane-danger" x="520" y="216" width="380" height="60" rx="8"/>
+<text class="code" x="538" y="241">COMMIT;</text>
+<text class="body" x="538" y="262">この時点で、初めて確定してしまう</text>
+
+<text class="foot" x="500" y="316">気づいたら ROLLBACK。BEGIN してから COMMIT するまでは、いつでも「無かったこと」にできます。</text>
+
+</svg>

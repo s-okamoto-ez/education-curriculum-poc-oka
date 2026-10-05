@@ -1,0 +1,22 @@
+[
+  { "id": "p001", "authorId": "u1001", "body": "はじめまして。今日から使ってみます", "likes": 4, "postedAt": "2025-04-02", "isDeleted": false },
+  { "id": "p002", "authorId": "u1001", "body": "近所の桜が満開でした", "likes": 27, "postedAt": "2025-04-05", "isDeleted": false },
+  { "id": "p003", "authorId": "u1002", "body": "新しいキーボードを買った", "likes": 12, "postedAt": "2025-04-12", "isDeleted": false },
+  { "id": "p004", "authorId": "u1001", "body": "この投稿は消しました", "likes": 3, "postedAt": "2025-04-20", "isDeleted": true },
+  { "id": "p005", "authorId": "u1003", "body": "はじめての投稿です", "likes": 0, "postedAt": "2025-05-20", "isDeleted": false },
+  { "id": "p006", "authorId": "u1002", "body": "雨が続きますね", "likes": 8, "postedAt": "2025-05-28", "isDeleted": false },
+  { "id": "p007", "authorId": "u1004", "body": "宣伝失礼します。詳しくはプロフィールへ", "likes": 1, "postedAt": "2025-06-02", "isDeleted": false },
+  { "id": "p008", "authorId": "u1005", "body": "はじめまして。よろしくお願いします", "likes": 6, "postedAt": "2025-06-14", "isDeleted": false },
+  { "id": "p009", "authorId": "u1005", "body": "今日のお昼ごはん", "likes": 19, "postedAt": "2025-06-21", "isDeleted": false },
+  { "id": "p010", "authorId": "u1003", "body": "写真の練習をしています", "likes": 2, "postedAt": "2025-06-30", "isDeleted": false },
+  { "id": "p011", "authorId": "u1006", "body": "この街に引っ越してきました", "likes": 15, "postedAt": "2025-07-03", "isDeleted": false },
+  { "id": "p012", "authorId": "u1006", "body": "おすすめの喫茶店を教えてください", "likes": 33, "postedAt": "2025-07-15", "isDeleted": false },
+  { "id": "p013", "authorId": "u1002", "body": "夏休みの予定を立てています", "likes": 7, "postedAt": "2025-07-22", "isDeleted": false },
+  { "id": "p014", "authorId": "u9999", "body": "退会した利用者の投稿", "likes": 5, "postedAt": "2025-08-01", "isDeleted": false },
+  { "id": "p015", "authorId": "u1007", "body": "はじめての投稿。緊張します", "likes": 0, "postedAt": "2025-08-19", "isDeleted": false },
+  { "id": "p016", "authorId": "u1007", "body": "散歩の途中で猫に会いました", "likes": 41, "postedAt": "2025-08-30", "isDeleted": false },
+  { "id": "p017", "authorId": "u1001", "body": "本を1冊読み終えました", "likes": 9, "postedAt": "2025-09-02", "isDeleted": false },
+  { "id": "p018", "authorId": "u1008", "body": "よろしくお願いします", "likes": 3, "postedAt": "2025-09-07", "isDeleted": false },
+  { "id": "p019", "authorId": "u1006", "body": "喫茶店、たくさん教えてもらえて嬉しいです", "likes": 22, "postedAt": "2025-09-12", "isDeleted": false },
+  { "id": "p020", "authorId": "u1005", "body": "自転車で遠出しました", "likes": 11, "postedAt": "2025-09-20", "isDeleted": false }
+]

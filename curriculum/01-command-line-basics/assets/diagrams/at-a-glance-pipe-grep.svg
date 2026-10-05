@@ -1,0 +1,66 @@
+<svg viewBox="0 0 900 200" role="img" aria-label="今日やること: 420行のapp.logを、grep ERRORで21件に絞り込み、次にgrep error(小文字)を試すと同じはずなのに40件と違う数になり、原因を自分で突き止める。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #a8792f; }
+  .num-bg-3 { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .cmd { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .result { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; text-anchor: start; }
+  .result-b { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; text-anchor: start; }
+  .result-c { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="200"/>
+
+<defs>
+  <marker id="pgArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1: raw log -->
+<circle class="num-bg-1" cx="130" cy="24" r="12"/><text class="num" x="130" y="29">1</text>
+<text class="t" x="130" y="48">420行のログ</text>
+
+<rect class="win" x="20" y="58" width="220" height="80" rx="6"/>
+<text class="win-title" x="30" y="72">app.log</text>
+<text class="cmd" x="30" y="92">$ wc -l app.log</text>
+<text class="result" x="30" y="122">420</text>
+
+<line class="arrow" x1="248" y1="98" x2="292" y2="98" marker-end="url(#pgArrow)"/>
+
+<!-- step 2: grep ERROR -->
+<circle class="num-bg-2" cx="420" cy="24" r="12"/><text class="num" x="420" y="29">2</text>
+<text class="t" x="420" y="48">大文字 ERROR で絞る</text>
+
+<rect class="win" x="300" y="58" width="240" height="80" rx="6"/>
+<text class="win-title" x="310" y="72">app.log</text>
+<text class="cmd" x="310" y="92">$ grep ERROR app.log | wc -l</text>
+<text class="result-b" x="310" y="122">21</text>
+
+<line class="arrow" x1="548" y1="98" x2="592" y2="98" marker-end="url(#pgArrow)"/>
+
+<!-- step 3: grep error lowercase -> unexpected -->
+<circle class="num-bg-3" cx="710" cy="24" r="12"/><text class="num" x="710" y="29">3</text>
+<text class="t" x="710" y="48">小文字 error だと?</text>
+
+<rect class="win" x="600" y="58" width="260" height="80" rx="6"/>
+<text class="win-title" x="610" y="72">app.log</text>
+<text class="cmd" x="610" y="92">$ grep error app.log | wc -l</text>
+<text class="result-c" x="610" y="122">40</text>
+
+<text class="s" x="450" y="172">同じ「エラーの件数」のはずが、大文字と小文字で2倍近く違います。原因はログの中身を見て突き止める</text>
+
+</svg>

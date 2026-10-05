@@ -1,0 +1,43 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: 1枚目のカードにNEWバッジをつけると、カードにposition指定が無いため画面右上のヘッダー付近に飛んでいく。.cardにposition: relativeを1行足して、バッジがカードの右上に正しく表示されるようにする。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-warn { stroke: #a8792f; }
+  .win-ok { stroke: #1f6f66; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-warn { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<!-- left: no position on .card -->
+<text class="t" x="170" y="24">.card に position 指定なし</text>
+<rect class="win win-warn" x="30" y="34" width="280" height="110" rx="6"/>
+<text class="win-title" x="42" y="52">style.css</text>
+<text class="code" x="42" y="76">.badge-new {</text>
+<text class="code-warn" x="52" y="94">position: absolute;</text>
+<text class="code" x="52" y="110">top: 8px; right: 8px;</text>
+<text class="code" x="42" y="126">}</text>
+
+<!-- right: position:relative added -->
+<text class="t" x="530" y="24">.card に position: relative</text>
+<rect class="win win-ok" x="390" y="34" width="280" height="110" rx="6"/>
+<text class="win-title" x="402" y="52">style.css</text>
+<text class="code" x="402" y="76">.card {</text>
+<text class="code-ok" x="412" y="94">position: relative;</text>
+<text class="code" x="402" y="110">...</text>
+<text class="code" x="402" y="126">}</text>
+
+<text class="foot" x="350" y="170">基準になる祖先が無いと、absolute は画面全体を基準にしてしまう</text>
+<text class="foot" x="350" y="190">NEWバッジがヘッダー付近に飛ぶのは、そのせい</text>
+
+</svg>

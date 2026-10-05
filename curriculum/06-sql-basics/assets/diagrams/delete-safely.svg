@@ -1,0 +1,99 @@
+<svg viewBox="0 0 900 340" role="img" aria-label="DELETEの前にまず同じWHEREでSELECTを打ち対象の1行を目で確認してからDELETEに書き換えると安全だが、WHEREを書き忘れるとpostsテーブルの全12件が対象になってしまうことを対比した図。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .badge-ok { fill: #1f6f66; }
+  .badge-ng { fill: #a35555; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .box-ok { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .box-ng { fill: #ffffff; stroke: #a35555; stroke-width: 2; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .code { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11.5px; text-anchor: middle; }
+  .row { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .row-drop { fill: #8d968f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-decoration: line-through; text-anchor: middle; }
+  .result-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .result-ng { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 700; text-anchor: middle; }
+  .grid-cell { fill: #f2f4f2; stroke: #d7dcd8; stroke-width: 1; }
+  .grid-cell-hit { fill: #ffffff; stroke: #a35555; stroke-width: 1.6; }
+  .arrow { stroke: #465049; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1; stroke-dasharray: 4 4; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .badge-ok { fill: #1f6f66; }
+    .badge-ng { fill: #9c6a6a; }
+    .box-ok { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-ng { fill: #1a1f1d; stroke: #e29a9a; }
+    .t { fill: #e7ece9; }
+    .code { fill: #e7ece9; }
+    .row { fill: #86d6cb; }
+    .row-drop { fill: #6b746d; }
+    .result-ok { fill: #86d6cb; }
+    .result-ng { fill: #e29a9a; }
+    .grid-cell { fill: #171b1a; stroke: #2b3230; }
+    .grid-cell-hit { fill: #1a1f1d; stroke: #e29a9a; }
+    .arrow { stroke: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="340"/>
+
+<defs>
+  <marker id="dsArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#465049"/>
+  </marker>
+</defs>
+
+<text class="head" x="450" y="24">消す前に、まず見る。WHEREを忘れると「全部」が対象になります</text>
+
+<!-- ============ Left: safe 2-step ============ -->
+<rect class="badge-ok" x="20" y="44" width="120" height="22" rx="11"/>
+<text class="badge-text" x="80" y="59">安全な手順</text>
+
+<rect class="box-ok" x="20" y="76" width="420" height="88" rx="10"/>
+<text class="t" x="230" y="98">① まず SELECT で対象を目で見る</text>
+<text class="code" x="230" y="120">SELECT * FROM posts WHERE id = 'p099';</text>
+<text class="row" x="230" y="142">→ p099 の1行だけヒット</text>
+
+<line class="arrow" x1="230" y1="164" x2="230" y2="188" marker-end="url(#dsArrow)"/>
+<text class="foot" x="330" y="180">確認できたら書き換える</text>
+
+<rect class="box-ok" x="20" y="192" width="420" height="88" rx="10"/>
+<text class="t" x="230" y="214">② SELECT * FROM を DELETE FROM に書き換える</text>
+<text class="code" x="230" y="236">DELETE FROM posts WHERE id = 'p099';</text>
+<text class="row" x="230" y="258">→ 確認した1行だけが消える</text>
+
+<!-- ============ Right: forgot WHERE ============ -->
+<rect class="badge-ng" x="480" y="44" width="160" height="22" rx="11"/>
+<text class="badge-text" x="560" y="59">WHEREを忘れると</text>
+
+<rect class="box-ng" x="480" y="76" width="400" height="204" rx="10"/>
+<text class="t" x="680" y="100">WHERE無しで DELETE を実行</text>
+<text class="code" x="680" y="124">DELETE FROM posts;</text>
+
+<!-- mini grid representing 12 rows, all affected -->
+<g>
+  <rect class="grid-cell-hit" x="560" y="140" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="598" y="140" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="636" y="140" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="674" y="140" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="712" y="140" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="750" y="140" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="560" y="166" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="598" y="166" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="636" y="166" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="674" y="166" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="712" y="166" width="34" height="22"/>
+  <rect class="grid-cell-hit" x="750" y="166" width="34" height="22"/>
+</g>
+<text class="result-ng" x="680" y="216">postsテーブル 全12件が対象</text>
+<text class="foot" x="680" y="238">確認も出ません。書いた瞬間に消えます</text>
+<text class="foot" x="680" y="260">これは現場で実際に起きる事故です</text>
+
+<line class="rule" x1="20" y1="298" x2="880" y2="298"/>
+<text class="foot" x="450" y="322">「rmの前にls」と同じ考え方です。消す前に、必ず同じ条件で確認する。</text>
+
+</svg>

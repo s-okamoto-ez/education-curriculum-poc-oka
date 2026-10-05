@@ -1,0 +1,77 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: usersテーブル7件に対して、全件表示、WHERE is_premiumで4件に絞り込み、最後にnickname=''とnickname IS NULLという意地悪な条件で0件と7件という違う答えを確かめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #a8792f; }
+  .num-bg-3 { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .row { fill: #dfe3e0; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .row-dim { fill: #4a524e; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .result { fill: #ffffff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 22px; font-weight: 700; text-anchor: middle; }
+  .result-1 { fill: #7fe0d2; }
+  .result-2 { fill: #e0bc7c; }
+  .result-3a { fill: #e29a9a; }
+  .result-3b { fill: #7fe0d2; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<defs>
+  <marker id="swArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1: SELECT * -->
+<circle class="num-bg-1" cx="130" cy="24" r="12"/><text class="num" x="130" y="29">1</text>
+<text class="t" x="130" y="48">全件を予測してから見る</text>
+
+<rect class="win" x="20" y="58" width="220" height="130" rx="6"/>
+<text class="win-title" x="30" y="72">psql</text>
+<text class="row" x="30" y="90">SELECT * FROM users;</text>
+<text class="row-dim" x="30" y="108">id | name | ...</text>
+<text class="row-dim" x="30" y="124">u1043 | 田中 | ...</text>
+<text class="row-dim" x="30" y="140">... (7行)</text>
+<text class="result result-1" x="130" y="172">7件</text>
+
+<line class="arrow" x1="248" y1="123" x2="292" y2="123" marker-end="url(#swArrow)"/>
+
+<!-- step 2: WHERE is_premium -->
+<circle class="num-bg-2" cx="420" cy="24" r="12"/><text class="num" x="420" y="29">2</text>
+<text class="t" x="420" y="48">WHERE で絞り込む</text>
+
+<rect class="win" x="300" y="58" width="240" height="130" rx="6"/>
+<text class="win-title" x="310" y="72">psql</text>
+<text class="row" x="310" y="90">WHERE is_premium</text>
+<text class="row" x="310" y="104">      = true;</text>
+<text class="row-dim" x="310" y="124">7件のうち…</text>
+<text class="result result-2" x="420" y="164">4件</text>
+
+<line class="arrow" x1="548" y1="123" x2="592" y2="123" marker-end="url(#swArrow)"/>
+
+<!-- step 3: NULL vs empty -->
+<circle class="num-bg-3" cx="720" cy="24" r="12"/><text class="num" x="720" y="29">3</text>
+<text class="t" x="720" y="48">意地悪: NULLと空文字</text>
+
+<rect class="win" x="600" y="58" width="280" height="130" rx="6"/>
+<text class="win-title" x="610" y="72">psql</text>
+<text class="row" x="610" y="90">nickname = '' →</text>
+<text class="result result-3a" x="820" y="94" text-anchor="start">0件</text>
+<text class="row" x="610" y="114">nickname IS NULL →</text>
+<text class="result result-3b" x="820" y="118" text-anchor="start">7件</text>
+<text class="row-dim" x="610" y="150">同じ「空っぽ」でも答えが違う</text>
+
+<text class="s" x="450" y="230">影響するのは常に「同じ users テーブル」です。条件を変えるたびに、何件になるか自分の頭で先に予測する</text>
+
+</svg>

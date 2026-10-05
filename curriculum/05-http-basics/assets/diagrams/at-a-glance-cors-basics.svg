@@ -1,0 +1,40 @@
+<svg viewBox="0 0 720 210" role="img" aria-label="今日やること: 別会社が運営するお知らせ集約サイト(3400番)からつながるノートのAPI(3300番)をfetchすると、Access-Control-Allow-Originヘッダが無いためブラウザにブロックされる。コンソールでCORSエラーを確認し、ヘッダを追加して許可する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #a35555; }
+  .num-bg-2 { fill: #1f6f66; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .cmd { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .ng { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; font-weight: 700; text-anchor: start; }
+  .ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+  }
+</style>
+<rect class="bg" x="0" y="0" width="720" height="210"/>
+
+<circle class="num-bg-1" cx="200" cy="24" r="12"/><text class="num" x="200" y="29">1</text>
+<text class="t" x="200" y="48">localhost:3400 から呼ぶ</text>
+<rect class="win" x="40" y="58" width="320" height="108" rx="6"/>
+<text class="win-title" x="50" y="72">Console(3400のページ)</text>
+<text class="cmd" x="50" y="92">fetch("http://localhost:3300</text>
+<text class="cmd" x="50" y="105">  /api/posts")</text>
+<text class="ng" x="50" y="128">blocked by CORS policy:</text>
+<text class="ng" x="50" y="141">No 'Access-Control-Allow-Origin'</text>
+
+<circle class="num-bg-2" cx="520" cy="24" r="12"/><text class="num" x="520" y="29">2</text>
+<text class="t" x="520" y="48">ヘッダを追加したあと</text>
+<rect class="win" x="360" y="58" width="320" height="108" rx="6"/>
+<text class="win-title" x="370" y="72">server.js(/api/posts)</text>
+<text class="cmd" x="370" y="92">"Access-Control-Allow-Origin":</text>
+<text class="cmd" x="370" y="105">  "http://localhost:3400"</text>
+<text class="ok" x="370" y="128">→ 投稿一覧が表示される</text>
+
+<text class="s" x="360" y="192">呼び出される側が明示的に許可しない限り、ブラウザは別オリジンへの結果を渡さない</text>
+</svg>

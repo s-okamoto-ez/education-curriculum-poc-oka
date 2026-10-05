@@ -1,0 +1,76 @@
+<svg viewBox="0 0 980 430" role="img" aria-label="CSSの詳細度の階段を表す図。同じ要素に複数のCSSが当たったとき、どれが勝つかは書いた順ではなく詳細度で決まる。下から順に、要素セレクタが最も弱く、クラスセレクタ、IDセレクタ、style属性による直接指定、そして最後の手段である important 指定の順に強くなる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .step { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .step-top { fill: #ffffff; stroke: #c98a8a; stroke-width: 1.8; }
+  .sel { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; font-weight: 700; }
+  .sel-warn { fill: #a35555; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; font-weight: 700; }
+  .desc { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .axis { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .axis-label { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; }
+  .icon { fill: #1f6f66; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .badge { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .step { fill: #1a1f1d; stroke: #2b3230; }
+    .step-top { fill: #1a1f1d; stroke: #9c6a6a; }
+    .sel { fill: #86d6cb; }
+    .sel-warn { fill: #e29a9a; }
+    .desc { fill: #a9b3ac; }
+    .axis { stroke: #5fc0b3; }
+    .axis-label { fill: #86d6cb; }
+    .icon { fill: #5fc0b3; }
+    .title { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .badge { fill: #e29a9a; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="980" height="430"/>
+
+<defs>
+  <marker id="spArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="title" x="110" y="34">同じ要素に複数のCSSが当たったら、どれが勝つか</text>
+
+<!-- vertical axis -->
+<line class="axis" x1="72" y1="330" x2="72" y2="54" marker-end="url(#spArrow)"/>
+<text class="axis-label" x="30" y="200" transform="rotate(-90 30 200)" text-anchor="middle">強い</text>
+
+<!-- steps, weakest at bottom -->
+<g>
+  <rect class="step" x="110" y="288" width="760" height="42" rx="8"/>
+  <text class="sel" x="132" y="315">p { color: red; }</text>
+  <text class="desc" x="360" y="315">要素セレクタ — タグの名前で選ぶ。いちばん弱い</text>
+</g>
+<g>
+  <rect class="step" x="140" y="234" width="730" height="42" rx="8"/>
+  <text class="sel" x="162" y="261">.notice { color: blue; }</text>
+  <text class="desc" x="390" y="261">クラスセレクタ — 実務ではほぼこれを使う</text>
+</g>
+<g>
+  <rect class="step" x="170" y="180" width="700" height="42" rx="8"/>
+  <text class="sel" x="192" y="207">#main-title { color: green; }</text>
+  <text class="desc" x="420" y="207">IDセレクタ — 強すぎて後から上書きしづらい</text>
+</g>
+<g>
+  <rect class="step" x="200" y="126" width="670" height="42" rx="8"/>
+  <text class="sel" x="222" y="153">style="color: orange"</text>
+  <text class="desc" x="450" y="153">HTMLに直接書く。CSSファイル側からは勝てない</text>
+</g>
+<g>
+  <rect class="step-top" x="230" y="72" width="640" height="42" rx="8"/>
+  <text class="sel-warn" x="252" y="99">color: purple !important;</text>
+  <text class="badge" x="480" y="93">最後の手段</text>
+  <text class="desc" x="480" y="109">全部を無視して勝つ。使うと次の人が詰む</text>
+</g>
+
+<text class="foot" x="490" y="376">「CSSを書いたのに効かない」のほとんどは、これより強い指定がどこかで先に当たっているせいです。</text>
+<text class="foot" x="490" y="402">書いた順ではなく、この強さで決まります。効かないときは、犯人を開発者ツールで名指しできます。</text>
+
+</svg>

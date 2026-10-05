@@ -1,0 +1,95 @@
+<svg viewBox="0 0 1000 380" role="img" aria-label="HTTPステータスコードを、誰の責任かで3つに分けた図。200番台は成功、400番台はお願いの仕方が間違っているクライアント側の問題、500番台はサーバーの中で処理に失敗したサーバー側の問題を表す。数字の百の位を見るだけで、調査をどちら側から始めればよいかが決まる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .card-ok { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .card-cli { fill: #ffffff; stroke: #d0a15f; stroke-width: 2; }
+  .card-srv { fill: #ffffff; stroke: #c98a8a; stroke-width: 2; }
+  .big { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 30px; font-weight: 700; text-anchor: middle; }
+  .big-ok { fill: #1f6f66; }
+  .big-cli { fill: #a8792f; }
+  .big-srv { fill: #a35555; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .who { font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .who-ok { fill: #1f6f66; }
+  .who-cli { fill: #a8792f; }
+  .who-srv { fill: #a35555; }
+  .ex { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; }
+  .exd { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+    .card-ok { fill: #1a1f1d; stroke: #5fc0b3; }
+    .card-cli { fill: #1a1f1d; stroke: #b08d4f; }
+    .card-srv { fill: #1a1f1d; stroke: #9c6a6a; }
+    .big-ok { fill: #5fc0b3; }
+    .big-cli { fill: #e0bc7c; }
+    .big-srv { fill: #e29a9a; }
+    .t { fill: #e7ece9; }
+    .who-ok { fill: #86d6cb; }
+    .who-cli { fill: #e0bc7c; }
+    .who-srv { fill: #e29a9a; }
+    .ex { fill: #a9b3ac; }
+    .exd { fill: #8d968f; }
+    .head { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="380"/>
+
+<text class="head" x="500" y="34">3桁の数字の「百の位」だけを見れば、どちらを調べればよいか決まります</text>
+
+<!-- 2xx -->
+<g>
+  <rect class="card-ok" x="34" y="56" width="292" height="234" rx="10"/>
+  <text class="big big-ok" x="180" y="112">2xx</text>
+  <text class="t" x="180" y="140">成功した</text>
+  <text class="who who-ok" x="180" y="166">調べることは無い</text>
+  <line class="rule" x1="58" y1="184" x2="302" y2="184"/>
+  <text class="ex" x="58" y="208">200 OK</text>
+  <text class="exd" x="150" y="208">お願いどおりできた</text>
+  <text class="ex" x="58" y="234">201 Created</text>
+  <text class="exd" x="164" y="234">新しく作られた</text>
+  <text class="ex" x="58" y="260">204 No Content</text>
+  <text class="exd" x="182" y="260">成功。中身は無し</text>
+</g>
+
+<!-- 4xx -->
+<g>
+  <rect class="card-cli" x="354" y="56" width="292" height="234" rx="10"/>
+  <text class="big big-cli" x="500" y="112">4xx</text>
+  <text class="t" x="500" y="140">お願いの仕方が違う</text>
+  <text class="who who-cli" x="500" y="166">送った側(クライアント)を疑う</text>
+  <line class="rule" x1="378" y1="184" x2="622" y2="184"/>
+  <text class="ex" x="378" y="208">400 Bad Request</text>
+  <text class="exd" x="510" y="208">形式がおかしい</text>
+  <text class="ex" x="378" y="234">401 / 403</text>
+  <text class="exd" x="462" y="234">ログインしていない / 権限が無い</text>
+  <text class="ex" x="378" y="260">404 Not Found</text>
+  <text class="exd" x="494" y="260">そんなURLは無い</text>
+</g>
+
+<!-- 5xx -->
+<g>
+  <rect class="card-srv" x="674" y="56" width="292" height="234" rx="10"/>
+  <text class="big big-srv" x="820" y="112">5xx</text>
+  <text class="t" x="820" y="140">サーバーの中で失敗した</text>
+  <text class="who who-srv" x="820" y="166">受けた側(サーバー)を疑う</text>
+  <line class="rule" x1="698" y1="184" x2="942" y2="184"/>
+  <text class="ex" x="698" y="208">500 Internal Error</text>
+  <text class="exd" x="838" y="208">中で例外が出た</text>
+  <text class="ex" x="698" y="234">502 / 504</text>
+  <text class="exd" x="782" y="234">その先のサーバーが応答しない</text>
+  <text class="ex" x="698" y="260">503 Unavailable</text>
+  <text class="exd" x="828" y="260">今は受けられない</text>
+</g>
+
+<text class="foot" x="500" y="330">404 が出たときにサーバーのログを何時間も追うのは、時間の無駄です。URLの側を見ればいい。</text>
+<text class="foot" x="500" y="356">逆に 500 が出ているのに入力を直しても、何も変わりません。この切り分けが、調査の最初の一手になります。</text>
+
+</svg>

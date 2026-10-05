@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1000 340" role="img" aria-label="パイプの図。cat コマンドがログ全体を出力し、それがパイプ記号を通って grep コマンドの入力になり、error を含む行だけに絞られ、さらにパイプを通って wc コマンドの入力になり、最後に件数だけが残る。各コマンドは小さな仕事を1つだけ担当し、つなぐことで大きな仕事になる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .cmd { fill: #164f48; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 16px; font-weight: 700; text-anchor: middle; }
+  .job { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  .icon { fill: #1f6f66; }
+  .arrow-line { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .pipe-char { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 22px; font-weight: 700; text-anchor: middle; }
+  .flow-label { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .count { fill: #15191a; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .code { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 15px; }
+  .prompt { fill: #8b958e; font-family: ui-monospace, Consolas, monospace; font-size: 15px; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .cmd { fill: #86d6cb; }
+    .job { fill: #a9b3ac; }
+    .icon { fill: #5fc0b3; }
+    .arrow-line { stroke: #5fc0b3; }
+    .pipe-char { fill: #86d6cb; }
+    .flow-label { fill: #a9b3ac; }
+    .count { fill: #e7ece9; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="340"/>
+
+<defs>
+  <marker id="pfArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- the actual command line -->
+<rect class="term" x="240" y="24" width="520" height="46" rx="8"/>
+<text x="266" y="54"><tspan class="prompt">$ </tspan><tspan class="code">cat app.log | grep error | wc -l</tspan></text>
+
+<!-- Box 1 -->
+<g>
+  <rect class="box" x="30" y="106" width="200" height="118" rx="10"/>
+  <g transform="translate(116,122) scale(1.1667)">
+    <path class="icon" fill-rule="evenodd" clip-rule="evenodd" d="M4 2H16.7L20 5.2V22H4V2ZM5.5 3.5V20.5H18.5V6.5H15.5V3.5H5.5ZM7 11H17V12.5H7V11ZM17 8H7V9.5H17V8ZM9.39844 15.1999L11.2984 16.8999L14.5984 13.8999L15.5984 15.0999L11.2984 18.9999L8.39844 16.2999L9.39844 15.1999Z"/>
+  </g>
+  <text class="cmd" x="130" y="182">cat</text>
+  <text class="job" x="130" y="204">中身を全部出す</text>
+</g>
+
+<!-- pipe 1 -->
+<line class="arrow-line" x1="238" y1="165" x2="326" y2="165" marker-end="url(#pfArrow)"/>
+<text class="pipe-char" x="282" y="152">|</text>
+<text class="flow-label" x="282" y="196">12,483 行</text>
+
+<!-- Box 2 -->
+<g>
+  <rect class="box" x="334" y="106" width="200" height="118" rx="10"/>
+  <g transform="translate(420,122) scale(1.1667)">
+    <path class="icon" d="M21 20.5L15 14.5C16.2 13.2 16.9 11.4 16.9 9.5C17 5.4 13.6 2 9.5 2C5.4 2 2 5.4 2 9.5C2 13.6 5.3 17 9.5 17C11.2 17 12.7 16.4 14 15.5L20 21.5L21 20.5ZM3.5 9.5C3.5 6.2 6.2 3.5 9.5 3.5C12.8 3.5 15.5 6.2 15.5 9.5C15.5 12.8 12.8 15.5 9.5 15.5C6.2 15.5 3.5 12.8 3.5 9.5Z"/>
+  </g>
+  <text class="cmd" x="434" y="182">grep error</text>
+  <text class="job" x="434" y="204">条件に合う行だけ残す</text>
+</g>
+
+<!-- pipe 2 -->
+<line class="arrow-line" x1="542" y1="165" x2="630" y2="165" marker-end="url(#pfArrow)"/>
+<text class="pipe-char" x="586" y="152">|</text>
+<text class="flow-label" x="586" y="196">37 行</text>
+
+<!-- Box 3 -->
+<g>
+  <rect class="box" x="638" y="106" width="200" height="118" rx="10"/>
+  <g transform="translate(724,122) scale(1.1667)">
+    <path class="icon" d="M2 4V20H22V4H2ZM20.4 5.5L12 11.9L3.6 5.5H20.4ZM3.5 18.5V7.3L12 13.8L20.5 7.3V18.5H3.5Z"/>
+  </g>
+  <text class="cmd" x="738" y="182">wc -l</text>
+  <text class="job" x="738" y="204">行数を数える</text>
+</g>
+
+<!-- final output -->
+<line class="arrow-line" x1="846" y1="165" x2="914" y2="165" marker-end="url(#pfArrow)"/>
+<g>
+  <rect class="term" x="880" y="140" width="96" height="50" rx="8"/>
+  <text class="code" x="912" y="171">37</text>
+</g>
+
+<text class="foot" x="500" y="274">1つのコマンドは、小さな仕事を1つだけ担当します。</text>
+<text class="foot" x="500" y="300">それを縦棒でつないで大きな仕事にするのが、コマンドラインの考え方です。</text>
+
+</svg>

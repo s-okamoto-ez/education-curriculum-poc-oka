@@ -1,0 +1,108 @@
+<svg viewBox="0 0 1000 360" role="img" aria-label="awaitに到達した瞬間にasync関数が保留になり、外側の同期コードが先に実行され、300ms後にawaitの続きが実行されるという3段階の実行順を示す図。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .code { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-a { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .box-b { fill: #ffffff; stroke: #a8792f; stroke-width: 2; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .val { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; text-anchor: middle; }
+  .val-b { fill: #8a611f; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; text-anchor: middle; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .num-bg-a { fill: #1f6f66; }
+  .num-bg-b { fill: #a8792f; }
+  .icon-a { fill: #1f6f66; }
+  .icon-b { fill: #a8792f; }
+  .arrow { stroke: #1f6f66; stroke-width: 2.2; fill: none; }
+  .arrow-b { stroke: #a8792f; stroke-width: 2.2; fill: none; }
+  .head { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-a { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-b { fill: #1a1f1d; stroke: #e0bc7c; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+    .val { fill: #86d6cb; }
+    .val-b { fill: #e0bc7c; }
+    .num-bg-a { fill: #5fc0b3; }
+    .num-bg-b { fill: #e0bc7c; }
+    .num { fill: #0c0f0e; }
+    .icon-a { fill: #5fc0b3; }
+    .icon-b { fill: #e0bc7c; }
+    .arrow { stroke: #5fc0b3; }
+    .arrow-b { stroke: #e0bc7c; }
+    .head { fill: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="360"/>
+
+<defs>
+  <marker id="atArrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon-a"/>
+  </marker>
+  <marker id="atArrowB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon-b"/>
+  </marker>
+</defs>
+
+<!-- code line -->
+<rect class="term" x="260" y="24" width="480" height="40" rx="8"/>
+<text class="code" x="284" y="50">const posts = await fetchTimeline(false);</text>
+<text class="head" x="500" y="86">この1行に到達した瞬間、何が起きるか</text>
+
+<!-- step 1 -->
+<g>
+  <rect class="box-a" x="34" y="112" width="280" height="130" rx="10"/>
+  <circle class="num-bg-a" cx="52" cy="130" r="11"/><text class="num" x="52" y="134">1</text>
+  <g transform="translate(160,132) scale(0.95)">
+    <path class="icon-a" fill-rule="evenodd" clip-rule="evenodd" d="M7.2 5.20031C10.9 1.90031 16.6 2.30031 19.9 6.00031C23.2 9.80031 22.8 15.5003 19.2 18.7003C17.4 20.3003 15.3 21.0003 13.2 21.0003C10.7 21.0003 8.2 20.0003 6.4 18.0003L7.5 17.0003C10.3 20.1003 15 20.4003 18.1 17.6003C21.2 14.8003 21.5 10.1003 18.8 7.00031C16 3.90031 11.3 3.60031 8.2 6.40031C6.6 7.80031 5.7 9.90031 5.7 12.0003L7.8 9.80031L8.9 10.9003L4.9 14.9003L1 10.9003L2 9.90031L4.2 11.9003C4.2 9.40031 5.3 6.90031 7.2 5.20031ZM12 12.7V7.5H13.5V12.1L16.7 15.3L15.7 16.4L12 12.7Z"/>
+  </g>
+  <text class="t" x="174" y="184">読み込み中を出力し、保留に入る</text>
+  <text class="s" x="174" y="204">loadSuccess() の中(async関数)</text>
+  <text class="val" x="174" y="228">"[パート1] 読み込み中..."</text>
+</g>
+
+<line class="arrow" x1="322" y1="177" x2="356" y2="177" marker-end="url(#atArrowA)"/>
+<text class="head" x="339" y="167">0ms</text>
+
+<!-- step 2 -->
+<g>
+  <rect class="box-b" x="364" y="112" width="272" height="130" rx="10"/>
+  <circle class="num-bg-b" cx="382" cy="130" r="11"/><text class="num" x="382" y="134">2</text>
+  <g transform="translate(486,132) scale(0.95)">
+    <path class="icon-b" fill-rule="evenodd" clip-rule="evenodd" d="M4.79844 7.7L6.99844 10L5.99844 11L1.89844 7L5.99844 3L6.99844 4L4.79844 6.2H20.9984V7.7H4.79844ZM17 13L18 12L22.1 16L18 20L17 19L19.2 16.7H3V15.2H19.2L17 13Z"/>
+  </g>
+  <text class="t" x="500" y="184">mainの外の行が先に動く</text>
+  <text class="s" x="500" y="204">トップレベル(async関数の外)</text>
+  <text class="val-b" x="500" y="228">"[mainの外にある...]"</text>
+</g>
+
+<line class="arrow-b" x1="644" y1="177" x2="678" y2="177" marker-end="url(#atArrowB)"/>
+<text class="head" x="661" y="167">300ms後</text>
+
+<!-- step 3 -->
+<g>
+  <rect class="box-a" x="686" y="112" width="280" height="130" rx="10"/>
+  <circle class="num-bg-a" cx="704" cy="130" r="11"/><text class="num" x="704" y="134">3</text>
+  <g transform="translate(812,132) scale(0.95)">
+    <path class="icon-a" fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12ZM3.5 12C3.5 7.3 7.3 3.5 12 3.5C16.7 3.5 20.5 7.3 20.5 12C20.5 16.7 16.7 20.5 12 20.5C7.3 20.5 3.5 16.7 3.5 12ZM7.19922 12L11.1992 16L17.1992 10L16.0992 9L11.1992 13.9L8.29922 10.9L7.19922 12Z"/>
+  </g>
+  <text class="t" x="826" y="184">awaitの続きが再開する</text>
+  <text class="s" x="826" y="204">loadSuccess() の中(async関数)</text>
+  <text class="val" x="826" y="228">"[パート1] 取得できた投稿数: 2"</text>
+</g>
+
+<line class="rule" x1="34" y1="264" x2="966" y2="264"/>
+<text class="foot" x="500" y="292">実際の出力順は ①→②→(300ms後)③。「上から順に動く」という最初のルールが、await をまたいで初めて崩れます。</text>
+<text class="foot" x="500" y="314">②が③より先に出るのは、①がawaitで保留に入った瞬間、外側の同期コードがそのまま先に進んでしまうからです。</text>
+
+</svg>

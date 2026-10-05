@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1000 380" role="img" aria-label="同じTypeScriptのコードが、ブラウザとNode.jsという2つの場所で動くことを示す図。ブラウザ側では画面とDOMと開発者ツールが使え、Node.js側ではファイルとデータベースとネットワークが使える。どちらにもできないことがあり、その境界を知らないとエラーの原因が分からない。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-src { fill: #ffffff; stroke: #1f6f66; stroke-width: 2.2; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; }
+  .sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .can { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .cant { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .lbl { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; }
+  .icon { fill: #1f6f66; }
+  .arrow { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .code { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 13px; text-anchor: middle; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .ok { fill: #1f6f66; }
+  .ng { fill: #a35555; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-src { fill: #1a1f1d; stroke: #5fc0b3; }
+    .title { fill: #e7ece9; }
+    .sub { fill: #a9b3ac; }
+    .can { fill: #a9b3ac; }
+    .cant { fill: #e29a9a; }
+    .lbl { fill: #86d6cb; }
+    .icon { fill: #5fc0b3; }
+    .arrow { stroke: #5fc0b3; }
+    .code { fill: #86d6cb; }
+    .foot { fill: #a9b3ac; }
+    .ok { fill: #5fc0b3; }
+    .ng { fill: #e29a9a; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="380"/>
+
+<defs>
+  <marker id="trArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- source -->
+<g>
+  <rect class="box-src" x="390" y="24" width="220" height="66" rx="10"/>
+  <text class="title" x="500" y="50">同じ TypeScript</text>
+  <text class="code" x="500" y="74">timeline.ts</text>
+</g>
+
+<path class="arrow" d="M440 96 L440 118 L250 118 L250 142" marker-end="url(#trArrow)"/>
+<path class="arrow" d="M560 96 L560 118 L750 118 L750 142" marker-end="url(#trArrow)"/>
+<text class="lbl" x="298" y="112">ブラウザで動かすと</text>
+<text class="lbl" x="622" y="112">Node.jsで動かすと</text>
+
+<!-- browser -->
+<g>
+  <rect class="box" x="60" y="142" width="380" height="164" rx="10"/>
+  <g transform="translate(86,158) scale(0.9)">
+    <path class="icon" d="M21 16.4999V4.8999H3V16.4999H10.5V19.4999H7.5V20.9999H16.5V19.4999H13.5V16.4999H21ZM4.5 6.3999H19.5V14.9999H4.5V6.3999Z"/>
+  </g>
+  <text class="title" x="116" y="176" text-anchor="start">ブラウザ</text>
+  <text class="sub" x="250" y="196">お客さんのパソコンの中</text>
+  <line class="rule" x1="84" y1="208" x2="416" y2="208"/>
+
+  <circle class="ok" cx="92" cy="226" r="4"/>
+  <text class="can" x="106" y="230">画面(DOM)を書き換えられる</text>
+  <circle class="ok" cx="92" cy="250" r="4"/>
+  <text class="can" x="106" y="254">クリックなどの操作を受け取れる</text>
+  <circle class="ok" cx="92" cy="274" r="4"/>
+  <text class="can" x="106" y="278">開発者ツールで中を見られる</text>
+
+  <circle class="ng" cx="92" cy="298" r="4"/>
+  <text class="cant" x="106" y="302">ファイルやDBには直接触れない</text>
+</g>
+
+<!-- node -->
+<g>
+  <rect class="box" x="560" y="142" width="380" height="164" rx="10"/>
+  <g transform="translate(586,158) scale(0.9)">
+    <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+  </g>
+  <text class="title" x="616" y="176" text-anchor="start">Node.js</text>
+  <text class="sub" x="750" y="196">サーバーの中</text>
+  <line class="rule" x1="584" y1="208" x2="916" y2="208"/>
+
+  <circle class="ok" cx="592" cy="226" r="4"/>
+  <text class="can" x="606" y="230">ファイルを読み書きできる</text>
+  <circle class="ok" cx="592" cy="250" r="4"/>
+  <text class="can" x="606" y="254">データベースに接続できる</text>
+  <circle class="ok" cx="592" cy="274" r="4"/>
+  <text class="can" x="606" y="278">秘密の情報を置いておける</text>
+
+  <circle class="ng" cx="592" cy="298" r="4"/>
+  <text class="cant" x="606" y="302">画面(DOM)は存在しない</text>
+</g>
+
+<text class="foot" x="500" y="342">「document is not defined」というエラーの正体はこれです。サーバー側には画面が無いから、document も無い。</text>
+<text class="foot" x="500" y="366">どちらで動いているコードなのかを常に意識してください。本編でこの境界を何度もまたぎます。</text>
+
+</svg>

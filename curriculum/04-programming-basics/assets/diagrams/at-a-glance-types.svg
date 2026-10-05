@@ -1,0 +1,70 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: 02-types.tsに仕込まれた6箇所の型エラーをエディタと型チェックで見つけて直す。しかし型エラーが6個あっても、nodeで実行すると動いてしまうという事実を先に確かめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .line-dim { fill: #4a524e; }
+  .err-mark { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 9px; font-weight: 700; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .code-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .arrow { stroke: #6b746d; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<defs>
+  <marker id="atArrowT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- panel 1: file with 6 red squiggle errors -->
+<text class="t" x="150" y="24">02-types.ts に6箇所の型エラー</text>
+<rect class="win" x="20" y="34" width="260" height="130" rx="6"/>
+<text class="win-title" x="32" y="50">02-types.ts</text>
+
+<g>
+  <rect class="line-dim" x="32" y="60" width="150" height="7" rx="2"/>
+  <circle class="err-mark" cx="200" cy="63" r="8"/><text class="num" x="200" y="66">1</text>
+</g>
+<g>
+  <rect class="line-dim" x="32" y="76" width="180" height="7" rx="2"/>
+  <circle class="err-mark" cx="230" cy="79" r="8"/><text class="num" x="230" y="82">2</text>
+</g>
+<g>
+  <rect class="line-dim" x="32" y="92" width="120" height="7" rx="2"/>
+  <circle class="err-mark" cx="170" cy="95" r="8"/><text class="num" x="170" y="98">3</text>
+</g>
+<g>
+  <rect class="line-dim" x="32" y="108" width="160" height="7" rx="2"/>
+  <circle class="err-mark" cx="210" cy="111" r="8"/><text class="num" x="210" y="114">4</text>
+</g>
+<g>
+  <rect class="line-dim" x="32" y="124" width="140" height="7" rx="2"/>
+  <circle class="err-mark" cx="190" cy="127" r="8"/><text class="num" x="190" y="130">5</text>
+</g>
+<g>
+  <rect class="line-dim" x="32" y="140" width="170" height="7" rx="2"/>
+  <circle class="err-mark" cx="220" cy="143" r="8"/><text class="num" x="220" y="146">6</text>
+</g>
+
+<line class="arrow" x1="288" y1="99" x2="332" y2="99" marker-end="url(#atArrowT)"/>
+
+<!-- panel 2: node still runs it -->
+<text class="t" x="480" y="24">それでも node 02-types.ts は動く</text>
+<rect class="win" x="340" y="60" width="260" height="80" rx="6"/>
+<text class="win-title" x="352" y="76">$ node 02-types.ts</text>
+<text class="code-ok" x="352" y="98">投稿数: 3</text>
+<text class="code-ok" x="352" y="116">終了コード: 0(正常終了)</text>
+
+<text class="foot" x="350" y="190">型は「あなたとエディタの約束」。npm run typecheck を自分で走らせない限り、6個のエラーは何も止めてくれない</text>
+
+</svg>

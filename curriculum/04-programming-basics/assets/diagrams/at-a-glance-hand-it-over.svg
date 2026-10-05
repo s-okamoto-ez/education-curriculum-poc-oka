@@ -1,0 +1,49 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: 演習07を始めたときのREADMEには使い方しか書かれていなかった。演習07から14までで分かった運用上の決まり、未解決事項、check.shの使い方を書き足し、次の担当者に渡すREADMEに仕上げる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-dim { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .code-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .code-new { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<defs>
+  <marker id="atArrowH" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- before: exercise 07 start -->
+<text class="t" x="150" y="24">演習07を始めたとき</text>
+<rect class="win" x="30" y="34" width="260" height="130" rx="6"/>
+<text class="win-title" x="42" y="52">README.md</text>
+<text class="code-ok" x="42" y="76">使い方</text>
+<text class="code-ok" x="42" y="94">構成</text>
+<text class="code-dim" x="42" y="112">運用上の決まり(2行だけ)</text>
+
+<line class="arrow" x1="294" y1="99" x2="332" y2="99" marker-end="url(#atArrowH)"/>
+
+<!-- after: exercise 15 -->
+<text class="t" x="550" y="24">今、あなたが書くもの</text>
+<rect class="win" x="410" y="34" width="260" height="130" rx="6"/>
+<text class="win-title" x="422" y="52">README.md</text>
+<text class="code-ok" x="422" y="72">使い方(new-users を追加)</text>
+<text class="code-new" x="422" y="90">運用上の決まり(更新済み)</text>
+<text class="code-new" x="422" y="108">まだ直っていないこと</text>
+<text class="code-new" x="422" y="126">check.sh の使い方</text>
+
+<text class="foot" x="350" y="195">演習07の自分が知りたかった情報を、今度はあなたが次の担当者に渡す</text>
+
+</svg>

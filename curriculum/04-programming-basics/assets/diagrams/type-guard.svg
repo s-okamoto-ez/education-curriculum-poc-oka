@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1000 420" role="img" aria-label="型があるTypeScriptと型がないJavaScriptの比較図。JavaScriptでは数値と文字列を足す誤りがそのまま動いてしまい、本番環境で初めて表示がおかしくなる。TypeScriptでは同じ誤りが書いた瞬間にエディタ上で赤い波線として指摘され、実行する前に止まる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .c { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; }
+  .c-kw { fill: #c4a2ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; font-weight: 600; }
+  .c-name { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; }
+  .c-num { fill: #ffd48a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; }
+  .c-str { fill: #a5e18c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; }
+  .c-type { fill: #9fd0ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; }
+  .c-cmt { fill: #6d766f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; }
+  .c-err { fill: #ff9d9d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 700; }
+  .stage { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .stage-bad { fill: #ffffff; stroke: #c98a8a; stroke-width: 1.8; }
+  .stage-good { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .stage-t { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .stage-t-bad { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .stage-t-good { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .flow { stroke: #b9c2bb; stroke-width: 1.8; fill: none; }
+  .flow-stop { stroke: #1f6f66; stroke-width: 2.2; fill: none; }
+  .squiggle { stroke: #ff6b6b; stroke-width: 1.6; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .icon { fill: #b9c2bb; }
+  .icon-on { fill: #1f6f66; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .head { fill: #e7ece9; }
+    .stage { fill: #1a1f1d; stroke: #2b3230; }
+    .stage-bad { fill: #1a1f1d; stroke: #9c6a6a; }
+    .stage-good { fill: #1a1f1d; stroke: #5fc0b3; }
+    .stage-t { fill: #a9b3ac; }
+    .stage-t-bad { fill: #e29a9a; }
+    .stage-t-good { fill: #86d6cb; }
+    .flow { stroke: #3a423f; }
+    .flow-stop { stroke: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .icon { fill: #3a423f; }
+    .icon-on { fill: #5fc0b3; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="420"/>
+
+<defs>
+  <marker id="tgA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+  <marker id="tgB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon-on"/>
+  </marker>
+</defs>
+
+<!-- ===== TOP: JavaScript (no types) ===== -->
+<text class="head" x="30" y="34">型が無いと(JavaScript)</text>
+
+<rect class="term" x="30" y="48" width="452" height="126" rx="8"/>
+<text x="52" y="76"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">price</tspan><tspan class="c"> = </tspan><tspan class="c-num">1200</tspan><tspan class="c">;</tspan></text>
+<text x="52" y="100"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">count</tspan><tspan class="c"> = </tspan><tspan class="c-str">"3"</tspan><tspan class="c">;  </tspan><tspan class="c-cmt">// APIから文字列で来た</tspan></text>
+<text x="52" y="130"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">total</tspan><tspan class="c"> = </tspan><tspan class="c-name">price</tspan><tspan class="c"> + </tspan><tspan class="c-name">count</tspan><tspan class="c">;</tspan></text>
+<text class="c-cmt" x="52" y="156">// total は "12003" (文字列がくっついた)</text>
+
+<!-- pipeline top -->
+<g>
+  <rect class="stage" x="514" y="56" width="130" height="46" rx="8"/>
+  <text class="stage-t" x="579" y="76">書く</text>
+  <text class="stage-t" x="579" y="94">気づかない</text>
+
+  <line class="flow" x1="652" y1="79" x2="682" y2="79" marker-end="url(#tgA)"/>
+
+  <rect class="stage" x="690" y="56" width="130" height="46" rx="8"/>
+  <text class="stage-t" x="755" y="76">動かす</text>
+  <text class="stage-t" x="755" y="94">エラーは出ない</text>
+
+  <line class="flow" x1="828" y1="79" x2="858" y2="79" marker-end="url(#tgA)"/>
+
+  <rect class="stage-bad" x="866" y="56" width="106" height="46" rx="8"/>
+  <text class="stage-t-bad" x="919" y="76">本番</text>
+  <text class="stage-t-bad" x="919" y="94">表示が壊れる</text>
+</g>
+<text class="stage-t" x="742" y="140">誤りは消えたわけではなく、</text>
+<text class="stage-t" x="742" y="158">見つかる場所が一番遠くなっただけ</text>
+
+<!-- ===== BOTTOM: TypeScript ===== -->
+<text class="head" x="30" y="222">型があると(TypeScript)</text>
+
+<rect class="term" x="30" y="236" width="452" height="140" rx="8"/>
+<text x="52" y="264"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">price</tspan><tspan class="c">: </tspan><tspan class="c-type">number</tspan><tspan class="c"> = </tspan><tspan class="c-num">1200</tspan><tspan class="c">;</tspan></text>
+<text x="52" y="288"><tspan class="c-kw">const</tspan><tspan class="c"> </tspan><tspan class="c-name">count</tspan><tspan class="c">: </tspan><tspan class="c-type">number</tspan><tspan class="c"> = </tspan><tspan class="c-str">"3"</tspan><tspan class="c">;</tspan></text>
+<path class="squiggle" d="M196 294 q4 4 8 0 t8 0 t8 0 t8 0"/>
+<text class="c-err" x="52" y="318">型 'string' を型 'number' に割り当てられません</text>
+<text class="c-cmt" x="52" y="346">// 保存した瞬間、エディタが赤で指摘する</text>
+<text class="c-cmt" x="52" y="366">// 実行する前に止まる</text>
+
+<!-- pipeline bottom -->
+<g>
+  <rect class="stage-good" x="514" y="244" width="130" height="46" rx="8"/>
+  <text class="stage-t-good" x="579" y="264">書く</text>
+  <text class="stage-t-good" x="579" y="282">ここで止まる</text>
+
+  <line class="flow-stop" x1="652" y1="267" x2="682" y2="267" marker-end="url(#tgB)"/>
+
+  <rect class="stage" x="690" y="244" width="130" height="46" rx="8"/>
+  <text class="stage-t" x="755" y="270">動かす</text>
+
+  <line class="flow" x1="828" y1="267" x2="858" y2="267" marker-end="url(#tgA)"/>
+
+  <rect class="stage" x="866" y="244" width="106" height="46" rx="8"/>
+  <text class="stage-t" x="919" y="270">本番</text>
+</g>
+<text class="stage-t" x="742" y="328">直すのが最も安い場所で、誤りを見つける</text>
+<text class="stage-t" x="742" y="346">これが型の存在理由のすべてです</text>
+
+<text class="foot" x="500" y="404">AIが書いたコードでも同じです。型は「AIの出力が正しいか」を、あなたの代わりに1次チェックしてくれます。</text>
+
+</svg>

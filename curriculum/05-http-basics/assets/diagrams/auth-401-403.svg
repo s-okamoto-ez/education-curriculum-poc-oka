@@ -1,0 +1,63 @@
+<svg viewBox="0 0 1000 360" role="img" aria-label="401と403の違いを示す図。Authorizationヘッダを付けずにリクエストすると、あなたが誰か分からないため401 Unauthorizedが返る。間違った証明を付けると、あなたが誰かは分かるが権限が無いため403 Forbiddenが返る。正しい証明を付けると200 OKで通る。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .lane { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .lane-bad { fill: #ffffff; stroke: #c98a8a; stroke-width: 1.8; }
+  .lane-ok { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .req { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; }
+  .req-none { fill: #6b746d; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; font-style: italic; }
+  .code { font-family: ui-monospace, Consolas, monospace; font-size: 22px; font-weight: 700; text-anchor: middle; }
+  .code-bad { fill: #a35555; }
+  .code-ok { fill: #1f6f66; }
+  .title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; }
+  .body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .arrow { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .lane { fill: #1a1f1d; stroke: #2b3230; }
+    .lane-bad { fill: #1a1f1d; stroke: #9c6a6a; }
+    .lane-ok { fill: #1a1f1d; stroke: #5fc0b3; }
+    .req { fill: #86d6cb; }
+    .req-none { fill: #8d968f; }
+    .code-bad { fill: #e29a9a; }
+    .code-ok { fill: #5fc0b3; }
+    .title { fill: #e7ece9; }
+    .body { fill: #a9b3ac; }
+    .arrow { stroke: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="360"/>
+
+<!-- Lane 1: no auth -->
+<g>
+  <rect class="lane-bad" x="30" y="30" width="940" height="90" rx="10"/>
+  <text class="req-none" x="54" y="58">GET /api/me   (Authorizationヘッダ無し)</text>
+  <text class="title" x="54" y="82">あなたが誰か、そもそも分からない</text>
+  <line class="arrow" x1="700" y1="75" x2="850" y2="75"/>
+  <text class="code code-bad" x="920" y="83">401</text>
+</g>
+
+<!-- Lane 2: wrong token -->
+<g>
+  <rect class="lane-bad" x="30" y="136" width="940" height="90" rx="10"/>
+  <text class="req" x="54" y="164">GET /api/me   Authorization: Bearer wrong-token</text>
+  <text class="title" x="54" y="188">あなたが誰かは分かったが、権限が無い</text>
+  <line class="arrow" x1="700" y1="181" x2="850" y2="181"/>
+  <text class="code code-bad" x="920" y="189">403</text>
+</g>
+
+<!-- Lane 3: correct token -->
+<g>
+  <rect class="lane-ok" x="30" y="242" width="940" height="90" rx="10"/>
+  <text class="req" x="54" y="270">GET /api/me   Authorization: Bearer tsunagaru-secret-token</text>
+  <text class="title" x="54" y="294">本人だと確認でき、権限もある</text>
+  <line class="arrow" x1="700" y1="287" x2="850" y2="287"/>
+  <text class="code code-ok" x="920" y="295">200</text>
+</g>
+
+<text class="foot" x="500" y="352">401は「あなたが誰か分からない」、403は「あなたが誰かは分かったが、それはできない」という意味です。</text>
+
+</svg>

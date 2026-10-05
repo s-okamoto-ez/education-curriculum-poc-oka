@@ -1,0 +1,97 @@
+<svg viewBox="0 0 640 500" role="img" aria-label="固まったプロセスを止める手順の図。まずCtrl+Cを試し、それで止まらない場合はpsでプロセス一覧を確認してプロセスIDを特定し、最後の手段としてkillで強制終了する、という3段階のエスカレーションを示す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .box-problem { fill: #ffffff; stroke: #a35555; stroke-width: 1.6; }
+  .box-1 { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .box-2 { fill: #ffffff; stroke: #a8792f; stroke-width: 2; }
+  .box-3 { fill: #ffffff; stroke: #a35555; stroke-width: 2; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .mono { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #a8792f; }
+  .num-bg-3 { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .icon-problem { fill: #a35555; }
+  .arrow { stroke: #465049; stroke-width: 2; fill: none; }
+  .arrow-label { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .box-problem { fill: #1a1f1d; stroke: #9c6a6a; }
+    .box-1 { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-2 { fill: #1a1f1d; stroke: #e0bc7c; }
+    .box-3 { fill: #1a1f1d; stroke: #e29a9a; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+    .mono { fill: #e7ece9; }
+    .num-bg-1 { fill: #5fc0b3; }
+    .num-bg-2 { fill: #e0bc7c; }
+    .num-bg-3 { fill: #e29a9a; }
+    .num { fill: #0c0f0e; }
+    .icon-problem { fill: #e29a9a; }
+    .arrow { stroke: #a9b3ac; }
+    .arrow-label { fill: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="500"/>
+
+<defs>
+  <marker id="peArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#465049"/>
+  </marker>
+</defs>
+
+<text class="head" x="320" y="24">固まったプロセスは、段階を踏んで止めます</text>
+
+<!-- problem -->
+<g>
+  <rect class="box-problem" x="150" y="44" width="340" height="64" rx="10"/>
+  <g transform="translate(174,60) scale(0.85)">
+    <path class="icon-problem" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22ZM11.3 6.5H12.8V14H11.3V6.5ZM12 15.5C12.6 15.5 13 15.9 13 16.5C13 17.1 12.6 17.5 12 17.5C11.4 17.5 11 17.1 11 16.5C11 15.9 11.4 15.5 12 15.5Z"/>
+  </g>
+  <text class="t" x="335" y="82">固まったプロセス</text>
+</g>
+
+<line class="arrow" x1="320" y1="108" x2="320" y2="134" marker-end="url(#peArrow)"/>
+
+<!-- step 1 -->
+<g>
+  <rect class="box-1" x="150" y="138" width="340" height="84" rx="10"/>
+  <circle class="num-bg-1" cx="172" cy="160" r="13"/><text class="num" x="172" y="164">1</text>
+  <text class="mono" x="330" y="168">Ctrl + C</text>
+  <text class="s" x="330" y="200">まずはこれを試す。多くの場合はこれで止まる</text>
+</g>
+
+<line class="arrow" x1="320" y1="222" x2="320" y2="248" marker-end="url(#peArrow)"/>
+<text class="arrow-label" x="470" y="240">それでも止まらない場合</text>
+
+<!-- step 2 -->
+<g>
+  <rect class="box-2" x="150" y="252" width="340" height="84" rx="10"/>
+  <circle class="num-bg-2" cx="172" cy="274" r="13"/><text class="num" x="172" y="278">2</text>
+  <g transform="translate(300,268) scale(0.85)">
+    <path fill="#a8792f" d="M15.3992 14.5002C16.5992 13.1002 17.1992 11.3002 17.1992 9.5002C17.1992 5.2002 13.6992 1.7002 9.39922 1.7002C5.09922 1.7002 1.69922 5.2002 1.69922 9.5002C1.69922 13.8002 5.19922 17.3002 9.49922 17.3002C11.0992 17.3002 12.5992 16.8002 13.8992 15.9002L19.8992 21.9002L21.2992 20.5002L15.3992 14.5002ZM15.1992 9.5002C15.1992 12.7002 12.5992 15.3002 9.39922 15.3002C6.19922 15.3002 3.59922 12.7002 3.59922 9.5002C3.59922 6.3002 6.19922 3.7002 9.39922 3.7002C12.5992 3.7002 15.1992 6.3002 15.1992 9.5002Z"/>
+  </g>
+  <text class="mono" x="330" y="282">ps</text>
+  <text class="s" x="330" y="314">プロセス一覧を確認し、止まらないもののIDを探す</text>
+</g>
+
+<line class="arrow" x1="320" y1="336" x2="320" y2="362" marker-end="url(#peArrow)"/>
+<text class="arrow-label" x="440" y="354">IDを確認したら</text>
+
+<!-- step 3 -->
+<g>
+  <rect class="box-3" x="150" y="366" width="340" height="84" rx="10"/>
+  <circle class="num-bg-3" cx="172" cy="388" r="13"/><text class="num" x="172" y="392">3</text>
+  <text class="mono" x="330" y="396">kill &lt;プロセスID&gt;</text>
+  <text class="s" x="330" y="428">最後の手段。保存していない作業は失われる</text>
+</g>
+
+<text class="foot" x="320" y="480">3段階のうち、ほとんどはCtrl+Cだけで解決します。killを使う頻度は低いはずです。</text>
+
+</svg>

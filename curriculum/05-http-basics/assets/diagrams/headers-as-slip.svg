@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 260" role="img" aria-label="ヘッダを荷物の伝票にたとえた図。本文(ボディ)が荷物そのもので、Content-Type・Authorization・Cache-Controlといったヘッダは、中身を開けなくても分かる伝票の記載事項にあたる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-slip { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; stroke-dasharray: 3 3; }
+  .icon { fill: #1a1a1c; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .field-name { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: start; }
+  .field-desc { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: start; }
+  .conn { stroke: #8d968f; stroke-width: 1.4; stroke-dasharray: 3 3; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-slip { fill: #1a1f1d; stroke: #5fc0b3; }
+    .icon { fill: #e7ece9; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+    .field-name { fill: #86d6cb; }
+    .field-desc { fill: #a9b3ac; }
+    .conn { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="260"/>
+
+<text class="head" x="320" y="24">ヘッダは、本文(ボディ)に貼られた伝票のようなものです</text>
+
+<!-- package (body) -->
+<rect class="box" x="40" y="60" width="160" height="140" rx="10"/>
+<g transform="translate(88,86) scale(1.1667)">
+  <path class="icon" d="M2 4V20H22V4H2ZM20.4 5.5L12 11.9L3.6 5.5H20.4ZM3.5 18.5V7.3L12 13.8L20.5 7.3V18.5H3.5Z"/>
+</g>
+<text class="t" x="120" y="158">ボディ</text>
+<text class="s" x="120" y="176">実際のデータ本体</text>
+
+<line class="conn" x1="200" y1="130" x2="260" y2="130"/>
+<text class="s" x="230" y="120">開けなくても分かる</text>
+
+<!-- slip (headers) -->
+<rect class="box-slip" x="260" y="52" width="340" height="156" rx="8"/>
+<text class="t" x="430" y="76">伝票(ヘッダ)</text>
+
+<line class="conn" x1="284" y1="86" x2="576" y2="86"/>
+
+<text class="field-name" x="284" y="106">Content-Type:</text>
+<text class="field-desc" x="284" y="122">中身の種類(JSON / HTMLなど)</text>
+
+<text class="field-name" x="284" y="146">Authorization:</text>
+<text class="field-desc" x="284" y="162">送り主の証明(あなたは誰か)</text>
+
+<text class="field-name" x="284" y="186">Cache-Control:</text>
+<text class="field-desc" x="284" y="202">保管方法の指示(取っておいてよいか)</text>
+
+</svg>

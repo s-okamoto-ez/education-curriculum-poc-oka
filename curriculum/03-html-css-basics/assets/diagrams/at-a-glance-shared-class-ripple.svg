@@ -1,0 +1,52 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: 1枚目のカードの日付だけ目立たせたいのに、.card-metaを直接変えると3枚のカードすべての日付が太字になってしまう。専用のクラスcard-meta-highlightを新しく作り、1枚目だけに追加してつけることで、他のカードに影響を与えずに直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .card-mock { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.2; }
+  .card-mock-hi { stroke: #a35555; stroke-width: 2; }
+  .card-mock-ok { stroke: #1f6f66; stroke-width: 2; }
+  .meta-bold { fill: #333333; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .meta-normal { fill: #6b7280; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .badge-bad { fill: #a35555; }
+  .badge-ok { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .card-mock { fill: #1a1f1d; stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<!-- left: direct edit ripples to all 3 -->
+<text class="t" x="150" y="24">.card-meta を直接変える</text>
+<rect class="card-mock card-mock-hi" x="30" y="34" width="240" height="34" rx="5"/>
+<text class="meta-bold" x="150" y="55">2026年3月1日</text>
+<circle class="badge-bad" cx="270" cy="34" r="11"/><text class="badge-text" x="270" y="38">波及</text>
+
+<rect class="card-mock card-mock-hi" x="30" y="76" width="240" height="34" rx="5"/>
+<text class="meta-bold" x="150" y="97">2026年2月18日</text>
+<circle class="badge-bad" cx="270" cy="76" r="11"/><text class="badge-text" x="270" y="80">波及</text>
+
+<rect class="card-mock card-mock-hi" x="30" y="118" width="240" height="34" rx="5"/>
+<text class="meta-bold" x="150" y="139">2026年1月9日</text>
+<circle class="badge-bad" cx="270" cy="118" r="11"/><text class="badge-text" x="270" y="122">波及</text>
+
+<!-- right: dedicated class, only card 1 -->
+<text class="t" x="530" y="24">専用クラスを1枚目だけに追加</text>
+<rect class="card-mock card-mock-ok" x="410" y="34" width="240" height="34" rx="5"/>
+<text class="meta-bold" x="530" y="55">2026年3月1日</text>
+<circle class="badge-ok" cx="650" cy="34" r="14"/><text class="badge-text" x="650" y="38">依頼</text>
+
+<rect class="card-mock" x="410" y="76" width="240" height="34" rx="5"/>
+<text class="meta-normal" x="530" y="97">2026年2月18日</text>
+
+<rect class="card-mock" x="410" y="118" width="240" height="34" rx="5"/>
+<text class="meta-normal" x="530" y="139">2026年1月9日</text>
+
+<text class="foot" x="350" y="180">クラスはページ全体で共有される。専用の目印を作れば、1枚だけを狙える</text>
+
+</svg>

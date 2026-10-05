@@ -1,0 +1,67 @@
+<svg viewBox="0 0 960 300" role="img" aria-label="HTML要素の分解図。開始タグ、属性、内容、終了タグの4つの部品からできていることを示す。開始タグはこれから何が始まるかを宣言し、属性はその要素に追加情報を与え、内容は画面に表示される部分、終了タグはここで終わりという印を表す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .c-gray { fill: #8b958e; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 24px; }
+  .c-tag { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 24px; font-weight: 700; }
+  .c-attr { fill: #ffd48a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 24px; font-weight: 700; }
+  .c-text { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 24px; }
+  .lead-line { stroke: #1f6f66; stroke-width: 1.8; fill: none; }
+  .part-name { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .part-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .lead-line { stroke: #5fc0b3; }
+    .part-name { fill: #e7ece9; }
+    .part-body { fill: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="960" height="300"/>
+
+<!-- code -->
+<rect class="term" x="90" y="26" width="780" height="60" rx="8"/>
+<text x="116" y="66">
+  <tspan class="c-gray">&lt;</tspan><tspan class="c-tag">a</tspan><tspan class="c-gray"> </tspan><tspan class="c-attr">href="/help"</tspan><tspan class="c-gray">&gt;</tspan><tspan class="c-text">ヘルプを見る</tspan><tspan class="c-gray">&lt;/</tspan><tspan class="c-tag">a</tspan><tspan class="c-gray">&gt;</tspan>
+</text>
+
+<!-- leader lines -->
+<path class="lead-line" d="M132 92 L132 110 L112 110 L112 130"/>
+<path class="lead-line" d="M250 92 L250 110 L352 110 L352 130"/>
+<path class="lead-line" d="M470 92 L470 110 L592 110 L592 130"/>
+<path class="lead-line" d="M700 92 L700 110 L832 110 L832 130"/>
+
+<!-- cards -->
+<g>
+  <rect class="card" x="24" y="130" width="176" height="96" rx="10"/>
+  <text class="part-name" x="112" y="160">開始タグ</text>
+  <text class="part-body" x="112" y="184">ここから始まる、</text>
+  <text class="part-body" x="112" y="204">という宣言</text>
+</g>
+<g>
+  <rect class="card" x="264" y="130" width="176" height="96" rx="10"/>
+  <text class="part-name" x="352" y="160">属性</text>
+  <text class="part-body" x="352" y="184">この要素への追加情報。</text>
+  <text class="part-body" x="352" y="204">ここでは「リンク先」</text>
+</g>
+<g>
+  <rect class="card" x="504" y="130" width="176" height="96" rx="10"/>
+  <text class="part-name" x="592" y="160">内容</text>
+  <text class="part-body" x="592" y="184">画面に表示される、</text>
+  <text class="part-body" x="592" y="204">唯一の部分</text>
+</g>
+<g>
+  <rect class="card" x="744" y="130" width="176" height="96" rx="10"/>
+  <text class="part-name" x="832" y="160">終了タグ</text>
+  <text class="part-body" x="832" y="184">ここで終わり、</text>
+  <text class="part-body" x="832" y="204">という印(スラッシュ付き)</text>
+</g>
+
+<text class="foot" x="480" y="266">この4点セットをまとめて「要素(エレメント)」と呼びます。HTMLはこれの入れ子でできています。</text>
+
+</svg>

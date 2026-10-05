@@ -1,0 +1,55 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: practice/my-first-branchでREADME.mdに追記した内容は、そのブランチだけのものであり、mainに戻ると見えなくなることを確認する。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .badge-1 { fill: #1f6f66; }
+  .badge-2 { fill: #6b746d; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .win-ok { fill: #1a1f1d; stroke: #5fc0b3; stroke-width: 1.6; }
+  .win-dim { fill: #171b1a; stroke: #3a423f; stroke-width: 1.2; stroke-dasharray: 4 3; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .line-dim { fill: #4a524e; }
+  .line-ghost { fill: #4a524e; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; text-decoration: line-through; }
+  .line-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .arrow { stroke: #6b746d; }
+    .foot { fill: #8d968f; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<defs>
+  <marker id="brArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- panel 1: on the feature branch -->
+<rect class="badge-1" x="20" y="40" width="230" height="24" rx="12"/>
+<text class="badge-text" x="135" y="56">1  practice/my-first-branch</text>
+<rect class="win-ok" x="20" y="76" width="230" height="90" rx="6"/>
+<text class="win-title" x="30" y="90">README.md</text>
+<rect class="line-dim" x="30" y="98" width="150" height="7" rx="2"/>
+<rect class="line-dim" x="30" y="112" width="120" height="7" rx="2"/>
+<text class="line-ok" x="30" y="140">+ 12〜16人が同時に…</text>
+
+<line class="arrow" x1="278" y1="121" x2="322" y2="121" marker-end="url(#brArrow)"/>
+<text class="t" x="300" y="106">main に戻る</text>
+
+<!-- panel 2: back on main -->
+<rect class="badge-2" x="330" y="40" width="120" height="24" rx="12"/>
+<text class="badge-text" x="390" y="56">2  main</text>
+<rect class="win-dim" x="330" y="76" width="230" height="90" rx="6"/>
+<text class="win-title" x="340" y="90">README.md</text>
+<rect class="line-dim" x="340" y="98" width="150" height="7" rx="2"/>
+<rect class="line-dim" x="340" y="112" width="120" height="7" rx="2"/>
+<text class="line-ghost" x="340" y="140">(この行は無い)</text>
+
+<text class="foot" x="350" y="195">追記した内容は practice/my-first-branch だけのもの。main には持ち越されない</text>
+
+</svg>

@@ -1,0 +1,73 @@
+<svg viewBox="0 0 900 220" role="img" aria-label="今日やること: CSS Gridでカードを2列にし、スマホ幅では1列に戻すメディアクエリを書く。ただしそのメディアクエリを通常のcard-gridルールより前に書くと、詳細度が同じため後に書かれた通常ルールに上書きされて効かない。メディアクエリを後ろに移動して直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #a35555; }
+  .num-bg-3 { fill: #1f6f66; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-1 { stroke: #1f6f66; }
+  .win-2 { stroke: #a35555; }
+  .win-3 { stroke: #1f6f66; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9px; text-anchor: start; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-dim { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-err { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="220"/>
+
+<defs>
+  <marker id="atArrowG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1 -->
+<circle class="num-bg-1" cx="150" cy="24" r="12"/><text class="num" x="150" y="29">1</text>
+<text class="t" x="150" y="48">Gridで2列にする</text>
+<rect class="win win-1" x="20" y="58" width="260" height="100" rx="6"/>
+<text class="win-title" x="32" y="76">style.css(138行目)</text>
+<text class="code" x="32" y="98">.card-grid {</text>
+<text class="code-ok" x="42" y="114">grid-template-columns:</text>
+<text class="code-ok" x="42" y="128">  1fr 1fr;</text>
+<text class="code" x="32" y="144">}</text>
+
+<line class="arrow" x1="284" y1="103" x2="316" y2="103" marker-end="url(#atArrowG)"/>
+
+<!-- step 2 -->
+<circle class="num-bg-2" cx="450" cy="24" r="12"/><text class="num" x="450" y="29">2</text>
+<text class="t" x="450" y="48">前に書いたメディアクエリは負ける</text>
+<rect class="win win-2" x="320" y="58" width="260" height="100" rx="6"/>
+<text class="win-title" x="332" y="76">style.css(109行目・前の方)</text>
+<text class="code-dim" x="332" y="98">@media (max-width:720px){</text>
+<text class="code-err" x="342" y="114">.card-grid{</text>
+<text class="code-err" x="352" y="128">  grid-template-columns:1fr;</text>
+<text class="code-err" x="342" y="142">}}</text>
+
+<line class="arrow" x1="584" y1="103" x2="616" y2="103" marker-end="url(#atArrowG)"/>
+
+<!-- step 3 -->
+<circle class="num-bg-3" cx="750" cy="24" r="12"/><text class="num" x="750" y="29">3</text>
+<text class="t" x="750" y="48">後ろに移動すると効く</text>
+<rect class="win win-3" x="620" y="58" width="260" height="100" rx="6"/>
+<text class="win-title" x="632" y="76">style.css(139行目・後の方)</text>
+<text class="code" x="632" y="98">.card-grid{...}</text>
+<text class="code-ok" x="632" y="118">@media (max-width:720px){</text>
+<text class="code-ok" x="642" y="132">  .card-grid{1fr}</text>
+<text class="code-ok" x="632" y="146">}</text>
+
+<text class="foot" x="450" y="185">詳細度が同じとき、CSSは「後に書かれたルール」を勝たせる</text>
+<text class="foot" x="450" y="203">画面幅の条件を満たしていても、ソースの順序で負けることがある</text>
+
+</svg>

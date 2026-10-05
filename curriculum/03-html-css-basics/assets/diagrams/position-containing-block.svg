@@ -1,0 +1,105 @@
+<svg viewBox="0 0 640 420" role="img" aria-label="position: absoluteの要素は直近のpositionがstatic以外の祖先を基準に配置される。notif-panelの祖先(notif, nav, site-header)はすべてstaticなため探索は画面全体まで進んでしまい離れた位置に表示される。一方notif-badgeは親のnotif-bellがposition: relativeなのですぐ見つかり正しい位置に表示される。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .badge-ok { fill: #1f6f66; }
+  .badge-ng { fill: #a35555; }
+  .badge-text { fill: #ffffff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-warn { fill: #ffffff; stroke: #a35555; stroke-width: 2; }
+  .box-skip { fill: #f2f4f2; stroke: #d7dcd8; stroke-width: 1.4; stroke-dasharray: 4 3; }
+  .box-ok { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .code { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .code-dim { fill: #8d968f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; text-anchor: middle; }
+  .sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .sub-dim { fill: #8d968f; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: middle; }
+  .sub-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .sub-warn { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; font-weight: 700; text-anchor: middle; }
+  .arrow-label { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: start; }
+  .arrow-line { stroke: #8d968f; stroke-width: 1.8; fill: none; }
+  .caption-ng { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .caption-ok { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1; stroke-dasharray: 4 4; }
+  .foot { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .badge-ok { fill: #1f6f66; }
+    .badge-ng { fill: #9c6a6a; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-warn { fill: #1a1f1d; stroke: #9c6a6a; }
+    .box-skip { fill: #171b1a; stroke: #2b3230; }
+    .box-ok { fill: #1a1f1d; stroke: #5fc0b3; }
+    .code { fill: #e7ece9; }
+    .code-dim { fill: #6b746d; }
+    .sub { fill: #a9b3ac; }
+    .sub-dim { fill: #6b746d; }
+    .sub-ok { fill: #86d6cb; }
+    .sub-warn { fill: #e29a9a; }
+    .arrow-label { fill: #a9b3ac; }
+    .arrow-line { stroke: #6b746d; }
+    .caption-ng { fill: #e29a9a; }
+    .caption-ok { fill: #86d6cb; }
+    .rule { stroke: #2b3230; }
+    .foot { fill: #e7ece9; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="420"/>
+
+<defs>
+  <marker id="pcArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<text class="head" x="320" y="24">position: absoluteの基準点は、直近にある「positionがstatic以外」の祖先です</text>
+
+<!-- ============ Left: notif-panel (basis not found nearby) ============ -->
+<rect class="badge-ng" x="20" y="46" width="170" height="22" rx="11"/>
+<text class="badge-text" x="105" y="61">NG: .notif-panel</text>
+
+<rect class="box" x="20" y="80" width="280" height="44" rx="8"/>
+<text class="code" x="160" y="100">.notif-panel</text>
+<text class="sub" x="160" y="116">position: absolute</text>
+
+<line class="arrow-line" x1="160" y1="124" x2="160" y2="154" marker-end="url(#pcArrow)"/>
+<text class="arrow-label" x="172" y="143">基準点を探して祖先へ</text>
+
+<rect class="box-skip" x="20" y="154" width="280" height="90" rx="8"/>
+<text class="code-dim" x="160" y="174">.notif</text>
+<text class="code-dim" x="160" y="190">.nav</text>
+<text class="code-dim" x="160" y="206">.site-header</text>
+<text class="sub-dim" x="160" y="228">いずれも position: static</text>
+<text class="sub-dim" x="160" y="242">(基準にならない)</text>
+
+<line class="arrow-line" x1="160" y1="244" x2="160" y2="276" marker-end="url(#pcArrow)"/>
+<text class="arrow-label" x="172" y="265">見つからないまま</text>
+
+<rect class="box-warn" x="20" y="276" width="280" height="54" rx="8"/>
+<text class="code" x="160" y="298">画面全体(html)</text>
+<text class="sub-warn" x="160" y="316">ここが基準になってしまう</text>
+
+<text class="caption-ng" x="160" y="354">ベルから離れた位置に表示される</text>
+
+<!-- ============ Right: notif-badge (basis found immediately) ============ -->
+<rect class="badge-ok" x="340" y="46" width="180" height="22" rx="11"/>
+<text class="badge-text" x="430" y="61">OK: .notif-badge</text>
+
+<rect class="box" x="340" y="80" width="280" height="44" rx="8"/>
+<text class="code" x="480" y="100">.notif-badge</text>
+<text class="sub" x="480" y="116">position: absolute</text>
+
+<line class="arrow-line" x1="480" y1="124" x2="480" y2="154" marker-end="url(#pcArrow)"/>
+<text class="arrow-label" x="492" y="143">基準点を探して祖先へ</text>
+
+<rect class="box-ok" x="340" y="154" width="280" height="54" rx="8"/>
+<text class="code" x="480" y="176">.notif-bell</text>
+<text class="sub-ok" x="480" y="194">position: relative → ここが基準になる</text>
+
+<text class="caption-ok" x="480" y="354">ベルのすぐそばに正しく表示される</text>
+
+<line class="rule" x1="20" y1="372" x2="620" y2="372"/>
+<text class="foot" x="320" y="398">直し方: .notif に position: relative; を1行追加するだけで直る(z-indexは無関係)</text>
+
+</svg>

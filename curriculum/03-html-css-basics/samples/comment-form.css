@@ -1,0 +1,98 @@
+/* ===================================================
+   つながるノート — コメント投稿フォーム
+   ---------------------------------------------------
+   演習06で使います。2箇所、実務でよく見かける
+   アクセシビリティ上の問題が仕込まれています。
+   =================================================== */
+
+body {
+  font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Noto Sans JP", sans-serif;
+  margin: 0;
+  color: #333333;
+  background: #f5f6f5;
+  line-height: 1.7;
+}
+
+.site-header {
+  background: #1f6f66;
+  padding: 16px 24px;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.form-container {
+  width: 480px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.lead {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.comment-form {
+  background: #ffffff;
+  border: 1px solid #d7dcd8;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 16px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #d7dcd8;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-checkbox label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.submit-button {
+  display: inline-block;
+  background: #1f6f66;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.site-footer {
+  text-align: center;
+  color: #6b7280;
+  font-size: 12px;
+  padding: 24px;
+}

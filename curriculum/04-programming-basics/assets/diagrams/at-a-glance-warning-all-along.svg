@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 220" role="img" aria-label="今日やること: npm run typecheckはtopPosts呼び出しの型エラーを最初から警告していた。それを無視してtop15件に増やすと、退会した利用者の投稿でCannot read properties of undefinedが発生し実行時に落ちる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .num-bg-1 { fill: #a8792f; }
+  .num-bg-2 { fill: #8d968f; }
+  .num-bg-3 { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-1 { stroke: #a8792f; }
+  .win-2 { stroke: #4a524e; }
+  .win-3 { stroke: #a35555; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-warn { fill: #e0bc7c; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-dim { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code-err { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow { stroke: #8d968f; stroke-width: 2; fill: none; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .arrow { stroke: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="220"/>
+
+<defs>
+  <marker id="atArrowW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<!-- step 1: warning existed before -->
+<circle class="num-bg-1" cx="150" cy="24" r="12"/><text class="num" x="150" y="29">1</text>
+<text class="t" x="150" y="48">変更する前から警告していた</text>
+<rect class="win win-1" x="20" y="58" width="260" height="90" rx="6"/>
+<text class="win-title" x="32" y="76">$ npm run typecheck</text>
+<text class="code-warn" x="32" y="98">main.ts(29,38): error TS2345</text>
+<text class="code-warn" x="32" y="114">User | undefined は</text>
+<text class="code-warn" x="32" y="130">User に代入できません</text>
+
+<line class="arrow" x1="284" y1="103" x2="316" y2="103" marker-end="url(#atArrowW)"/>
+
+<!-- step 2: ignored, changed to 15 -->
+<circle class="num-bg-2" cx="450" cy="24" r="12"/><text class="num" x="450" y="29">2</text>
+<text class="t" x="450" y="48">警告を無視して15件に増やす</text>
+<rect class="win win-2" x="320" y="58" width="260" height="90" rx="6"/>
+<text class="win-title" x="332" y="76">main.ts</text>
+<text class="code-dim" x="332" y="98">topPosts(posts, 5)</text>
+<text class="code-warn" x="332" y="116">→ topPosts(posts, 15)</text>
+
+<line class="arrow" x1="584" y1="103" x2="616" y2="103" marker-end="url(#atArrowW)"/>
+
+<!-- step 3: crash -->
+<circle class="num-bg-3" cx="750" cy="24" r="12"/><text class="num" x="750" y="29">3</text>
+<text class="t" x="750" y="48">退会した利用者の投稿で落ちる</text>
+<rect class="win win-3" x="620" y="58" width="260" height="90" rx="6"/>
+<text class="win-title" x="632" y="76">$ node src/main.ts top</text>
+<text class="code-err" x="632" y="98">処理に失敗しました:</text>
+<text class="code-err" x="632" y="114">Cannot read properties</text>
+<text class="code-err" x="632" y="130">of undefined</text>
+
+<text class="foot" x="450" y="180">5件では踏まなかっただけで、警告が指す行と実際に落ちた行は同じ。型は最初から予告していた</text>
+
+</svg>

@@ -1,0 +1,101 @@
+<svg viewBox="0 0 980 500" role="img" aria-label="ファイルシステムの木構造の図。一番上のルートから home、user、projects、app と枝分かれし、app の下に src ディレクトリと README.md ファイルがある。現在いる場所であるカレントディレクトリが app に印されており、そこから見た絶対パスと相対パスの書き方が併記されている。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .node { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .node-here { fill: #ffffff; stroke: #1f6f66; stroke-width: 2.4; }
+  .name { fill: #15191a; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 14px; font-weight: 600; }
+  .name-file { fill: #465049; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 13px; }
+  .icon { fill: #1f6f66; }
+  .icon-file { fill: #8b958e; }
+  .branch { stroke: #b9c2bb; stroke-width: 1.6; fill: none; }
+  .here-label { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; }
+  .legend-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; }
+  .legend-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .legend-code { fill: #164f48; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 600; }
+  .panel { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .rootmark { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .node { fill: #1a1f1d; stroke: #2b3230; }
+    .node-here { fill: #1a1f1d; stroke: #5fc0b3; }
+    .name { fill: #e7ece9; }
+    .name-file { fill: #a9b3ac; }
+    .icon { fill: #5fc0b3; }
+    .icon-file { fill: #6d766f; }
+    .branch { stroke: #3a423f; }
+    .here-label { fill: #86d6cb; }
+    .legend-title { fill: #e7ece9; }
+    .legend-body { fill: #a9b3ac; }
+    .legend-code { fill: #86d6cb; }
+    .panel { fill: #1a1f1d; stroke: #2b3230; }
+    .rootmark { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="980" height="500"/>
+
+<!-- branches (behind nodes) -->
+<g>
+  <path class="branch" d="M60 68 L60 116 L92 116"/>
+  <path class="branch" d="M112 142 L112 190 L144 190"/>
+  <path class="branch" d="M164 216 L164 264 L196 264"/>
+  <path class="branch" d="M216 290 L216 338 L248 338"/>
+  <path class="branch" d="M268 364 L268 412 L300 412"/>
+  <path class="branch" d="M268 364 L268 465 L300 465"/>
+</g>
+
+<!-- nodes -->
+<g>
+  <!-- root -->
+  <rect class="node" x="34" y="42" width="52" height="26" rx="6"/>
+  <text class="name" x="53" y="60">/</text>
+  <text class="rootmark" x="98" y="60">一番上。ここから全部が枝分かれする(ルート)</text>
+
+  <!-- home -->
+  <rect class="node" x="92" y="116" width="112" height="26" rx="6"/>
+  <g transform="translate(98,119) scale(0.72)"><path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/></g>
+  <text class="name" x="122" y="134">home</text>
+
+  <!-- user -->
+  <rect class="node" x="144" y="190" width="112" height="26" rx="6"/>
+  <g transform="translate(150,193) scale(0.72)"><path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/></g>
+  <text class="name" x="174" y="208">user</text>
+
+  <!-- projects -->
+  <rect class="node" x="196" y="264" width="140" height="26" rx="6"/>
+  <g transform="translate(202,267) scale(0.72)"><path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/></g>
+  <text class="name" x="226" y="282">projects</text>
+
+  <!-- app (current) -->
+  <rect class="node-here" x="248" y="338" width="112" height="26" rx="6"/>
+  <g transform="translate(254,341) scale(0.72)"><path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/></g>
+  <text class="name" x="278" y="356">app</text>
+  <text class="here-label" x="376" y="356">← 今ここにいる(カレントディレクトリ)</text>
+
+  <!-- src -->
+  <rect class="node" x="300" y="412" width="100" height="26" rx="6"/>
+  <g transform="translate(306,415) scale(0.72)"><path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/></g>
+  <text class="name" x="330" y="430">src</text>
+
+  <!-- README.md file -->
+  <rect class="node" x="300" y="452" width="150" height="26" rx="6"/>
+  <g transform="translate(306,455) scale(0.72)"><path class="icon-file" fill-rule="evenodd" clip-rule="evenodd" d="M4 2H16.7L20 5.2V22H4V2ZM5.5 3.5V20.5H18.5V6.5H15.5V3.5H5.5ZM7 11H17V12.5H7V11ZM17 8H7V9.5H17V8ZM9.39844 15.1999L11.2984 16.8999L14.5984 13.8999L15.5984 15.0999L11.2984 18.9999L8.39844 16.2999L9.39844 15.1999Z"/></g>
+  <text class="name-file" x="330" y="470">README.md</text>
+  <text class="rootmark" x="466" y="470">← 折れた紙の形はファイル、フォルダの形はディレクトリ</text>
+</g>
+
+<!-- legend panel -->
+<g>
+  <rect class="panel" x="600" y="42" width="352" height="232" rx="10"/>
+  <text class="legend-title" x="624" y="74">今いる app を指す、2つの言い方</text>
+
+  <text class="legend-body" x="624" y="112">絶対パス — ルートから全部書く</text>
+  <text class="legend-code" x="624" y="136">/home/user/projects/app</text>
+
+  <text class="legend-body" x="624" y="178">相対パス — 今いる場所からの道順</text>
+  <text class="legend-code" x="624" y="202">.  →  今ここ(app)</text>
+  <text class="legend-code" x="624" y="226">..  →  1つ上(projects)</text>
+  <text class="legend-code" x="624" y="250">../..  →  2つ上(user)</text>
+</g>
+
+</svg>

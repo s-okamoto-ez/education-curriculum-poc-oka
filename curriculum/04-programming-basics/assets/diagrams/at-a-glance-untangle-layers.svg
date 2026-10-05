@@ -1,0 +1,51 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: report.tsが表示層のformat.tsをこっそり呼んでいる。UserSummaryにuserをまるごと持たせて、report.tsからformat.tsへのimportを消す。動作を変えずに構造だけ直し、出力が完全に一致することをdiffで確かめる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; font-weight: 700; text-anchor: middle; }
+  .arrow-bad { stroke: #a35555; stroke-width: 2; fill: none; }
+  .arrow-gone { stroke: #4a524e; stroke-width: 2; fill: none; stroke-dasharray: 3 3; }
+  .cross { stroke: #a35555; stroke-width: 2.5; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .diff-ok { fill: #1f6f66; font-family: ui-monospace, Consolas, monospace; font-size: 11px; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<defs>
+  <marker id="atArrowU" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#a35555"/>
+  </marker>
+</defs>
+
+<!-- before -->
+<text class="t" x="150" y="24">Before — 集計層が表示層を呼ぶ</text>
+<rect class="win" x="30" y="40" width="110" height="46" rx="6"/>
+<text class="win-title" x="85" y="67">report.ts</text>
+<rect class="win" x="180" y="40" width="110" height="46" rx="6"/>
+<text class="win-title" x="235" y="67">format.ts</text>
+<line class="arrow-bad" x1="140" y1="63" x2="176" y2="63" marker-end="url(#atArrowU)"/>
+<text class="foot" x="150" y="112" style="font-size:11px">displayNameOf() をこっそり呼んでいる</text>
+
+<!-- after -->
+<text class="t" x="530" y="24">After — 依存を切る</text>
+<rect class="win" x="410" y="40" width="110" height="46" rx="6"/>
+<text class="win-title" x="465" y="67">report.ts</text>
+<rect class="win" x="560" y="40" width="110" height="46" rx="6"/>
+<text class="win-title" x="615" y="67">format.ts</text>
+<line class="arrow-gone" x1="520" y1="63" x2="556" y2="63"/>
+<line class="cross" x1="528" y1="55" x2="548" y2="71"/>
+<line class="cross" x1="548" y1="55" x2="528" y2="71"/>
+<text class="foot" x="530" y="112" style="font-size:11px">user をまるごと渡し、表示は呼び出す側で行う</text>
+
+<rect class="win" x="150" y="150" width="400" height="46" rx="6"/>
+<text class="win-title" x="350" y="168">diff before-summary.txt after-summary.txt</text>
+<text class="diff-ok" x="350" y="186">(出力なし = 完全に一致)</text>
+
+</svg>

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 940 300" role="img" aria-label="コマンド ls -l /home/user を3つの部品に分解した図。ls がコマンド名で「何をするか」、-l がオプションで「どうやるか」、/home/user が引数で「何に対してやるか」を表す。すべてのコマンドがこの形をしている。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 26px; }
+  .code-cmd { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 26px; font-weight: 700; }
+  .code-opt { fill: #ffd48a; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 26px; font-weight: 700; }
+  .code-arg { fill: #9fd0ff; font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 26px; font-weight: 700; }
+  .prompt { fill: #8b958e; font-family: ui-monospace, Consolas, monospace; font-size: 26px; }
+  .lead { fill: #1f6f66; stroke-width: 1.8; fill: none; }
+  .lead-line { stroke: #1f6f66; stroke-width: 1.8; fill: none; }
+  .part-name { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 700; text-anchor: middle; }
+  .part-q { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .part-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .lead-line { stroke: #5fc0b3; }
+    .part-name { fill: #e7ece9; }
+    .part-q { fill: #86d6cb; }
+    .part-body { fill: #a9b3ac; }
+    .foot { fill: #a9b3ac; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="940" height="300"/>
+
+<!-- terminal line -->
+<rect class="term" x="140" y="30" width="660" height="66" rx="8"/>
+<text x="170" y="74">
+  <tspan class="prompt">$ </tspan><tspan class="code-cmd">ls</tspan><tspan class="code"> </tspan><tspan class="code-opt">-l</tspan><tspan class="code"> </tspan><tspan class="code-arg">/home/user</tspan>
+</text>
+
+<!-- leader lines -->
+<path class="lead-line" d="M204 100 L204 122 L170 122 L170 142"/>
+<path class="lead-line" d="M252 100 L252 122 L440 122 L440 142"/>
+<path class="lead-line" d="M370 100 L370 122 L730 122 L730 142"/>
+
+<!-- card 1: command name -->
+<g>
+  <rect class="card" x="40" y="142" width="260" height="108" rx="10"/>
+  <text class="part-name" x="170" y="172">コマンド名</text>
+  <text class="part-q" x="170" y="198">何をするか</text>
+  <text class="part-body" x="170" y="224">「一覧を出す」という動詞</text>
+</g>
+
+<!-- card 2: option -->
+<g>
+  <rect class="card" x="320" y="142" width="240" height="108" rx="10"/>
+  <text class="part-name" x="440" y="172">オプション</text>
+  <text class="part-q" x="440" y="198">どうやるか</text>
+  <text class="part-body" x="440" y="224">「詳しく出して」と足す</text>
+</g>
+
+<!-- card 3: argument -->
+<g>
+  <rect class="card" x="580" y="142" width="320" height="108" rx="10"/>
+  <text class="part-name" x="740" y="172">引数(ひきすう)</text>
+  <text class="part-q" x="740" y="198">何に対してやるか</text>
+  <text class="part-body" x="740" y="224">省略すると「今いる場所」になる</text>
+</g>
+
+<text class="foot" x="470" y="282">この3つの形は、これから出てくるすべてのコマンドで共通です。</text>
+
+</svg>

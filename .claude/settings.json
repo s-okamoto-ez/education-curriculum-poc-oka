@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "natural-japanese": {
+      "source": { "source": "github", "repo": "coji/natural-japanese" }
+    },
+    "yomiyasu": {
+      "source": { "source": "github", "repo": "nanaism/yomiyasu" }
+    }
+  },
+  "enabledPlugins": {
+    "natural-japanese@natural-japanese": true,
+    "yomiyasu@yomiyasu": true
+  }
+}

@@ -1,0 +1,242 @@
+/* ===================================================
+   つながるノート — お知らせページ
+   ---------------------------------------------------
+   このCSSには、実務でよく見かける崩れ方が
+   意図的に仕込まれています。演習で直していきます。
+   =================================================== */
+
+/* --- 全体 ------------------------------------------ */
+
+body {
+  font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Noto Sans JP", sans-serif;
+  margin: 0;
+  color: #333333;
+  background: #f5f6f5;
+  line-height: 1.7;
+}
+
+/* --- ヘッダー --------------------------------------- */
+
+.site-header {
+  background: #1f6f66;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.nav a {
+  color: #ffffff;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* --- 通知(演習07で使います) ------------------------ */
+
+.notif {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.notif-bell {
+  position: relative;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #c0392b;
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 1;
+  padding: 3px 5px;
+  border-radius: 999px;
+}
+
+.notif-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid #d7dcd8;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.notif:hover .notif-panel,
+.notif:focus-within .notif-panel {
+  display: block;
+}
+
+.notif-item {
+  font-size: 13px;
+  color: #333333;
+  margin: 0;
+  padding: 8px;
+  border-bottom: 1px solid #eef1ef;
+}
+
+.notif-item:last-child {
+  border-bottom: none;
+}
+
+/* --- 本文の器 --------------------------------------- */
+
+.container {
+  width: 720px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+/* --- 見出し ----------------------------------------- */
+
+/* 2024年のリニューアル時に追加。ページ全体の見出し用 */
+#page-title {
+  color: #333333;
+  font-size: 28px;
+  border-bottom: 2px solid #d7dcd8;
+  padding-bottom: 8px;
+}
+
+.lead {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* --- カード ----------------------------------------- */
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d7dcd8;
+  border-radius: 8px;
+  width: 100%;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 8px;
+}
+
+.card-body {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card-meta {
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* 重要なお知らせは左に色をつける */
+.card-important {
+  border-left: 4px solid #1f6f66;
+}
+
+/* --- ページ送り ------------------------------------- */
+
+.pagination {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.pagination a {
+  color: #1f6f66;
+  margin: 0 12px;
+}
+
+/* --- 統計(演習04で使います。まだFlexboxを当てていません) --- */
+
+.stats {
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 1px solid #d7dcd8;
+}
+
+.stat-item {
+  background: #ffffff;
+  border: 1px solid #d7dcd8;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f6f66;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 4px 0 0;
+}
+
+/* --- タグ一覧(演習04で使います。まだFlexboxを当てていません) --- */
+
+.tags {
+  margin-top: 16px;
+}
+
+.tag {
+  display: inline-block;
+  background: #eef1ef;
+  color: #465049;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+/* --- フッター --------------------------------------- */
+
+.site-footer {
+  text-align: center;
+  color: #6b7280;
+  font-size: 12px;
+  padding: 24px;
+}
+
+/* ===================================================
+   お知らせ用の強調スタイル
+   ---------------------------------------------------
+   ※ 演習3で使います。
+      「見出しを緑にしたい」ときに、まずここを直そうと
+      するはずです。直してみて、何が起きるか見てください。
+   =================================================== */
+
+.notice {
+  color: #1f6f66;
+}
+
+/* 旧デザイン。2024年のリニューアルで使わなくなった
+.headline {
+  color: #c0392b;
+  font-size: 32px;
+}
+*/

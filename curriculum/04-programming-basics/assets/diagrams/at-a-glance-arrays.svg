@@ -1,0 +1,59 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: 04-arrays.tsの5つの関数のうち、パート1・2・4・5の空欄を自分で実装する。パート3のfindはすでに実装済みで読むだけでよい。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .code-dim { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .badge-todo { fill: #a8792f; }
+  .badge-done { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .legend-t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; font-weight: 700; text-anchor: start; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .legend-t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<!-- code mockup -->
+<rect class="win" x="20" y="20" width="300" height="170" rx="6"/>
+<text class="win-title" x="32" y="38">04-arrays.ts</text>
+
+<text class="code-dim" x="32" y="60">function visiblePosts(posts) {</text>
+<text class="code" x="44" y="76">return posts; // ← ここを直す</text>
+<circle class="badge-todo" cx="300" cy="70" r="11"/><text class="badge-text" x="300" y="74">1</text>
+
+<text class="code-dim" x="32" y="94">function bodies(posts) {</text>
+<text class="code" x="44" y="110">return []; // ← 実装する</text>
+<circle class="badge-todo" cx="300" cy="104" r="11"/><text class="badge-text" x="300" y="108">2</text>
+
+<text class="code-dim" x="32" y="128">function findPost(id) { ... }</text>
+<circle class="badge-done" cx="300" cy="124" r="11"/><text class="badge-text" x="300" y="128">済</text>
+
+<text class="code-dim" x="32" y="146">function totalLikes(posts) {</text>
+<text class="code" x="44" y="162">return 0; // ← 実装する</text>
+<circle class="badge-todo" cx="300" cy="156" r="11"/><text class="badge-text" x="300" y="160">4</text>
+
+<text class="code-dim" x="32" y="180">function popularBodies(posts) { ...</text>
+<circle class="badge-todo" cx="300" cy="176" r="11"/><text class="badge-text" x="300" y="180">5</text>
+
+<!-- legend -->
+<g>
+  <circle class="badge-todo" cx="356" cy="42" r="11"/>
+  <text class="badge-text" x="356" y="46">1245</text>
+</g>
+<text class="legend-t" x="378" y="46">自分で実装する4箇所</text>
+
+<g>
+  <circle class="badge-done" cx="356" cy="72" r="11"/>
+  <text class="badge-text" x="356" y="76">済</text>
+</g>
+<text class="legend-t" x="378" y="76">findは実装済み、読むだけ</text>
+
+<text class="foot" x="350" y="200">filter・map・reduceを自分で書き、findを手本にする。最後にpart1〜2を組み合わせてpart5を仕上げる</text>
+
+</svg>

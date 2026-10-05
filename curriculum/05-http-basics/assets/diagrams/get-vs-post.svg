@@ -1,0 +1,115 @@
+<svg viewBox="0 0 640 340" role="img" aria-label="GETとPOSTの違いを、レストランの注文にたとえた図。GETはメニューを見せてもらうだけで店の状態は変わらないが、POSTは注文を送ることで店の中身(注文数)が変わる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-get { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .box-post { fill: #ffffff; stroke: #a8792f; stroke-width: 2; }
+  .box-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .box-sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .box-sub-get { fill: #1f6f66; font-weight: 700; }
+  .box-sub-post { fill: #a8792f; font-weight: 700; }
+  .icon { fill: #1a1a1c; }
+  .arrow-line-get { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .arrow-line-post { stroke: #a8792f; stroke-width: 2; fill: none; }
+  .arrow-label { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .arrow-sub { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .badge-get { fill: #1f6f66; }
+  .badge-post { fill: #a8792f; }
+  .badge-text { fill: #ffffff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1; stroke-dasharray: 4 4; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-get { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-post { fill: #1a1f1d; stroke: #e0bc7c; }
+    .box-title { fill: #e7ece9; }
+    .box-sub { fill: #a9b3ac; }
+    .box-sub-get { fill: #5fc0b3; }
+    .box-sub-post { fill: #e0bc7c; }
+    .icon { fill: #e7ece9; }
+    .arrow-line-get { stroke: #5fc0b3; }
+    .arrow-line-post { stroke: #e0bc7c; }
+    .arrow-label { fill: #e7ece9; }
+    .arrow-sub { fill: #8d968f; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="340"/>
+
+<defs>
+  <marker id="gpArrowGet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#1f6f66"/>
+  </marker>
+  <marker id="gpArrowPost" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#a8792f"/>
+  </marker>
+</defs>
+
+<text class="head" x="320" y="26">同じ相手への「お願い」でも、店(サーバー)の中身が変わるかどうかが違います</text>
+
+<!-- ============ GET lane ============ -->
+<g>
+  <rect class="badge-get" x="20" y="46" width="56" height="22" rx="11"/>
+  <text class="badge-text" x="48" y="61">GET</text>
+
+  <!-- client -->
+  <rect class="box" x="20" y="78" width="150" height="100" rx="10"/>
+  <g transform="translate(83,96)">
+    <path class="icon" d="M21 20.5L15 14.5C16.2 13.2 16.9 11.4 16.9 9.5C17 5.4 13.6 2 9.5 2C5.4 2 2 5.4 2 9.5C2 13.6 5.3 17 9.5 17C11.2 17 12.7 16.4 14 15.5L20 21.5L21 20.5ZM3.5 9.5C3.5 6.2 6.2 3.5 9.5 3.5C12.8 3.5 15.5 6.2 15.5 9.5C15.5 12.8 12.8 15.5 9.5 15.5C6.2 15.5 3.5 12.8 3.5 9.5Z"/>
+  </g>
+  <text class="box-title" x="95" y="146">お客</text>
+  <text class="box-sub" x="95" y="164">「メニュー見せて」</text>
+
+  <!-- server -->
+  <rect class="box-get" x="470" y="78" width="150" height="100" rx="10"/>
+  <g transform="translate(533,96)">
+    <path class="icon" d="M11.6 6L9.6 4H2V21H22V6H11.6ZM9 5.5L11 7.5H20.5V10.5H3.5V5.5H9ZM3.5 19.5V12H20.5V19.5H3.5Z"/>
+  </g>
+  <text class="box-title" x="545" y="146">店(サーバー)</text>
+  <text class="box-sub box-sub-get" x="545" y="164">中身は変わらない</text>
+
+  <!-- arrows -->
+  <line class="arrow-line-get" x1="170" y1="112" x2="462" y2="112" marker-end="url(#gpArrowGet)"/>
+  <text class="arrow-label" x="320" y="100">GET /menu</text>
+  <text class="arrow-sub" x="320" y="126">(メニューを見せて)</text>
+
+  <line class="arrow-line-get" x1="470" y1="152" x2="178" y2="152" marker-end="url(#gpArrowGet)"/>
+  <text class="arrow-sub" x="320" y="168">200 メニュー一覧が返ってくる</text>
+</g>
+
+<line class="rule" x1="20" y1="196" x2="620" y2="196"/>
+
+<!-- ============ POST lane ============ -->
+<g>
+  <rect class="badge-post" x="20" y="206" width="56" height="22" rx="11"/>
+  <text class="badge-text" x="48" y="221">POST</text>
+
+  <!-- client -->
+  <rect class="box" x="20" y="238" width="150" height="100" rx="10"/>
+  <g transform="translate(83,256)">
+    <path class="icon" d="M21 20.5L15 14.5C16.2 13.2 16.9 11.4 16.9 9.5C17 5.4 13.6 2 9.5 2C5.4 2 2 5.4 2 9.5C2 13.6 5.3 17 9.5 17C11.2 17 12.7 16.4 14 15.5L20 21.5L21 20.5ZM3.5 9.5C3.5 6.2 6.2 3.5 9.5 3.5C12.8 3.5 15.5 6.2 15.5 9.5C15.5 12.8 12.8 15.5 9.5 15.5C6.2 15.5 3.5 12.8 3.5 9.5Z"/>
+  </g>
+  <text class="box-title" x="95" y="306">お客</text>
+  <text class="box-sub" x="95" y="324">「これを注文します」</text>
+
+  <!-- server -->
+  <rect class="box-post" x="470" y="238" width="150" height="100" rx="10"/>
+  <g transform="translate(533,256)">
+    <path class="icon" d="M21 11.2H12.7V3H11.2V11.2H3V12.7H11.2V21H12.7V12.7H21V11.2Z"/>
+  </g>
+  <text class="box-title" x="545" y="306">店(サーバー)</text>
+  <text class="box-sub box-sub-post" x="545" y="324">注文が1件増える</text>
+
+  <!-- arrows -->
+  <line class="arrow-line-post" x1="170" y1="272" x2="462" y2="272" marker-end="url(#gpArrowPost)"/>
+  <text class="arrow-label" x="320" y="260">POST /orders</text>
+  <text class="arrow-sub" x="320" y="286">(これを注文します)</text>
+
+  <line class="arrow-line-post" x1="470" y1="312" x2="178" y2="312" marker-end="url(#gpArrowPost)"/>
+  <text class="arrow-sub" x="320" y="328">201 注文完了が返ってくる</text>
+</g>
+
+</svg>

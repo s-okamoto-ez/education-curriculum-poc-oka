@@ -1,0 +1,44 @@
+<svg viewBox="0 0 720 220" role="img" aria-label="今日やること: Networkパネルを開き、ページを開いた時点で既に記録されているindex.htmlの行、投稿を読み込むボタンで増える/api/posts(200)の行、プロフィールボタンで増える/api/me(401)の行を見つける。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; text-anchor: start; }
+  .hdr { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .row-name { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .row-200 { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: start; }
+  .row-401 { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: start; }
+  .num-bg-1 { fill: #1f6f66; }
+  .num-bg-2 { fill: #1f6f66; }
+  .num-bg-3 { fill: #a35555; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: start; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  .rule { stroke: #2b3230; stroke-width: 1; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+  }
+</style>
+<rect class="bg" x="0" y="0" width="720" height="220"/>
+
+<rect class="win" x="40" y="20" width="640" height="150" rx="6"/>
+<text class="win-title" x="54" y="38">Network パネル</text>
+<text class="hdr" x="54" y="56">Name</text>
+<text class="hdr" x="400" y="56">Status</text>
+<line class="rule" x1="54" y1="62" x2="666" y2="62"/>
+
+<circle class="num-bg-1" cx="620" cy="80" r="11"/><text class="num" x="620" y="84">1</text>
+<text class="row-name" x="54" y="84">localhost:3300/</text>
+<text class="row-200" x="400" y="84">200</text>
+
+<circle class="num-bg-2" cx="620" cy="112" r="11"/><text class="num" x="620" y="116">2</text>
+<text class="row-name" x="54" y="116">/api/posts (「投稿を読み込む」で追加)</text>
+<text class="row-200" x="400" y="116">200</text>
+
+<circle class="num-bg-3" cx="620" cy="144" r="11"/><text class="num" x="620" y="148">3</text>
+<text class="row-name" x="54" y="144">/api/me (「プロフィール」で追加)</text>
+<text class="row-401" x="400" y="144">401</text>
+
+<text class="s" x="360" y="200">①は見落としがち。②③はボタンを押すたびに増える。行をクリックすると詳細が開く</text>
+</svg>

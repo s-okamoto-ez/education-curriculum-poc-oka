@@ -1,0 +1,90 @@
+<svg viewBox="0 0 640 400" role="img" aria-label="$PATHに並んだディレクトリを上から順に探し、最初にcheck-secretsが見つかった2番目のディレクトリでそのまま実行され、3番目のディレクトリには探索が到達しないことを示す図。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; }
+  .sub-mono { fill: #465049; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; text-anchor: middle; }
+  .box { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .box-get { fill: #ffffff; stroke: #1f6f66; stroke-width: 2; }
+  .box-dim { fill: #f2f4f2; stroke: #d7dcd8; stroke-width: 1.4; stroke-dasharray: 5 4; }
+  .path-text { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .path-text-dim { fill: #8d968f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .path-text-found { fill: #1f6f66; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .box-sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .box-sub-get { fill: #1f6f66; font-weight: 700; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .box-sub-dim { fill: #8d968f; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: middle; }
+  .icon-get { fill: #1f6f66; }
+  .arrow-line { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .arrow-line-dim { stroke: #b7bdb8; stroke-width: 1.6; fill: none; stroke-dasharray: 4 4; }
+  .arrow-label { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; }
+  .arrow-label-dim { fill: #8d968f; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .sub-mono { fill: #a9b3ac; }
+    .box { fill: #1a1f1d; stroke: #2b3230; }
+    .box-get { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-dim { fill: #171b1a; stroke: #2b3230; }
+    .path-text { fill: #e7ece9; }
+    .path-text-dim { fill: #6b746d; }
+    .path-text-found { fill: #5fc0b3; }
+    .box-sub { fill: #a9b3ac; }
+    .box-sub-get { fill: #5fc0b3; }
+    .box-sub-dim { fill: #6b746d; }
+    .icon-get { fill: #5fc0b3; }
+    .arrow-line { stroke: #5fc0b3; }
+    .arrow-line-dim { stroke: #3a423f; }
+    .arrow-label { fill: #e7ece9; }
+    .arrow-label-dim { fill: #6b746d; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="400"/>
+
+<defs>
+  <marker id="prArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#1f6f66"/>
+  </marker>
+  <marker id="prArrowDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#b7bdb8"/>
+  </marker>
+</defs>
+
+<text class="head" x="320" y="24">$PATHに並んだディレクトリを、上から順に探します</text>
+<text class="sub-mono" x="320" y="44">$PATH = /usr/local/bin : /home/you/tools : /usr/bin</text>
+
+<line class="arrow-line" x1="320" y1="54" x2="320" y2="102" marker-end="url(#prArrow)"/>
+<text class="arrow-label" x="326" y="80" text-anchor="start">「check-secrets」を探す</text>
+
+<!-- dir 1: searched, not found -->
+<rect class="box" x="190" y="104" width="260" height="60" rx="10"/>
+<text class="path-text" x="320" y="128">① /usr/local/bin</text>
+<text class="box-sub" x="320" y="148">check-secrets は無い</text>
+
+<line class="arrow-line" x1="320" y1="164" x2="320" y2="190" marker-end="url(#prArrow)"/>
+<text class="arrow-label" x="400" y="182" text-anchor="start">無ければ次へ</text>
+
+<!-- dir 2: found -->
+<rect class="box-get" x="190" y="192" width="260" height="88" rx="10"/>
+<g transform="translate(308,204)">
+  <path class="icon-get" d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM11.2 16L7.2 12L8.3 10.9L11.3 13.9L16.1 9L17.2 10.1L11.2 16Z"/>
+</g>
+<text class="path-text-found" x="320" y="250">② /home/you/tools</text>
+<text class="box-sub-get" x="320" y="268">見つかった。ここで探索は止まる</text>
+
+<!-- to outcome -->
+<line class="arrow-line" x1="450" y1="236" x2="476" y2="236" marker-end="url(#prArrow)"/>
+<text class="arrow-label" x="463" y="226" text-anchor="middle">実行</text>
+
+<rect class="box-get" x="480" y="204" width="140" height="64" rx="10"/>
+<text class="path-text-found" x="550" y="232">check-secrets</text>
+<text class="box-sub-get" x="550" y="250">が実行される</text>
+
+<!-- to dir 3: never reached -->
+<line class="arrow-line-dim" x1="320" y1="280" x2="320" y2="314" marker-end="url(#prArrowDim)"/>
+<text class="arrow-label-dim" x="400" y="302" text-anchor="start">ここには辿り着かない</text>
+
+<rect class="box-dim" x="190" y="316" width="260" height="60" rx="10"/>
+<text class="path-text-dim" x="320" y="340">③ /usr/bin</text>
+<text class="box-sub-dim" x="320" y="358">(探索の対象にすらならない)</text>
+
+</svg>

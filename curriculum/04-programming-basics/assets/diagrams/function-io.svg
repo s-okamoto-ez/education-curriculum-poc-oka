@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1000 380" role="img" aria-label="関数を入力・処理・出力の3段で表した図。引数として税抜き価格が入り、関数の中で税率をかける処理が行われ、戻り値として税込み価格が出てくる。型注釈は入口と出口に何が入るかを宣言するものであることを示す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .c { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-kw { fill: #c4a2ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; font-weight: 600; }
+  .c-name { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-type { fill: #9fd0ff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .c-num { fill: #ffd48a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .machine { fill: #ffffff; stroke: #1f6f66; stroke-width: 2.2; }
+  .port { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .m-title { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 15px; font-weight: 700; text-anchor: middle; }
+  .m-sub { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  .p-role { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .p-name { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .p-val { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 15px; text-anchor: middle; }
+  .arrow { stroke: #1f6f66; stroke-width: 2.4; fill: none; }
+  .icon { fill: #1f6f66; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .tie { stroke: #9fd0ff; stroke-width: 1.4; stroke-dasharray: 4 3; fill: none; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .machine { fill: #1a1f1d; stroke: #5fc0b3; }
+    .port { fill: #1a1f1d; stroke: #2b3230; }
+    .m-title { fill: #86d6cb; }
+    .m-sub { fill: #a9b3ac; }
+    .p-role { fill: #e7ece9; }
+    .p-name { fill: #86d6cb; }
+    .p-val { fill: #a9b3ac; }
+    .arrow { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .head { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="380"/>
+
+<defs>
+  <marker id="fnArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- code -->
+<rect class="term" x="176" y="26" width="648" height="86" rx="8"/>
+<text x="200" y="58"><tspan class="c-kw">function</tspan><tspan class="c"> </tspan><tspan class="c-name">withTax</tspan><tspan class="c">(</tspan><tspan class="c-name">price</tspan><tspan class="c">: </tspan><tspan class="c-type">number</tspan><tspan class="c">): </tspan><tspan class="c-type">number</tspan><tspan class="c"> {</tspan></text>
+<text x="200" y="86"><tspan class="c">  </tspan><tspan class="c-kw">return</tspan><tspan class="c"> </tspan><tspan class="c-name">price</tspan><tspan class="c"> * </tspan><tspan class="c-num">1.1</tspan><tspan class="c">;</tspan></text>
+<text x="200" y="104"><tspan class="c">}</tspan></text>
+
+<!-- ties from type annotations down to ports -->
+<path class="tie" d="M395 66 L395 130 L120 130 L120 176"/>
+<path class="tie" d="M470 66 L470 130 L880 130 L880 176"/>
+
+<!-- input -->
+<g>
+  <rect class="port" x="34" y="176" width="172" height="98" rx="10"/>
+  <text class="p-role" x="120" y="204">入力</text>
+  <text class="p-name" x="120" y="228">price: number</text>
+  <text class="p-val" x="120" y="256">1200</text>
+</g>
+
+<line class="arrow" x1="214" y1="225" x2="326" y2="225" marker-end="url(#fnArrow)"/>
+<text class="m-sub" x="270" y="210">引数として渡す</text>
+
+<!-- machine -->
+<g>
+  <rect class="machine" x="334" y="160" width="332" height="130" rx="12"/>
+  <text class="m-title" x="500" y="196">withTax</text>
+  <text class="m-sub" x="500" y="224">中でやっていること:</text>
+  <text class="m-sub" x="500" y="248">受け取った数に 1.1 を掛ける</text>
+  <text class="m-sub" x="500" y="272">それ以外のことはしない</text>
+</g>
+
+<line class="arrow" x1="674" y1="225" x2="786" y2="225" marker-end="url(#fnArrow)"/>
+<text class="m-sub" x="730" y="210">戻り値として返す</text>
+
+<!-- output -->
+<g>
+  <rect class="port" x="794" y="176" width="172" height="98" rx="10"/>
+  <text class="p-role" x="880" y="204">出力</text>
+  <text class="p-name" x="880" y="228">number</text>
+  <text class="p-val" x="880" y="256">1320</text>
+</g>
+
+<text class="foot" x="500" y="326">関数は「入力 → 処理 → 出力」の箱です。型注釈は、その入口と出口に何が入るかの宣言です。</text>
+<text class="foot" x="500" y="352">この形は言語が変わっても同じです。Javaでも、C#でも、PHPでも、あなたはこの箱を読むことになります。</text>
+
+</svg>

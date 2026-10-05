@@ -1,0 +1,38 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: .card-metaのcolorを濃く変えても、3枚目のカードだけ要素にstyle属性で直接色指定があるため変わらない。詳細度の階段でクラスよりstyle属性の方が強いことを確認し、style属性を削除して直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .code { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-dim { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .code-err { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 11px; text-anchor: start; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .step-t { fill: #e7ece9; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: start; }
+  .step-t-lose { fill: #6b746d; text-decoration: line-through; }
+  .step-t-win { fill: #e29a9a; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<text class="t" x="350" y="26">Styles パネル(3枚目のカードの .card-meta)</text>
+
+<rect class="win" x="150" y="40" width="400" height="120" rx="6"/>
+<text class="win-title" x="164" y="60">element.style</text>
+<text class="step-t step-t-win" x="164" y="78">color: #999999;</text>
+
+<line x1="164" y1="92" x2="536" y2="92" stroke="#2b3230" stroke-width="1"/>
+
+<text class="win-title" x="164" y="110">.card-meta</text>
+<text class="step-t step-t-lose" x="164" y="128">color: #333333;</text>
+<text class="step-t" x="164" y="144">font-size: 12px;</text>
+
+<text class="foot" x="350" y="188">style属性は詳細度の階段の一番上。クラスをどう書いても勝てない</text>
+<text class="foot" x="350" y="206">直すには、style属性そのものを消すしかない</text>
+
+</svg>

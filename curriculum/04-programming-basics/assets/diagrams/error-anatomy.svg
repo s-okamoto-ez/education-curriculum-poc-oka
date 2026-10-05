@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1000 440" role="img" aria-label="エラーメッセージとスタックトレースの読み方を分解した図。1行目にエラーの種類と内容が書かれ、2行目以降のスタックトレースは呼び出しの逆順に並ぶ。一番上が実際に落ちた場所、下に行くほど呼び出し元に遡る。自分が書いたファイル名を上から探すのが最初の一手であることを示す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .term { fill: #1a1f1d; stroke: #d7dcd8; stroke-width: 1.4; }
+  .e-type { fill: #ff9d9d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; font-weight: 700; }
+  .e-msg { fill: #e7ece9; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 14px; }
+  .e-at { fill: #8b958e; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; }
+  .e-mine { fill: #7fe0d2; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; font-weight: 700; }
+  .e-lib { fill: #6d766f; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; }
+  .hl { fill: none; stroke: #5fc0b3; stroke-width: 1.6; }
+  .card { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .card-key { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.8; }
+  .n { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .n-bg { fill: #1f6f66; }
+  .k-title { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; }
+  .k-body { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; }
+  .lead { stroke: #1f6f66; stroke-width: 1.6; fill: none; }
+  .dir { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .dir-line { stroke: #1f6f66; stroke-width: 1.8; fill: none; }
+  .icon { fill: #1f6f66; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .term { fill: #0c0f0e; stroke: #2b3230; }
+    .card { fill: #1a1f1d; stroke: #2b3230; }
+    .card-key { fill: #1a1f1d; stroke: #5fc0b3; }
+    .n-bg { fill: #5fc0b3; }
+    .n { fill: #0c0f0e; }
+    .k-title { fill: #e7ece9; }
+    .k-body { fill: #a9b3ac; }
+    .lead { stroke: #5fc0b3; }
+    .dir { fill: #86d6cb; }
+    .dir-line { stroke: #5fc0b3; }
+    .icon { fill: #5fc0b3; }
+    .foot { fill: #a9b3ac; }
+    .head { fill: #e7ece9; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="440"/>
+
+<defs>
+  <marker id="eaArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<text class="head" x="30" y="34">実際に出るエラー(これを読めることが、このトピックの最重要ゴールです)</text>
+
+<!-- terminal -->
+<rect class="term" x="30" y="48" width="620" height="200" rx="8"/>
+<text x="52" y="78"><tspan class="e-type">TypeError</tspan><tspan class="e-msg">: Cannot read properties of undefined (reading 'name')</tspan></text>
+<text x="52" y="110"><tspan class="e-at">    at </tspan><tspan class="e-mine">formatAuthor (src/post.ts:14:22)</tspan></text>
+<text x="52" y="134"><tspan class="e-at">    at </tspan><tspan class="e-mine">renderPost (src/post.ts:31:16)</tspan></text>
+<text x="52" y="158"><tspan class="e-at">    at </tspan><tspan class="e-mine">renderTimeline (src/timeline.ts:52:9)</tspan></text>
+<text x="52" y="182"><tspan class="e-at">    at </tspan><tspan class="e-lib">Array.map (&lt;anonymous&gt;)</tspan></text>
+<text x="52" y="206"><tspan class="e-at">    at </tspan><tspan class="e-lib">node_modules/react-dom/cjs/react-dom.js:9021:14</tspan></text>
+<text x="52" y="230"><tspan class="e-at">    at </tspan><tspan class="e-lib">node_modules/react-dom/cjs/react-dom.js:8734:22</tspan></text>
+
+<!-- highlight box on first stack line -->
+<rect class="hl" x="46" y="94" width="590" height="24" rx="4"/>
+
+<!-- direction indicator -->
+<line class="dir-line" x1="668" y1="188" x2="668" y2="106" marker-end="url(#eaArrow)"/>
+<text class="dir" x="682" y="122">呼び出し元へ</text>
+<text class="dir" x="682" y="140">遡っていく向き</text>
+<text class="dir" x="682" y="184">(下ほど古い)</text>
+
+<!-- cards -->
+<g>
+  <circle class="n-bg" cx="42" cy="286" r="11"/>
+  <text class="n" x="42" y="290">1</text>
+  <rect class="card-key" x="62" y="266" width="440" height="70" rx="10"/>
+  <text class="k-title" x="82" y="292">1行目 — 何が起きたか</text>
+  <text class="k-body" x="82" y="316">「undefined の name を読もうとした」。原因ではなく症状です</text>
+</g>
+
+<g>
+  <circle class="n-bg" cx="42" cy="374" r="11"/>
+  <text class="n" x="42" y="378">2</text>
+  <rect class="card-key" x="62" y="354" width="440" height="70" rx="10"/>
+  <text class="k-title" x="82" y="380">2行目 — どこで起きたか</text>
+  <text class="k-body" x="82" y="404">src/post.ts の14行目22文字目。ここを最初に開きます</text>
+</g>
+
+<g>
+  <circle class="n-bg" cx="542" cy="286" r="11"/>
+  <text class="n" x="542" y="290">3</text>
+  <rect class="card" x="562" y="266" width="410" height="70" rx="10"/>
+  <text class="k-title" x="582" y="292">3行目以降 — どうやってそこに来たか</text>
+  <text class="k-body" x="582" y="316">renderTimeline → renderPost → formatAuthor の順に呼ばれた</text>
+</g>
+
+<g>
+  <circle class="n-bg" cx="542" cy="374" r="11"/>
+  <text class="n" x="542" y="378">4</text>
+  <rect class="card" x="562" y="354" width="410" height="70" rx="10"/>
+  <text class="k-title" x="582" y="380">node_modules の行は、いったん飛ばす</text>
+  <text class="k-body" x="582" y="404">他人のコードです。まず自分のファイル名を上から探す</text>
+</g>
+
+<text class="foot" x="500" y="440"> </text>
+
+</svg>

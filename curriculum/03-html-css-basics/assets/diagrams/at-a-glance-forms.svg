@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: コメント投稿フォームに仕込まれた2つの不具合、①メールアドレスのlabelをクリックしても入力欄に移らない、②投稿するボタンにTabキーで到達できない、をマウスとキーボードの両方で再現して直す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .form { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .field-ok { fill: #dcece8; stroke: #1f6f66; stroke-width: 1.2; }
+  .field-bad { fill: #f6dede; stroke: #a35555; stroke-width: 1.2; }
+  .field-plain { fill: #f4f6f4; stroke: #d7dcd8; stroke-width: 1.2; }
+  .lbl { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: start; }
+  .box { fill: #ffffff; stroke: #b7bdb8; stroke-width: 1.2; }
+  .badge-1 { fill: #a35555; }
+  .badge-2 { fill: #a8792f; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .legend-t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: start; }
+  .legend-s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; text-anchor: start; }
+  .btn { fill: #f4f6f4; stroke: #a35555; stroke-width: 1.6; stroke-dasharray: 4 3; }
+  .btn-text { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .form { fill: #1a1f1d; stroke: #2b3230; }
+    .field-ok { fill: #16211f; stroke: #5fc0b3; }
+    .field-bad { fill: #2a1c1c; stroke: #e29a9a; }
+    .field-plain { fill: #171b1a; stroke: #2b3230; }
+    .lbl { fill: #e7ece9; }
+    .box { fill: #1a1f1d; stroke: #4a524e; }
+    .legend-t { fill: #e7ece9; }
+    .legend-s { fill: #a9b3ac; }
+    .btn { fill: #1a1f1d; stroke: #e29a9a; }
+    .btn-text { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<!-- form mockup -->
+<rect class="form" x="20" y="20" width="340" height="210" rx="8"/>
+
+<text class="lbl" x="36" y="46">お名前</text>
+<rect class="field-ok" x="36" y="52" width="300" height="22" rx="4"/>
+
+<text class="lbl" x="36" y="92">メールアドレス</text>
+<rect class="field-bad" x="36" y="98" width="300" height="22" rx="4"/>
+<circle class="badge-1" cx="330" cy="82" r="13"/><text class="badge-text" x="330" y="87">1</text>
+
+<text class="lbl" x="36" y="138">コメント</text>
+<rect class="field-plain" x="36" y="144" width="300" height="30" rx="4"/>
+
+<rect class="field-plain" x="36" y="184" width="14" height="14"/>
+<text class="lbl" x="56" y="195">投稿ガイドラインに同意します</text>
+
+<rect class="btn" x="36" y="206" width="120" height="20" rx="10"/>
+<text class="btn-text" x="96" y="220">投稿する(div)</text>
+<circle class="badge-2" cx="170" cy="216" r="13"/><text class="badge-text" x="170" y="221">2</text>
+
+<!-- legend -->
+<g>
+  <circle class="badge-1" cx="400" cy="72" r="12"/><text class="badge-text" x="400" y="77">1</text>
+  <text class="legend-t" x="422" y="68">クリックしても選べない</text>
+  <text class="legend-s" x="422" y="84">label に for="email" が無い</text>
+</g>
+
+<g>
+  <circle class="badge-2" cx="400" cy="132" r="12"/><text class="badge-text" x="400" y="137">2</text>
+  <text class="legend-t" x="422" y="128">Tabキーで到達できない</text>
+  <text class="legend-s" x="422" y="144">button ではなく div で作られている</text>
+</g>
+
+</svg>

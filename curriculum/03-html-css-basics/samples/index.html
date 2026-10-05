@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>つながるノート — お知らせ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="logo">つながるノート</p>
+    <nav class="nav">
+      <a href="#">ホーム</a>
+      <a href="#">お知らせ</a>
+      <a href="#">ヘルプ</a>
+      <!-- ここから演習07 で使う通知ベルです -->
+      <div class="notif">
+        <button class="notif-bell" aria-label="通知">
+          🔔
+          <span class="notif-badge">3</span>
+        </button>
+        <div class="notif-panel">
+          <p class="notif-item">パスワード再設定の期限が近づいています</p>
+          <p class="notif-item">新しいフォロワーが2人います</p>
+          <p class="notif-item">メンテナンスのお知らせ</p>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <h1 id="page-title" class="notice">お知らせ</h1>
+
+    <p class="lead">サービスに関する大切なご案内を掲載しています。</p>
+
+    <section class="card">
+      <h2 class="card-title">メンテナンスのお知らせ</h2>
+      <p class="card-body">
+        3月15日(日) 2:00〜5:00 の間、サーバーメンテナンスのため
+        サービスをご利用いただけません。ご迷惑をおかけします。
+      </p>
+      <p class="card-meta">2026年3月1日</p>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">プレミアム会員の投稿上限を変更しました</h2>
+      <p class="card-body">
+        プレミアム会員の1日あたりの投稿上限を、50件から100件に変更しました。
+        なお2019年以前にご登録いただいた一部のアカウントは、
+        従来どおりの上限が適用されます。
+      </p>
+      <p class="card-meta">2026年2月18日</p>
+    </section>
+
+    <section class="card card-important">
+      <h2 class="card-title">パスワードの再設定をお願いしています</h2>
+      <p class="card-body">
+        セキュリティ強化のため、2025年以前に設定されたパスワードは
+        3月末までに再設定をお願いしています。
+      </p>
+      <p class="card-meta" style="color: #999999;">2026年1月9日</p>
+    </section>
+
+    <div class="pagination">
+      <a href="#">前へ</a>
+      <span>1 / 4</span>
+      <a href="#">次へ</a>
+    </div>
+
+    <!-- ここから演習04・05 で使うセクションです -->
+
+    <section class="stats">
+      <div class="stat-item">
+        <p class="stat-number">128</p>
+        <p class="stat-label">投稿</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">3,402</p>
+        <p class="stat-label">フォロワー</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">89</p>
+        <p class="stat-label">フォロー中</p>
+      </div>
+    </section>
+
+    <section class="tags">
+      <span class="tag">お知らせ</span>
+      <span class="tag">メンテナンス</span>
+      <span class="tag">アップデート情報</span>
+      <span class="tag">セキュリティ</span>
+      <span class="tag">キャンペーン</span>
+      <span class="tag">よくある質問</span>
+      <span class="tag">障害情報</span>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 つながるノート</p>
+  </footer>
+
+</body>
+</html>

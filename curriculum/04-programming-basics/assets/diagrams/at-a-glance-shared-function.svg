@@ -1,0 +1,59 @@
+<svg viewBox="0 0 700 220" role="img" aria-label="今日やること: displayNameOfという共有関数を直接書き換えると、依頼されたsuspendedコマンドだけでなく、依頼していないsummaryコマンドの利用者一覧にも変化が及んでしまう。grepで呼び出し元をすべて洗い出す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .win { fill: #1a1f1d; stroke: #2b3230; stroke-width: 1.2; }
+  .win-hub { stroke: #a8792f; stroke-width: 2; }
+  .win-wanted { stroke: #1f6f66; stroke-width: 2; }
+  .win-unwanted { stroke: #a35555; stroke-width: 2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10px; font-weight: 700; text-anchor: middle; }
+  .win-title-hub { fill: #e0bc7c; }
+  .arrow-wanted { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .arrow-unwanted { stroke: #a35555; stroke-width: 2; fill: none; stroke-dasharray: 4 3; }
+  .badge-wanted { fill: #1f6f66; }
+  .badge-unwanted { fill: #a35555; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10px; font-weight: 700; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="700" height="220"/>
+
+<defs>
+  <marker id="atArrowSh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#1f6f66"/>
+  </marker>
+  <marker id="atArrowShErr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#a35555"/>
+  </marker>
+</defs>
+
+<!-- hub: shared function -->
+<rect class="win win-hub" x="270" y="90" width="160" height="46" rx="6"/>
+<text class="win-title win-title-hub" x="350" y="118">displayNameOf(user)</text>
+
+<!-- wanted: suspended -->
+<rect class="win win-wanted" x="40" y="20" width="160" height="46" rx="6"/>
+<text class="win-title" x="120" y="48">suspended コマンド</text>
+<circle class="badge-wanted" cx="200" cy="20" r="12"/><text class="badge-text" x="200" y="24">依頼</text>
+<path class="arrow-wanted" d="M 200 66 C 240 80, 260 85, 280 90" marker-end="url(#atArrowSh)"/>
+
+<!-- unwanted: summary -->
+<rect class="win win-unwanted" x="500" y="20" width="160" height="46" rx="6"/>
+<text class="win-title" x="580" y="48">summary の利用者一覧</text>
+<circle class="badge-unwanted" cx="500" cy="20" r="14"/><text class="badge-text" x="500" y="24">波及</text>
+<path class="arrow-unwanted" d="M 500 66 C 460 80, 440 85, 420 90" marker-end="url(#atArrowShErr)"/>
+
+<!-- unwanted: top -->
+<rect class="win win-unwanted" x="500" y="150" width="160" height="46" rx="6"/>
+<text class="win-title" x="580" y="178">top の投稿一覧</text>
+<circle class="badge-unwanted" cx="500" cy="196" r="14"/><text class="badge-text" x="500" y="200">波及</text>
+<path class="arrow-unwanted" d="M 500 150 C 460 136, 440 130, 420 122" marker-end="url(#atArrowShErr)"/>
+
+<text class="foot" x="350" y="215">共有された部品を直接変えると、依頼していない場所にまで変化が及ぶ</text>
+
+</svg>

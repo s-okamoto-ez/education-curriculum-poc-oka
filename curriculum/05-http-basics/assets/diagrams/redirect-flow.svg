@@ -1,0 +1,97 @@
+<svg viewBox="0 0 640 400" role="img" aria-label="301と302のリダイレクトの流れを示す図。301は恒久的な引っ越しで、サーバーがLocationヘッダで新しい行き先を示すとブラウザが自動的に新しいURLへ改めてリクエストを送り、次回からは直接新しいURLに聞きに行くことがある。302は一時的な案内で、毎回同じ手順を繰り返す。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; text-anchor: middle; }
+  .badge-a { fill: #1f6f66; }
+  .badge-b { fill: #a8792f; }
+  .badge-text { fill: #ffffff; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .box-a { fill: #ffffff; stroke: #1f6f66; stroke-width: 1.6; }
+  .box-b { fill: #ffffff; stroke: #a8792f; stroke-width: 1.6; }
+  .num-bg-a { fill: #1f6f66; }
+  .num-bg-b { fill: #a8792f; }
+  .num { fill: #ffffff; font-family: ui-monospace, Consolas, monospace; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .mono { fill: #15191a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; font-weight: 700; text-anchor: start; }
+  .s { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: start; }
+  .arrow { stroke: #8d968f; stroke-width: 1.8; fill: none; }
+  .cap-a { fill: #164f48; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .cap-b { fill: #8a611f; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .rule { stroke: #d7dcd8; stroke-width: 1; stroke-dasharray: 4 4; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .head { fill: #e7ece9; }
+    .badge-b { fill: #a8792f; }
+    .box-a { fill: #1a1f1d; stroke: #5fc0b3; }
+    .box-b { fill: #1a1f1d; stroke: #e0bc7c; }
+    .mono { fill: #e7ece9; }
+    .s { fill: #a9b3ac; }
+    .arrow { stroke: #6b746d; }
+    .cap-a { fill: #86d6cb; }
+    .cap-b { fill: #e0bc7c; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="640" height="400"/>
+
+<defs>
+  <marker id="rfArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" fill="#8d968f"/>
+  </marker>
+</defs>
+
+<text class="head" x="320" y="24">サーバーは Location ヘッダで「そこじゃなくて、こっちです」と案内します</text>
+
+<!-- ============ Column A: 301 ============ -->
+<rect class="badge-a" x="20" y="40" width="220" height="24" rx="12"/>
+<text class="badge-text" x="130" y="57">301 Moved Permanently</text>
+
+<rect class="box-a" x="20" y="76" width="280" height="60" rx="8"/>
+<circle class="num-bg-a" cx="40" cy="96" r="11"/><text class="num" x="40" y="100">1</text>
+<text class="mono" x="58" y="100">GET /old-page</text>
+<text class="s" x="58" y="120">→ 301, Location: /new-page</text>
+
+<line class="arrow" x1="160" y1="136" x2="160" y2="160" marker-end="url(#rfArrow)"/>
+
+<rect class="box-a" x="20" y="162" width="280" height="60" rx="8"/>
+<circle class="num-bg-a" cx="40" cy="182" r="11"/><text class="num" x="40" y="186">2</text>
+<text class="mono" x="58" y="186">GET /new-page(自動)</text>
+<text class="s" x="58" y="206">ブラウザが自分で送り直す</text>
+
+<line class="arrow" x1="160" y1="222" x2="160" y2="246" marker-end="url(#rfArrow)"/>
+
+<rect class="box-a" x="20" y="248" width="280" height="60" rx="8"/>
+<circle class="num-bg-a" cx="40" cy="268" r="11"/><text class="num" x="40" y="272">3</text>
+<text class="mono" x="58" y="272">200 新しいページです</text>
+<text class="s" x="58" y="292">/old-pageは今後も使わない</text>
+
+<text class="cap-a" x="160" y="336">次回は直接 /new-page に聞きに行くことも(強いキャッシュ)</text>
+
+<!-- ============ Column B: 302 ============ -->
+<rect class="badge-b" x="340" y="40" width="180" height="24" rx="12"/>
+<text class="badge-text" x="430" y="57">302 Found</text>
+
+<rect class="box-b" x="340" y="76" width="280" height="60" rx="8"/>
+<circle class="num-bg-b" cx="360" cy="96" r="11"/><text class="num" x="360" y="100">1</text>
+<text class="mono" x="378" y="100">GET /mypage</text>
+<text class="s" x="378" y="120">(未ログイン)→ 302, Location: /login</text>
+
+<line class="arrow" x1="480" y1="136" x2="480" y2="160" marker-end="url(#rfArrow)"/>
+
+<rect class="box-b" x="340" y="162" width="280" height="60" rx="8"/>
+<circle class="num-bg-b" cx="360" cy="182" r="11"/><text class="num" x="360" y="186">2</text>
+<text class="mono" x="378" y="186">GET /login(自動)</text>
+<text class="s" x="378" y="206">ブラウザが自分で送り直す</text>
+
+<line class="arrow" x1="480" y1="222" x2="480" y2="246" marker-end="url(#rfArrow)"/>
+
+<rect class="box-b" x="340" y="248" width="280" height="60" rx="8"/>
+<circle class="num-bg-b" cx="360" cy="268" r="11"/><text class="num" x="360" y="272">3</text>
+<text class="mono" x="378" y="272">200 ログインページです</text>
+<text class="s" x="378" y="292">/mypageは今回だけ使わなかった</text>
+
+<text class="cap-b" x="480" y="336">次にアクセスするときも、また /mypage に聞きに行く(毎回302)</text>
+
+<line class="rule" x1="20" y1="356" x2="620" y2="356"/>
+<text class="s" x="320" y="378" style="text-anchor:middle">Locationヘッダで行き先を示す点は同じ。違うのは「その引っ越しが続くか、今回だけか」です。</text>
+
+</svg>

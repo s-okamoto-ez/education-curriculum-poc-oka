@@ -1,0 +1,4 @@
+2026-05-01 09:12:03 INFO  server started
+2026-05-01 09:15:41 INFO  GET /api/timeline 200 42ms
+2026-05-03 14:02:19 WARN  slow query detected: 1284ms
+2026-05-10 22:31:07 ERROR connection timeout to db-primary

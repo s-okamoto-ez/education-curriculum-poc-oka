@@ -1,0 +1,26 @@
+# SQL基礎の演習用データベース
+#
+# 起動:   docker compose up -d
+# 接続:   docker compose exec db psql -U app -d tsunagaru
+# 停止:   docker compose down
+# 作り直し: docker compose down -v  (データも消えます) → docker compose up -d
+#
+# 初回起動時に seed.sql が自動で読み込まれ、テーブルとデータが作られます。
+
+services:
+  db:
+    image: postgres:17
+    container_name: sql-basics-db
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: tsunagaru
+      TZ: Asia/Tokyo
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

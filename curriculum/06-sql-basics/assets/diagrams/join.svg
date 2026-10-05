@@ -1,0 +1,140 @@
+<svg viewBox="0 0 1000 460" role="img" aria-label="JOINの図。posts テーブルには投稿者のIDしか入っておらず名前が分からないため、users テーブルと author_id と id で突き合わせて1つの表にまとめる。突き合わせ相手が見つからない行は、INNER JOIN では結果から消え、LEFT JOIN では空欄として残る。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .tbl { fill: #ffffff; stroke: #d7dcd8; stroke-width: 1.4; }
+  .thead { fill: #e3ebe8; }
+  .grid { stroke: #d7dcd8; stroke-width: 1; }
+  .th { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; font-weight: 700; }
+  .td { fill: #465049; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; }
+  .td-lost { fill: #a35555; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; }
+  .td-null { fill: #a4ada7; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; font-style: italic; }
+  .tname { fill: #15191a; font-family: ui-monospace, Consolas, monospace; font-size: 13px; font-weight: 700; }
+  .link { stroke: #1f6f66; stroke-width: 1.6; fill: none; stroke-dasharray: 4 3; }
+  .kw { fill: #164f48; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; font-weight: 700; }
+  .b { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; }
+  .warn { fill: #a35555; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12px; font-weight: 700; }
+  .head { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13.5px; font-weight: 700; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 13px; text-anchor: middle; }
+  .icon { fill: #1f6f66; }
+  .arrow { stroke: #1f6f66; stroke-width: 2; fill: none; }
+  .rule { stroke: #d7dcd8; stroke-width: 1.2; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .tbl { fill: #1a1f1d; stroke: #2b3230; }
+    .thead { fill: #232927; }
+    .grid { stroke: #2b3230; }
+    .th { fill: #86d6cb; }
+    .td { fill: #a9b3ac; }
+    .td-lost { fill: #e29a9a; }
+    .td-null { fill: #6d766f; }
+    .tname { fill: #e7ece9; }
+    .link { stroke: #5fc0b3; }
+    .kw { fill: #86d6cb; }
+    .b { fill: #a9b3ac; }
+    .warn { fill: #e29a9a; }
+    .head { fill: #e7ece9; }
+    .foot { fill: #a9b3ac; }
+    .icon { fill: #5fc0b3; }
+    .arrow { stroke: #5fc0b3; }
+    .rule { stroke: #2b3230; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="1000" height="460"/>
+
+<defs>
+  <marker id="jnArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <polygon points="0,0 10,5 0,10" class="icon"/>
+  </marker>
+</defs>
+
+<!-- posts -->
+<text class="tname" x="30" y="42">posts</text>
+<rect class="tbl" x="30" y="52" width="250" height="128" rx="5"/>
+<rect class="thead" x="30" y="52" width="250" height="26"/>
+<line class="grid" x1="30" y1="78" x2="280" y2="78"/>
+<line class="grid" x1="30" y1="104" x2="280" y2="104"/>
+<line class="grid" x1="30" y1="130" x2="280" y2="130"/>
+<line class="grid" x1="30" y1="156" x2="280" y2="156"/>
+<line class="grid" x1="90" y1="52" x2="90" y2="180"/>
+<line class="grid" x1="170" y1="52" x2="170" y2="180"/>
+<text class="th" x="40" y="70">id</text>
+<text class="th" x="100" y="70">author_id</text>
+<text class="th" x="180" y="70">body</text>
+<text class="td" x="40" y="96">p001</text><text class="td" x="100" y="96">u1043</text><text class="td" x="180" y="96">はじめまして</text>
+<text class="td" x="40" y="122">p002</text><text class="td" x="100" y="122">u2287</text><text class="td" x="180" y="122">いい天気</text>
+<text class="td" x="40" y="148">p003</text><text class="td" x="100" y="148">u1043</text><text class="td" x="180" y="148">また来ます</text>
+<text class="td" x="40" y="174">p004</text><text class="td-lost" x="100" y="174">u9021</text><text class="td" x="180" y="174">残っています</text>
+
+<!-- users -->
+<text class="tname" x="30" y="228">users</text>
+<rect class="tbl" x="30" y="238" width="250" height="102" rx="5"/>
+<rect class="thead" x="30" y="238" width="250" height="26"/>
+<line class="grid" x1="30" y1="264" x2="280" y2="264"/>
+<line class="grid" x1="30" y1="290" x2="280" y2="290"/>
+<line class="grid" x1="30" y1="316" x2="280" y2="316"/>
+<line class="grid" x1="100" y1="238" x2="100" y2="340"/>
+<text class="th" x="40" y="256">id</text>
+<text class="th" x="110" y="256">name</text>
+<text class="td" x="40" y="282">u1043</text><text class="td" x="110" y="282">田中</text>
+<text class="td" x="40" y="308">u2287</text><text class="td" x="110" y="308">佐藤</text>
+<text class="td" x="40" y="334">u3391</text><text class="td" x="110" y="334">鈴木</text>
+
+<!-- link lines -->
+<path class="link" d="M290 96 L316 96 L316 282 L290 282"/>
+<path class="link" d="M290 122 L306 122 L306 308 L290 308"/>
+<path class="link" d="M290 148 L326 148 L326 282 L290 282"/>
+
+<text class="kw" x="336" y="196">ON</text>
+<text class="kw" x="336" y="216">posts.author_id</text>
+<text class="kw" x="336" y="236">= users.id</text>
+<text class="b" x="336" y="262">この列どうしを</text>
+<text class="b" x="336" y="280">突き合わせる</text>
+
+<line class="arrow" x1="470" y1="150" x2="516" y2="150" marker-end="url(#jnArrow)"/>
+
+<!-- result INNER -->
+<text class="head" x="530" y="42">INNER JOIN の結果</text>
+<rect class="tbl" x="530" y="52" width="290" height="102" rx="5"/>
+<rect class="thead" x="530" y="52" width="290" height="26"/>
+<line class="grid" x1="530" y1="78" x2="820" y2="78"/>
+<line class="grid" x1="530" y1="104" x2="820" y2="104"/>
+<line class="grid" x1="530" y1="130" x2="820" y2="130"/>
+<line class="grid" x1="600" y1="52" x2="600" y2="154"/>
+<line class="grid" x1="670" y1="52" x2="670" y2="154"/>
+<text class="th" x="540" y="70">id</text>
+<text class="th" x="610" y="70">name</text>
+<text class="th" x="680" y="70">body</text>
+<text class="td" x="540" y="96">p001</text><text class="td" x="610" y="96">田中</text><text class="td" x="680" y="96">はじめまして</text>
+<text class="td" x="540" y="122">p002</text><text class="td" x="610" y="122">佐藤</text><text class="td" x="680" y="122">いい天気</text>
+<text class="td" x="540" y="148">p003</text><text class="td" x="610" y="148">田中</text><text class="td" x="680" y="148">また来ます</text>
+
+<text class="warn" x="838" y="112">p004 が消えた</text>
+<text class="b" x="838" y="132">相手が見つからないため</text>
+
+<!-- result LEFT -->
+<text class="head" x="530" y="216">LEFT JOIN の結果</text>
+<rect class="tbl" x="530" y="226" width="290" height="128" rx="5"/>
+<rect class="thead" x="530" y="226" width="290" height="26"/>
+<line class="grid" x1="530" y1="252" x2="820" y2="252"/>
+<line class="grid" x1="530" y1="278" x2="820" y2="278"/>
+<line class="grid" x1="530" y1="304" x2="820" y2="304"/>
+<line class="grid" x1="530" y1="330" x2="820" y2="330"/>
+<line class="grid" x1="600" y1="226" x2="600" y2="354"/>
+<line class="grid" x1="670" y1="226" x2="670" y2="354"/>
+<text class="th" x="540" y="244">id</text>
+<text class="th" x="610" y="244">name</text>
+<text class="th" x="680" y="244">body</text>
+<text class="td" x="540" y="270">p001</text><text class="td" x="610" y="270">田中</text><text class="td" x="680" y="270">はじめまして</text>
+<text class="td" x="540" y="296">p002</text><text class="td" x="610" y="296">佐藤</text><text class="td" x="680" y="296">いい天気</text>
+<text class="td" x="540" y="322">p003</text><text class="td" x="610" y="322">田中</text><text class="td" x="680" y="322">また来ます</text>
+<text class="td" x="540" y="348">p004</text><text class="td-null" x="610" y="348">NULL</text><text class="td" x="680" y="348">残っています</text>
+
+<text class="b" x="838" y="342">p004 は残るが</text>
+<text class="b" x="838" y="360">name は空(NULL)</text>
+
+<line class="rule" x1="30" y1="386" x2="970" y2="386"/>
+<text class="foot" x="500" y="416">JOIN は「別々の表を、共通の列で突き合わせて1つにする」操作です。</text>
+<text class="foot" x="500" y="442">どちらを選ぶかで結果の件数が変わります。「一覧から一部が消える」不具合の代表的な原因がこれです。</text>
+
+</svg>

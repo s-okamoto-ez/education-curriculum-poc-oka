@@ -1,0 +1,58 @@
+<svg viewBox="0 0 900 260" role="img" aria-label="今日やること: posts全12件に対しJOINで投稿者名を引くと、退会済みユーザーの投稿2件(p004とp011)が黙って消えて10件になる。LEFT JOINに変えると12件のまま残り、名前だけがNULLになる。" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .bg { fill: #eef1ef; }
+  .badge-ng { fill: #a35555; }
+  .badge-ok { fill: #1f6f66; }
+  .badge-text { fill: #ffffff; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  .box-ng { fill: #1a1f1d; stroke: #9c6a6a; stroke-width: 2; }
+  .box-ok { fill: #1a1f1d; stroke: #5fc0b3; stroke-width: 2; }
+  .win-title { fill: #a9b3ac; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 9.5px; text-anchor: start; }
+  .row { fill: #dfe3e0; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; }
+  .row-drop { fill: #6b746d; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; text-anchor: start; text-decoration: line-through; }
+  .row-null { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 10.5px; font-weight: 700; text-anchor: start; }
+  .result-ng { fill: #e29a9a; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; text-anchor: middle; }
+  .result-ok { fill: #86d6cb; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 20px; font-weight: 700; text-anchor: middle; }
+  .t { fill: #15191a; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+  .s { fill: #6b746d; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 10.5px; text-anchor: middle; }
+  .foot { fill: #465049; font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: 11.5px; text-anchor: middle; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #121615; }
+    .t { fill: #e7ece9; }
+    .s { fill: #8d968f; }
+    .foot { fill: #a9b3ac; }
+  }
+</style>
+
+<rect class="bg" x="0" y="0" width="900" height="260"/>
+
+<text class="t" x="450" y="26">posts は 12件。同じデータを2通りの JOIN で取り出すと、件数が変わります</text>
+
+<!-- panel 1: INNER JOIN -->
+<circle class="badge-ng" cx="60" cy="52" r="12"/><text class="badge-text" x="60" y="57">1</text>
+<text class="t" x="230" y="57">JOIN(INNER JOIN)</text>
+
+<rect class="box-ng" x="20" y="70" width="420" height="130" rx="8"/>
+<text class="win-title" x="34" y="88">SELECT ... FROM posts JOIN users ON ...</text>
+<text class="row" x="34" y="108">p001 田中 ...</text>
+<text class="row" x="34" y="124">p002 佐藤 ...</text>
+<text class="row-drop" x="34" y="140">p004 (u9021の投稿) ← 消えた</text>
+<text class="row" x="34" y="156">... 他7件</text>
+<text class="row-drop" x="34" y="172">p011 (u9021の投稿) ← 消えた</text>
+<text class="result-ng" x="380" y="145">10件</text>
+
+<!-- panel 2: LEFT JOIN -->
+<circle class="badge-ok" cx="480" cy="52" r="12"/><text class="badge-text" x="480" y="57">2</text>
+<text class="t" x="650" y="57">LEFT JOIN</text>
+
+<rect class="box-ok" x="440" y="70" width="440" height="130" rx="8"/>
+<text class="win-title" x="454" y="88">SELECT ... FROM posts LEFT JOIN users ON ...</text>
+<text class="row" x="454" y="108">p001 田中 ...</text>
+<text class="row" x="454" y="124">p002 佐藤 ...</text>
+<text class="row-null" x="454" y="140">p004 NULL ← 残るが名前が空</text>
+<text class="row" x="454" y="156">... 他7件</text>
+<text class="row-null" x="454" y="172">p011 NULL ← 残るが名前が空</text>
+<text class="result-ok" x="800" y="145">12件</text>
+
+<text class="foot" x="450" y="230">原因は退会済みユーザー(u9021)。JOINはエラーも警告も出さずに、静かに2件を消します</text>
+
+</svg>
